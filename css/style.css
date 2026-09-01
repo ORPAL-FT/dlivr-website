@@ -6,7 +6,7 @@
   --border: #262626;
   --text: #f2f0eb;
   --text-muted: #9a9a9a;
-  --accent: #cc3333;
+  --accent: #2f8f6f;
   --max-width: 1200px;
 }
 
@@ -164,8 +164,8 @@ section.hero {
 }
 
 .btn.primary:hover {
-  background: #a82323;
-  border-color: #a82323;
+  background: #26735a;
+  border-color: #26735a;
 }
 
 .btn.ghost:hover {
