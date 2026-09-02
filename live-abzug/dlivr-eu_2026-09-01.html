@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Frank Töpfer – Freiberuflicher Unternehmensberater und Interimsmanager"/>
+<meta name="robots" content="index, follow"/>
+<title>DLIVR · Frank Töpfer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ─── TOKENS ─────────────────────────────── */
+:root {
+  --bg:     #0d0d0d;
+  --surface:#141414;
+  --card:   #1a1a1a;
+  --border: #272727;
+  --text:   #f0ece6;
+  --muted:  #909090;
+  --faint:  #3a3a3a;
+  --red:    #c0392b;
+  --red2:   #8c1a0e;
+  --warm:   #e8e4de;
+}
+
+/* ─── RESET ──────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'Bebas Neue','Inter',system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+  letter-spacing:.04em;
+}
+
+/* ─── LOGO SVG COMPONENT ─────────────────── */
+/* Used in nav (small) and hero (large) via CSS sizing */
+.logo-svg { display:block; }
+
+/* ─── NAV ────────────────────────────────── */
+nav {
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.4rem 3rem;
+  border-bottom:1px solid var(--border);
+  background:rgba(13,13,13,0.85);
+  backdrop-filter:blur(20px);
+}
+.nav-logo { text-decoration:none; }
+.nav-logo .logo-svg { height:28px; width:auto; }
+
+.nav-right { display:flex;align-items:center;gap:2.8rem; }
+.nav-links { display:flex;gap:2.4rem;list-style:none; }
+.nav-links a {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1rem;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  transition:color .2s;
+}
+.nav-links a:hover { color:var(--text); }
+
+.nav-cta {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.72rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--bg);background:var(--text);
+  padding:.55rem 1.4rem;text-decoration:none;
+  transition:background .2s,color .2s;
+}
+.nav-cta:hover { background:var(--red);color:#fff; }
+
+/* ─── HERO ───────────────────────────────── */
+.hero {
+  min-height:100svh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  padding-top:80px;
+  position:relative;overflow:hidden;
+}
+
+/* left panel – dark */
+.hero-left {
+  display:flex;flex-direction:column;justify-content:center;
+  padding:5rem 4rem 5rem 3rem;
+  border-right:1px solid var(--border);
+  position:relative;z-index:1;
+}
+
+/* right panel – slightly lighter */
+.hero-right {
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:5rem 3rem 5rem 4rem;
+  background:var(--surface);
+  position:relative;overflow:hidden;
+}
+
+/* giant background number */
+.hero-right::before {
+  content:'20+';
+  position:absolute;right:-1rem;bottom:-2rem;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(10rem,18vw,16rem);
+  font-weight:800;
+  color:rgba(255,255,255,.03);
+  line-height:1;
+  user-select:none;pointer-events:none;
+}
+
+.hero-tag {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.3rem;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red);margin-bottom:2rem;
+  opacity:0;animation:up .7s .1s forwards;
+}
+
+.hero-logo-wrap {
+  margin-bottom:2.8rem;
+  opacity:0;animation:up .8s .2s forwards;
+}
+.hero-logo-wrap .logo-svg { height:clamp(52px,7vw,80px);width:auto; }
+
+.hero-headline {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.5rem,7vw,6rem);
+  font-weight:400;
+  line-height:1.0;
+  letter-spacing:.02em;
+  color:var(--text);
+  margin-bottom:1.6rem;
+  opacity:0;animation:up .8s .35s forwards;
+}
+.hero-headline em { font-style:normal;color:var(--red); }
+
+.hero-sub {
+  font-size:.95rem;font-weight:300;
+  color:var(--muted);line-height:1.8;
+  max-width:380px;margin-bottom:2.8rem;
+  font-family:'Inter',sans-serif;letter-spacing:0;
+  opacity:0;animation:up .8s .5s forwards;
+}
+
+.hero-btns {
+  display:flex;gap:.8rem;flex-wrap:wrap;
+  opacity:0;animation:up .8s .65s forwards;
+}
+.btn {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1rem;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;
+  padding:.8rem 2rem;text-decoration:none;
+  transition:all .22s;
+}
+.btn-primary { background:var(--red);color:#fff; }
+.btn-primary:hover { background:#a02318; }
+.btn-ghost {
+  background:transparent;
+  border:1px solid var(--faint);color:var(--muted);
+}
+.btn-ghost:hover { border-color:var(--text);color:var(--text); }
+
+/* right panel content */
+.hero-right-top {
+  display:flex;align-items:flex-start;justify-content:flex-end;
+  margin-bottom:auto;
+  opacity:0;animation:fade .9s .4s forwards;
+}
+.hero-pill {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.65rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  border:1px solid var(--faint);color:var(--muted);
+  padding:.4rem .9rem;
+}
+
+/* big stat block */
+.hero-big-stat {
+  opacity:0;animation:up .8s .45s forwards;
+  margin-bottom:2.4rem;
+}
+.hero-big-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5rem,10vw,8rem);font-weight:800;
+  line-height:1;letter-spacing:-.04em;
+  color:var(--text);
+}
+.hero-big-lbl {
+  font-size:.72rem;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--muted);margin-top:.5rem;
+}
+
+/* expertise list */
+.hero-expertise {
+  opacity:0;animation:up .8s .6s forwards;
+  margin-bottom:2rem;
+}
+.expertise-row {
+  display:flex;align-items:center;gap:1rem;
+  padding:.9rem 0;
+  border-bottom:1px solid var(--border);
+}
+.expertise-row:first-child { border-top:1px solid var(--border); }
+.expertise-idx {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.6rem;font-weight:700;letter-spacing:.1em;
+  color:var(--faint);width:20px;flex-shrink:0;
+}
+.expertise-name {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.82rem;font-weight:700;letter-spacing:.04em;
+  color:var(--text);flex:1;
+}
+.expertise-dot {
+  width:6px;height:6px;background:var(--red);flex-shrink:0;
+}
+
+.hero-stats {
+  opacity:0;animation:up .8s .75s forwards;
+}
+.hero-stats-row {
+  display:flex;gap:0;
+  border-top:1px solid var(--border);
+}
+.stat-item {
+  flex:1;padding:1.4rem 1.2rem;
+  border-right:1px solid var(--border);
+}
+.stat-item:last-child { border-right:none; }
+.stat-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;font-weight:800;
+  color:var(--text);line-height:1;
+  margin-bottom:.3rem;
+}
+.stat-lbl {
+  font-size:.85rem;font-weight:400;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);
+}
+
+/* scroll indicator */
+.scroll-hint {
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--faint);
+  display:flex;flex-direction:column;align-items:center;gap:.5rem;
+  opacity:0;animation:fade 1s 1.4s forwards;
+}
+.scroll-line {
+  width:1px;height:40px;background:var(--faint);
+  animation:scrollLine 1.8s 1.6s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%  { transform:scaleY(0);transform-origin:top; }
+  50% { transform:scaleY(1);transform-origin:top; }
+  51% { transform:scaleY(1);transform-origin:bottom; }
+  100%{ transform:scaleY(0);transform-origin:bottom; }
+}
+
+/* ─── LEISTUNGEN ─────────────────────────── */
+#leistungen {
+  padding:7rem 3rem;
+  border-top:1px solid var(--border);
+}
+
+.section-tag {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red);margin-bottom:1rem;
+}
+.section-h {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.8rem,5vw,4.2rem);font-weight:400;
+  letter-spacing:.03em;line-height:1.05;
+  color:var(--text);margin-bottom:.8rem;
+}
+.section-sub {
+  font-size:.92rem;font-weight:300;color:var(--muted);
+  max-width:440px;line-height:1.75;margin-bottom:3.5rem;
+  font-family:'Inter',sans-serif;letter-spacing:0;
+}
+
+.leistungen-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--border);
+}
+.l-item {
+  padding:2.4rem 2rem;
+  border-right:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  transition:background .2s;
+  position:relative;overflow:hidden;
+}
+.l-item:nth-child(3n) { border-right:none; }
+.l-item:nth-child(4),.l-item:nth-child(5),.l-item:nth-child(6) { border-bottom:none; }
+.l-item::before {
+  content:'';
+  position:absolute;top:0;left:0;
+  width:0;height:2px;background:var(--red);
+  transition:width .35s ease;
+}
+.l-item:hover { background:var(--surface); }
+.l-item:hover::before { width:100%; }
+
+.l-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.65rem;font-weight:700;letter-spacing:.14em;
+  color:var(--faint);margin-bottom:1.2rem;
+}
+.l-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;font-weight:400;
+  color:var(--text);margin-bottom:.6rem;
+  letter-spacing:.04em;
+}
+.l-text { font-size:.85rem;font-weight:300;color:var(--muted);line-height:1.75; font-family:'Inter',sans-serif; letter-spacing:0; }
+
+/* ─── ÜBER MICH ──────────────────────────── */
+#ueber {
+  display:grid;grid-template-columns:5fr 7fr;
+  border-top:1px solid var(--border);
+  min-height:520px;
+}
+.ueber-left {
+  padding:6rem 3rem;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.ueber-right {
+  padding:6rem 4rem;
+  background:var(--surface);
+  display:flex;flex-direction:column;justify-content:center;
+}
+
+.ueber-quote {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,3.5vw,3rem);font-weight:400;
+  letter-spacing:.03em;line-height:1.15;
+  color:var(--text);margin-bottom:1.4rem;
+}
+.ueber-quote span { color:var(--red); }
+.ueber-sig {
+  font-size:.78rem;font-weight:400;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:2.4rem;
+}
+.ueber-note {
+  font-size:.9rem;font-weight:300;color:var(--muted);
+  line-height:1.8;max-width:480px;
+  padding-top:2rem;border-top:1px solid var(--border);
+  font-family:'Inter',sans-serif;letter-spacing:0;
+}
+
+.ueber-list {
+  display:flex;flex-direction:column;gap:.5rem;
+  list-style:none;
+}
+.ueber-list li {
+  font-size:.88rem;font-weight:300;color:var(--muted);
+  padding:.65rem 0;
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:.8rem;
+  transition:color .2s;
+  font-family:'Inter',sans-serif;letter-spacing:0;
+}
+.ueber-list li:last-child { border-bottom:none; }
+.ueber-list li:hover { color:var(--text); }
+.ueber-list li::before {
+  content:'';
+  width:6px;height:6px;
+  background:var(--red);flex-shrink:0;
+  border-radius:0;
+}
+
+/* ─── KONTAKT ────────────────────────────── */
+#kontakt {
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--border);
+}
+.kontakt-left {
+  padding:6rem 3rem;
+  border-right:1px solid var(--border);
+}
+.kontakt-right {
+  padding:6rem 4rem;
+  background:var(--surface);
+}
+
+.k-name {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2rem,3.5vw,2.8rem);font-weight:400;
+  letter-spacing:.04em;color:var(--text);
+  margin-bottom:.4rem;
+}
+.k-company {
+  font-size:.8rem;font-weight:400;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--red);margin-bottom:2.4rem;
+}
+.k-rows { display:flex;flex-direction:column;gap:0; }
+.k-row {
+  display:flex;align-items:center;gap:1.2rem;
+  padding:1rem 0;border-bottom:1px solid var(--border);
+}
+.k-row:first-child { border-top:1px solid var(--border); }
+.k-label {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--faint);width:64px;flex-shrink:0;
+}
+.k-val { font-size:.9rem;font-weight:300;color:var(--muted); font-family:'Inter',sans-serif;letter-spacing:0; }
+.k-val a {
+  color:var(--text);text-decoration:none;
+  transition:color .2s;
+}
+.k-val a:hover { color:var(--red); }
+
+.ust-block {
+  margin-top:2rem;padding-top:1.5rem;
+  border-top:1px solid var(--border);
+}
+.ust-tag {
+  font-size:.62rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--faint);
+  margin-bottom:.3rem;
+}
+.ust-num { font-size:.88rem;font-weight:300;color:var(--muted); }
+
+/* legal right side */
+.legal-block { margin-bottom:2.4rem; }
+.legal-block:last-child { margin-bottom:0; }
+.legal-h {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text);margin-bottom:.7rem;
+}
+.legal-t { font-size:.84rem;font-weight:300;color:var(--muted);line-height:1.85; font-family:'Inter',sans-serif;letter-spacing:0; }
+
+/* ─── FOOTER ─────────────────────────────── */
+footer {
+  border-top:1px solid var(--border);
+  padding:2rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:.8rem;
+}
+.f-copy {
+  font-size:.72rem;font-weight:300;
+  letter-spacing:.06em;color:var(--muted);
+}
+.f-logo .logo-svg { height:20px;width:auto; }
+
+/* ─── REVEAL ─────────────────────────────── */
+.reveal {
+  opacity:0;transform:translateY(28px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible { opacity:1;transform:none; }
+.reveal-delay-1 { transition-delay:.1s; }
+.reveal-delay-2 { transition-delay:.2s; }
+
+/* ─── KEYFRAMES ──────────────────────────── */
+@keyframes up {
+  from{opacity:0;transform:translateY(18px)}
+  to  {opacity:1;transform:none}
+}
+@keyframes fade {
+  from{opacity:0}to{opacity:1}
+}
+
+/* ─── RESPONSIVE ─────────────────────────── */
+@media(max-width:960px){
+  nav{padding:1.1rem 1.5rem;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{padding:4rem 1.5rem 3rem;}
+  .hero-right{padding:3rem 1.5rem 4rem;border-top:1px solid var(--border);}
+  .hero-right::before{display:none;}
+  #leistungen{padding:5rem 1.5rem;}
+  .leistungen-grid{grid-template-columns:1fr 1fr;}
+  .l-item:nth-child(3n){border-right:1px solid var(--border);}
+  .l-item:nth-child(2n){border-right:none;}
+  .l-item:nth-child(5),.l-item:nth-child(6){border-bottom:none;}
+  .l-item:nth-child(4){border-bottom:1px solid var(--border);}
+  #ueber{grid-template-columns:1fr;}
+  .ueber-left,.ueber-right{padding:4rem 1.5rem;}
+  .ueber-left{border-right:none;border-bottom:1px solid var(--border);}
+  #kontakt{grid-template-columns:1fr;}
+  .kontakt-left,.kontakt-right{padding:4rem 1.5rem;}
+  .kontakt-left{border-right:none;border-bottom:1px solid var(--border);}
+  footer{padding:1.5rem;}
+}
+@media(max-width:600px){
+  .leistungen-grid{grid-template-columns:1fr;}
+  .l-item{border-right:none!important;}
+  .l-item:not(:last-child){border-bottom:1px solid var(--border)!important;}
+  .hero-stats-row{flex-direction:column;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════════ -->
+<nav>
+  <a class="nav-logo" href="#home">
+    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87 48" aria-label="DLIVR">
+      <text x="0"  y="40" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="44" fill="#9a9a9a">d</text>
+      <text x="23" y="40" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="44" fill="#9a9a9a">l</text>
+      <rect x="34" y="3"  width="9" height="9"  fill="#8c1a0e"/>
+      <rect x="34" y="15" width="9" height="9"  fill="#c0392b"/>
+      <rect x="37" y="26" width="3" height="14" fill="#9a9a9a"/>
+      <text x="47" y="40" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="44" fill="#9a9a9a">v</text>
+      <text x="70" y="40" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="44" fill="#9a9a9a">r</text>
+    </svg>
+  </a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#ueber">Über mich</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+
+  </div>
+</nav>
+
+<!-- ══ HERO ══════════════════════════════════ -->
+<section class="hero" id="home">
+
+  <div class="hero-left">
+    <p class="hero-tag">Unternehmensberatung &amp; Interimsmanagement</p>
+
+    <div class="hero-logo-wrap">
+      <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 80" aria-label="DLIVR">
+        <text x="0"   y="68" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="74" fill="#9a9a9a">d</text>
+        <text x="38"  y="68" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="74" fill="#9a9a9a">l</text>
+        <rect x="55"  y="5"  width="15" height="15" fill="#8c1a0e"/>
+        <rect x="55"  y="23" width="15" height="15" fill="#c0392b"/>
+        <rect x="59"  y="41" width="7"  height="27" fill="#9a9a9a"/>
+        <text x="77"  y="68" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="74" fill="#9a9a9a">v</text>
+        <text x="115" y="68" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="74" fill="#9a9a9a">r</text>
+      </svg>
+    </div>
+
+    <h1 class="hero-headline">Beratung,<br>die wirklich<br><em>liefert.</em></h1>
+    <p class="hero-sub">Frank Töpfer – freiberuflicher Unternehmensberater mit Expertise in Autohandel, IT-Systemen und Interimsführung.</p>
+    <div class="hero-btns">
+      <a href="#kontakt" class="btn btn-primary">Kontakt aufnehmen</a>
+      <a href="#leistungen" class="btn btn-ghost">Leistungen ansehen</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+
+    <div class="hero-big-stat">
+      <div class="hero-big-num">20+</div>
+      <div class="hero-big-lbl">Jahre Berufserfahrung</div>
+    </div>
+
+
+
+    <div class="hero-stats">
+      <div class="hero-stats-row">
+        <div class="stat-item">
+          <div class="stat-num">100%</div>
+          <div class="stat-lbl">Unabhängig</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">D-A-CH</div>
+          <div class="stat-lbl">Verfügbar</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">KMU</div>
+          <div class="stat-lbl">Fokus</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+
+</section>
+
+<!-- ══ LEISTUNGEN ════════════════════════════ -->
+<section id="leistungen">
+  <div class="reveal">
+    <p class="section-tag">Was ich anbiete</p>
+    <h2 class="section-h">Meine Leistungen</h2>
+    <p class="section-sub">Ergebnisorientierte Beratung und operative Führung – zugeschnitten auf Ihre Situation.</p>
+  </div>
+
+  <div class="leistungen-grid reveal reveal-delay-1">
+    <div class="l-item">
+      <div class="l-title">Unternehmensberatung</div>
+      <div class="l-text">Strategische Analyse, Prozessoptimierung und pragmatische Lösungen für KMU – mit Fokus auf messbare Ergebnisse.</div>
+    </div>
+    <div class="l-item">
+      <div class="l-title">Interimsmanagement</div>
+      <div class="l-text">Überbrückung von Führungsvakanzen oder Projektverstärkung auf Zeit – schnell verfügbar, sofort wirksam.</div>
+    </div>
+    <div class="l-item">
+      <div class="l-title">Kfz- &amp; Autohandel</div>
+      <div class="l-text">Branchenspezifisches Know-how im Automobilhandel – von Vertriebsoptimierung bis Betriebsorganisation.</div>
+    </div>
+    <div class="l-item">
+      <div class="l-title">IT-Systeme &amp; Digitalisierung</div>
+      <div class="l-text">Einführung und Optimierung von IT-Lösungen im Unternehmensalltag – herstellerunabhängig und praxisnah.</div>
+    </div>
+    <div class="l-item">
+      <div class="l-title">Teamführung &amp; Coaching</div>
+      <div class="l-text">Aufbau leistungsstarker Teams, Führungskräfteentwicklung und Change-Begleitung in Transformationsphasen.</div>
+    </div>
+    <div class="l-item">
+      <div class="l-title">Projektmanagement</div>
+      <div class="l-text">Strukturierte Steuerung komplexer Projekte – von der Planung bis zur nachhaltigen Implementierung.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ÜBER MICH ══════════════════════════════ -->
+<section id="ueber">
+  <div class="ueber-left reveal">
+    <p class="section-tag">Wer ich bin</p>
+    <h2 class="section-h" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:2rem;">Frank Töpfer</h2>
+    <ul class="ueber-list">
+      <li>Fachkaufmann mit fundierten Branchenkenntnissen</li>
+      <li>Spezialisierung im Kfz- und Automobilhandel</li>
+      <li>Erfahrung in IT-Systemimplementierungen</li>
+      <li>Erfolge in Teamführung &amp; Change-Prozessen</li>
+      <li>Netzwerk aus Industrie, Handel und Beratung</li>
+      <li>Schnell verfügbar – im gesamten D-A-CH-Raum tätig</li>
+    </ul>
+  </div>
+  <div class="ueber-right reveal reveal-delay-1">
+    <p class="ueber-quote">„Ich liefere keine<br>Folien –<br>ich liefere <span>Ergebnisse.</span>"</p>
+    <p class="ueber-sig">— Frank Töpfer, DLIVR</p>
+    <p class="ueber-note">Kontaktieren Sie mich für ein unverbindliches Erstgespräch. Gemeinsam finden wir heraus, wie ich Ihrem Unternehmen konkret helfen kann.</p>
+  </div>
+</section>
+
+<!-- ══ KONTAKT ════════════════════════════════ -->
+<section id="kontakt">
+  <div class="kontakt-left reveal">
+    <p class="section-tag">Kontakt</p>
+    <div class="k-name">Frank Töpfer</div>
+    <div class="k-company">DLIVR</div>
+    <div class="k-rows">
+      <div class="k-row">
+        <span class="k-label">Adresse</span>
+        <span class="k-val">Elblingring 8, 54457 Wincheringen</span>
+      </div>
+      <div class="k-row">
+        <span class="k-label">Telefon</span>
+        <span class="k-val"><a href="tel:+4965839904 1">+49 (0)6583 – 990 41</a></span>
+      </div>
+      <div class="k-row">
+        <span class="k-label">Mobil</span>
+        <span class="k-val"><a href="tel:+491732886449">+49 (0)173 – 288 64 49</a></span>
+      </div>
+      <div class="k-row">
+        <span class="k-label">E-Mail</span>
+        <span class="k-val"><a href="mailto:ft@dlivr.eu">ft@dlivr.eu</a></span>
+      </div>
+      <div class="k-row">
+        <span class="k-label">LinkedIn</span>
+        <span class="k-val"><a href="https://www.linkedin.com/in/frank-töpfer-7659071a8" target="_blank" rel="noopener">Profil ansehen →</a></span>
+      </div>
+    </div>
+    <div class="ust-block">
+      <div class="ust-tag">Umsatzsteuer-ID</div>
+      <div class="ust-num">DE281561014</div>
+    </div>
+  </div>
+
+  <div class="kontakt-right reveal reveal-delay-1">
+    <p class="section-tag">Rechtliches</p>
+    <div class="legal-block">
+      <div class="legal-h">Disclaimer</div>
+      <div class="legal-t">Für Internetseiten Dritter, auf die wir durch Hyperlink verweisen, tragen die jeweiligen Anbieter die Verantwortung. Wir übernehmen für die dortigen Inhalte weder Gewähr noch Verantwortung.</div>
+    </div>
+    <div class="legal-block">
+      <div class="legal-h">Datenschutz</div>
+      <div class="legal-t">Alle personenrelevanten Daten, die auf dieser Webseite im Zuge der Kontaktaufnahme oder Informationsanforderung erhoben werden, werden von dlivr.de entsprechend ausgewertet und bearbeitet. Eine Weitergabe der Daten an Dritte erfolgt nicht. Die Daten werden nach Bearbeitung der Kontakt- oder Informationsanfrage nicht gespeichert.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════ -->
+<footer>
+  <span class="f-copy">© 2025 DLIVR · Frank Töpfer · Alle Rechte vorbehalten</span>
+  <a href="https://www.linkedin.com/in/frank-töpfer-7659071a8" target="_blank" rel="noopener" style="font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:.14em;color:var(--muted);text-decoration:none;transition:color .2s;" onmouseover="this.style.color='#c0392b'" onmouseout="this.style.color='var(--muted)'">LinkedIn</a>
+  <div class="f-logo">
+    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87 48" aria-label="DLIVR">
+      <text x="0"  y="40" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="44" fill="#444">d</text>
+      <text x="23" y="40" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="44" fill="#444">l</text>
+      <rect x="34" y="3"  width="9" height="9"  fill="#5a0a06"/>
+      <rect x="34" y="15" width="9" height="9"  fill="#7a1a0e"/>
+      <rect x="37" y="26" width="3" height="14" fill="#444"/>
+      <text x="47" y="40" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="44" fill="#444">v</text>
+      <text x="70" y="40" font-family="'Arial Narrow',Arial,sans-serif" font-weight="700" font-size="44" fill="#444">r</text>
+    </svg>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(
+    (entries) => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
