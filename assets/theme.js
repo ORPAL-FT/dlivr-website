@@ -51,7 +51,7 @@
     function updateNavigation() {
       if (!sections.length) return;
       var current = 'start';
-      var edge = main.getBoundingClientRect().top + 80;
+      var edge = getComputedStyle(main).overflowY === 'visible' ? 80 : main.getBoundingClientRect().top + 80;
       sections.forEach(function (section) {
         if (section.getBoundingClientRect().top <= edge) current = section.id;
       });
@@ -61,8 +61,45 @@
       });
     }
     main.addEventListener('scroll', updateNavigation, { passive: true });
+    window.addEventListener('scroll', updateNavigation, { passive: true });
     window.addEventListener('resize', updateNavigation);
     updateNavigation();
+    var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var approach = document.querySelector('.approach-steps');
+    if (approach && !motion.matches && 'IntersectionObserver' in window) {
+      approach.classList.add('motion-ready');
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+          approach.classList.add('motion-playing');
+          observer.disconnect();
+        }
+      }, { threshold: 0.15 });
+      observer.observe(approach);
+      motion.addEventListener('change', function (event) {
+        if (event.matches) {
+          observer.disconnect();
+          approach.classList.remove('motion-ready', 'motion-playing');
+        }
+      });
+    }
+    // Move keyboard and reading focus along with in-page navigation.
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest('a[href]');
+      if (!link || event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      var url = new URL(link.href);
+      if (url.origin !== location.origin || url.pathname !== location.pathname || url.search !== location.search || !url.hash) return;
+      var target = document.getElementById(decodeURIComponent(url.hash.slice(1)));
+      if (!target) return;
+      event.preventDefault();
+      if (location.hash !== url.hash) history.pushState(null, '', url.hash);
+      var focusTarget = target.querySelector('h1, h2, h3') || target;
+      if (!focusTarget.hasAttribute('tabindex')) focusTarget.setAttribute('tabindex', '-1');
+      focusTarget.focus({ preventScroll: true });
+      target.scrollIntoView({ block: 'start', behavior: motion.matches || event.detail === 0 ? 'instant' : 'smooth' });
+    });
+    document.addEventListener('focusin', function (event) {
+      if (!menu.contains(event.target)) menu.open = false;
+    });
     document.addEventListener('keydown' , function (event) {
       if (event.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
     });

@@ -139,3 +139,16 @@ des Hostinger-Kontos zu präzisieren. Die veröffentlichte Fassung nennt
 Speicherzwecke und verweist auf die Hostinger-Datenverarbeitungsbedingungen.
 Quellen: https://www.hostinger.com/legal/dpa und
 https://www.datenschutz.rlp.de/service/kontakt ; § 5 DDG.
+
+## Bewegung und Zugänglichkeit · 14.09.2026
+
+Der Ansatz Verstehen → Ordnen → Umsetzen erhält eine einmalige, zweisekündige
+Kupferanimation. Bei reduzierter Bewegung bleibt die Darstellung statisch.
+Texte sind jederzeit lesbar. Kontraste, kleine Beschriftungen, Tastaturfokus
+und Sprungnavigation wurden nachgebessert. Der zusätzliche Kontaktlink vor
+„E-Mail schreiben“ entfällt.
+
+Ergänzung zur Layoutvorgabe: Bei sehr niedriger Fensterhöhe (bis 30 rem, z. B.
+durch starken Zoom) scrollen Kopf- und Fußzeile mit, um Lesefläche zu erhalten.
+Die normale Darstellung behält den festen Rahmen. Befunde, Prüfungen und
+Grenzen stehen in `pruefungen/barrierefreiheit-2026-09-14.md`.
