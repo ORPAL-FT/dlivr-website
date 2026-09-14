@@ -172,3 +172,11 @@ Geprüft: Desktop und 320 px, Tastatur-Sprung zum Kontakt sowie 200 % Textgröß
 bei 320 px ohne horizontalen Überlauf. Der gezielte axe-Lauf meldet keine
 automatischen Verstöße; der dekorative Footer-Pfeil bleibt manuell zu prüfen.
 Die Barrierefreiheitshinweise wurden ebenfalls an Mi-Tool übergeben.
+
+## Kontaktbereich · 14.09.2026
+
+Gemeinsame Überschrift und Einleitung über zwei gleich gestalteten Karten,
+angelehnt an Mi-Tool. Links Name, sichtbare E-Mail und Mailbutton, rechts
+Orientierungsfragen. Desktop bündig und gleich hoch, mobil untereinander.
+Desktop 1440 px und mobile Ansicht um 320 px visuell geprüft; kein horizontaler
+Überlauf in der mobilen Ansicht. Kupferfarben und feste Fußzeile bleiben erhalten.

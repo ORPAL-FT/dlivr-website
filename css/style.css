@@ -124,9 +124,18 @@ dl { margin: 0; }
 .contact-details dt { font: .75rem/1.8 var(--mono); text-transform: uppercase; color: var(--muted); }
 .contact-details dd { margin: 0; overflow-wrap: anywhere; }
 .contact-details a, .legal a { text-decoration: underline; text-decoration-color: var(--link-underline); text-underline-offset: 4px; }
-.contact-note { background: var(--card); padding: var(--card-space); border: 1px solid var(--fine); border-radius: 10px; }
-.contact-note h3 { margin: 22px 0; }
-.contact-note p, .contact-note li { color: var(--muted); font-size: .93rem; }
+.contact-heading { margin-bottom: var(--heading-space); }
+.contact-heading h2 { margin-bottom: 20px; }
+.contact-heading > p:last-child { color: var(--muted); margin-bottom: 0; }
+.contact-grid { gap: 24px; }
+.contact-card { display: flex; flex-direction: column; align-items: flex-start; background: var(--card); padding: var(--card-space); border: 1px solid var(--fine); border-radius: 10px; }
+.contact-card p, .contact-card li { color: var(--muted); font-size: 1rem; }
+.contact-card ul { padding-left: 20px; margin: 0 0 20px; }
+.contact-card li + li { margin-top: 8px; }
+.contact-card > :last-child { margin-bottom: 0; }
+.contact-email { color: var(--accent); font-size: 1.25rem; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; margin-bottom: 24px; }
+.contact-card .button { margin-top: auto; }
+
 .contact-note ul { padding-left: 19px; margin: 20px 0; }
 .contact-note li { margin: 10px 0; }
 .legal-section { background: var(--card); }
