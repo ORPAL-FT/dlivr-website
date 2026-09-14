@@ -4,7 +4,11 @@
 
 Die lokale Website wurde mit Franks Freigabe an den Stil von Mi-Tool angeglichen:
 Helvetica-Systemschrift, dunkler Einstieg, helle Inhaltsflächen, feine Linien und
-Blau `#1c69d4` als Akzent. Startseite, Leistungen und Kontakt verwenden dieselbe
+Graphit und Kupfer als freigegebene Farbrichtung (14.09.2026).
+Logoakzent: `#b56846`, Buttons und Verweise: `#a65332`,
+Akzent auf dunklem Grund: `#e2a185`. Das DLIVR-Logo greift die zwei
+Quadrate am i auf und liegt für helle und dunkle Flächen als SVG mit
+Schriftpfaden vor. Es benötigt keine installierte Schrift. Startseite, Leistungen und Kontakt verwenden dieselbe
 Navigation und Gestaltung. Mi-Tool ist auf Start- und Leistungsseite als
 Praxisbeispiel verlinkt; Inhalte stammen aus dem aktuellen Mi-Tool-Marketingprojekt.
 Das dortige Logo wurde als lokale SVG-Datei übernommen.
@@ -19,6 +23,8 @@ geändert. Eine Veröffentlichung auf dem Zielhosting steht noch aus.
 - `leistungen.html`: sechs Leistungsbereiche und Mi-Tool.
 - `kontakt.html`: Kontakt, Anbieterangaben und bestehender Datenschutztext.
 - `css/style.css`: gemeinsame Gestaltung und responsive Ansichten.
+- `assets/dlivr-logo-hell.svg`, `assets/dlivr-logo-dunkel.svg`: DLIVR-Wortmarke.
+- `assets/favicon.svg`: aus den beiden Quadraten abgeleitetes Website-Symbol.
 - `assets/mi-tool-logo.svg`: Mi-Tool-Logo aus dem Marketingprojekt.
 
 Statische HTML-Seiten ohne Build, externe Schriftdateien oder JavaScript.
