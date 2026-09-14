@@ -94,3 +94,15 @@ Abgleich. Die rechtlichen Texte wurden dabei nicht geändert.
   Mi-Tool-Beispiel entfallen.
 - Geprüft: 320/768/1440 px, Bilder und Überläufe, Umschalten in beide
   Richtungen, gespeicherte Farbwahl beim Seitenwechsel und mobiles Menü.
+
+## Verbindliche Layoutvorgabe · 14.09.2026
+
+Frank möchte auf der DLIVR-Website eine dauerhaft sichtbare Kopf- und Fußzeile.
+Nur der Mittelteil scrollt. Diese Vorgabe bei zukünftigen Layoutänderungen
+beibehalten. Auf Mobilgeräten bleibt die Fußzeile kompakt; Logo, Impressum und
+Datenschutz sind sichtbar, ergänzende Namens- und Copyrightzeilen entfallen dort.
+
+Alle drei Seiten verwenden ein Raster über die dynamische Bildschirmhöhe.
+Der Inhaltsbereich ist per Tastatur erreichbar; Sprungmarken berücksichtigen
+den eigenen Scrollbereich. Beim Drucken wird der gesamte Inhalt ausgegeben.
+Die frühere Messung der Kopfleistenhöhe ist dadurch nicht mehr erforderlich.

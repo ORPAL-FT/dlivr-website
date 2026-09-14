@@ -32,13 +32,6 @@
       apply(preference);
       try { localStorage.setItem('dlivr-theme', preference); } catch (_) {}
     });
-    var header = document.querySelector('.site-header');
-    function measureHeader() {
-      root.style.setProperty('--header-height', header.getBoundingClientRect().height + 'px');
-    }
-    measureHeader();
-    if ('ResizeObserver' in window) new ResizeObserver(measureHeader).observe(header);
-    else window.addEventListener('resize', measureHeader);
     var menu = document.querySelector('.mobile-menu');
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }

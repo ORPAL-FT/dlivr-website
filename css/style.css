@@ -23,12 +23,13 @@
   --heading-space: clamp(1.25rem, 2.5vw, 2rem);
   --column-gap: clamp(1.5rem, 4vw, 3rem);
   --card-space: clamp(1.25rem, 2.5vw, 1.75rem);
-  --header-height: 56px;
   --card-title: 1.06rem;
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: var(--header-height); }
-body { margin: 0; background: var(--paper); color: var(--ink); font: 16.5px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+html { height: 100%; overflow: hidden; }
+body { height: 100vh; height: 100dvh; overflow: hidden; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; margin: 0; background: var(--paper); color: var(--ink); font: 16.5px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
+main { min-height: 0; overflow-y: auto; scroll-behavior: smooth; }
+main:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; height: auto; }
 p { margin: 0 0 1.2rem; }
@@ -40,7 +41,7 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; border-
 .wrap { width: min(var(--width), calc(100% - 64px)); margin: 0 auto; }
 .skip { position: fixed; left: 20px; top: -100px; z-index: 100; padding: 12px 20px; background: var(--card); }
 .skip:focus { top: 12px; }
-.site-header { position: sticky; top: 0; z-index: 20; background: var(--card); border-bottom: 1px solid var(--fine); }
+.site-header { position: relative; z-index: 20; background: var(--card); border-bottom: 1px solid var(--fine); }
 .header-inner { min-height: 86px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .logo { display: inline-flex; align-items: center; flex-shrink: 0; }
 .logo img { width: 94px; height: auto; }
@@ -100,7 +101,7 @@ dl { margin: 0; }
 .strip-inner p:last-child { color: var(--muted); margin: 14px 0 0; max-width: 660px; }
 .strip-inner .eyebrow { margin-bottom: 12px; }
 .strip-inner > .button { flex-shrink: 0; }
-.site-footer { background: var(--band); color: #b6bfcd; padding: 20px 0; font-size: 14px; }
+.site-footer { background: var(--band); color: #b6bfcd; padding: 10px 0; padding-bottom: max(10px, env(safe-area-inset-bottom)); font-size: 14px; }
 .footer-inner, .footer-inner > div { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
 .footer-inner { justify-content: space-between; }
 .footer-brand img { width: 76px; height: auto; }
@@ -147,7 +148,6 @@ dl { margin: 0; }
   .strip-inner { align-items: start; flex-direction: column; gap: 25px; }
 }
 @media (max-width: 420px) {
-  :root { --header-height: 64px; }
   .header-inner { gap: 20px; min-height: 73px; }
   .logo img { width: 74px; }
   nav { gap: 17px; }
@@ -156,7 +156,7 @@ dl { margin: 0; }
   .button-row { flex-direction: column; align-items: stretch; }
   .contact-details > div { grid-template-columns: 1fr; gap: 7px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { main { scroll-behavior: auto; } * { transition: none !important; } }
 
 /* Shared light/dark palette, including a no-JavaScript system fallback. */
 :root[data-theme="dark"] {
@@ -226,7 +226,6 @@ dl { margin: 0; }
 .approach-steps p { font-size: .92rem; color: #c6c4c3; margin: .4rem 0 0; }
 .hero-small { padding: var(--section-space) 0; }
 @media (max-width: 760px) {
-  :root { --header-height: 64px; }
   .header-inner { gap: .65rem; }
   .desktop-nav { display: none; }
   .mobile-menu { display: block; }
@@ -235,7 +234,19 @@ dl { margin: 0; }
   .approach-steps li { padding-top: .9rem; }
 }
 
+/* Keep legal links visible without taking reading space on narrow screens. */
+@media (max-width: 760px) {
+  .site-footer { padding-top: 5px; padding-bottom: max(5px, env(safe-area-inset-bottom)); font-size: 12px; }
+  .footer-inner, .footer-inner > div { gap: 10px; }
+  .footer-inner > div:first-child > span, .footer-inner > div:last-child > span { display: none; }
+  .footer-brand img { width: 52px; }
+  .site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
 @media print {
+  html, body { height: auto; overflow: visible; }
+  body { display: block; }
+  main { overflow: visible; }
   .site-header, .site-footer, .button-row, .contact-strip, .skip { display: none; }
   body, .hero, .product-section { background: #fff; color: #111; }
   .hero h1 span, .hero-copy, .hero .eyebrow { color: #444; }
