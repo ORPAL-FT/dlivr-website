@@ -65,3 +65,17 @@ Alle drei Seiten bei 320, 768 und 1440 Pixeln im Browser geprüft; keine
 horizontalen Überläufe. Startseite zusätzlich bei 390 Pixeln visuell geprüft.
 Lokale Verweise, Assets, Abschnittsziele und eindeutige IDs geprüft; Navigation
 im Browser betätigt. `git diff --check` ohne Befund.
+
+## Mi-Tool-Layoutkorrekturen übernommen · 14.09.2026
+
+Abschnittsabstände sind jetzt einheitlich 32–48 px, Abstände unter Überschriften
+20–32 px. Abschnittstitel folgen der Mi-Tool-Größenstaffel; Karten verwenden
+eine gemeinsame Titelgröße, Innenabstände und gut sichtbare Nummern.
+Kontaktspalten sind gleich breit. Zusätzliche Trennlinien zwischen Inhaltsbereichen
+entfallen; die Linien innerhalb von Karten und der Kupferabschluss des Aufmachers
+bleiben. Der Footer ist kompakter. Sprungziele berücksichtigen die Kopfleiste
+nur einmal, mit zusätzlichem Abstand von 12 px zum Zielinhalt.
+
+Übertragen wurden die passenden Layoutkorrekturen. Mi-Tool-spezifische Funktionen
+wie IT-Blatt, Preise, Formulare und Dropdownnavigation gehören nicht zu diesem
+Abgleich. Die rechtlichen Texte wurden dabei nicht geändert.
