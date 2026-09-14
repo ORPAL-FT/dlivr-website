@@ -9,9 +9,9 @@ Navigation und Gestaltung. Mi-Tool ist auf Start- und Leistungsseite als
 Praxisbeispiel verlinkt; Inhalte stammen aus dem aktuellen Mi-Tool-Marketingprojekt.
 Das dortige Logo wurde als lokale SVG-Datei übernommen.
 
-**Nur lokal umgesetzt, nicht veröffentlicht.** Frank klärt den Umzug vom bisherigen
+**Lokal umgesetzt und auf GitHub aktualisiert.** Frank klärt den Umzug vom bisherigen
 Hosting zu Hostinger. Es wurden keine DNS-, Hosting- oder GitHub-Pages-Einstellungen
-geändert und keine Änderungen gepusht.
+geändert. Eine Veröffentlichung auf dem Zielhosting steht noch aus.
 
 ## Dateien und Vorschau
 
