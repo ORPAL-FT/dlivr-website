@@ -33,7 +33,30 @@
       try { localStorage.setItem('dlivr-theme', preference); } catch (_) {}
     });
     var menu = document.querySelector('.mobile-menu');
-    document.addEventListener('keydown', function (event) {
+    menu.addEventListener('click', function (event) {
+      if (event.target.closest('a')) {
+        menu.open = false;
+        document.querySelector('main').focus({ preventScroll: true });
+      }
+    });
+    var main = document.querySelector('main');
+    var sections = ['start', 'leistungen', 'kontakt'].map(function (id) { return document.getElementById(id); });
+    var links = document.querySelectorAll('.site-header nav a');
+    function updateNavigation() {
+      var current = 'start';
+      var edge = main.getBoundingClientRect().top + 80;
+      sections.forEach(function (section) {
+        if (section.getBoundingClientRect().top <= edge) current = section.id;
+      });
+      links.forEach(function (link) {
+        if (link.hash === '#' + current) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+    }
+    main.addEventListener('scroll', updateNavigation, { passive: true });
+    window.addEventListener('resize', updateNavigation);
+    updateNavigation();
+    document.addEventListener('keydown' , function (event) {
       if (event.key === 'Escape' && menu.open) { menu.open = false; menu.querySelector('summary').focus(); }
     });
     document.addEventListener('click', function (event) {

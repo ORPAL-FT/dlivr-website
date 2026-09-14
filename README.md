@@ -106,3 +106,18 @@ Alle drei Seiten verwenden ein Raster über die dynamische Bildschirmhöhe.
 Der Inhaltsbereich ist per Tastatur erreichbar; Sprungmarken berücksichtigen
 den eigenen Scrollbereich. Beim Drucken wird der gesamte Inhalt ausgegeben.
 Die frühere Messung der Kopfleistenhöhe ist dadurch nicht mehr erforderlich.
+
+## Eine durchgehende Seite · 14.09.2026
+
+Freigegebene Struktur: Einstieg → sechs Leistungen → Mi-Tool → Über mich →
+Kontakt → Impressum und Datenschutz. Alle Inhalte werden in `index.html`
+gepflegt. Die frühere Vorschau mit drei Leistungskarten entfällt.
+Navigation und Kontaktlinks verwenden Sprungmarken; der aktive Menüpunkt
+folgt dem Scrollbereich. Das mobile Menü schließt nach der Auswahl.
+`leistungen.html` und `kontakt.html` sind nur noch Weiterleitungen, die bekannte
+Sprungziele erhalten. Ohne JavaScript bieten sie direkte Links zur neuen Seite.
+Feste Kopf- und Fußzeile, Kupferpalette und Farbmodus bleiben die Layoutvorgabe.
+
+Geprüft: HTML-Struktur, eindeutige IDs und Sprungziele; Darstellung bei
+320/768/1440 px ohne horizontalen Überlauf; mobiles Menü, Farbwechsel und
+Weiterleitungen mit erhaltenem Sprungziel (Digitalisierung und Impressum).
