@@ -152,3 +152,23 @@ Ergänzung zur Layoutvorgabe: Bei sehr niedriger Fensterhöhe (bis 30 rem, z. B.
 durch starken Zoom) scrollen Kopf- und Fußzeile mit, um Lesefläche zu erhalten.
 Die normale Darstellung behält den festen Rahmen. Befunde, Prüfungen und
 Grenzen stehen in `pruefungen/barrierefreiheit-2026-09-14.md`.
+
+## PDF-Beratung und gegenseitige Footer-Verweise · 14.09.2026
+
+Nach den sechs Leistungen steht ein kurzer eigener Abschnitt `#pdf-formulare`.
+Er beschreibt strukturierte Formulare, Datenübernahme, nachvollziehbare Prüfungen
+und bei Bedarf Unterschrift am Pad als Beratungsangebot. Technische Voraussetzungen
+werden individuell abgestimmt. Grundlage: Franks Unterlage
+PDF-Schnelleingabe_Funktionen_und_Nutzen.docx; keine unbelegten Zeitersparnisse,
+Kundennamen oder pauschalen Schnittstellenversprechen übernommen.
+
+Alle drei Fußzeilen verweisen auf Mi-Tool („Serviceunterlagen finden“) sowie
+Franks bestehendes LinkedIn-Profil. Auf kleinen Bildschirmen zwei kompakte Zeilen;
+die bei starker Vergrößerung mitlaufenden Leisten bleiben erhalten. Der Auftrag
+für den passenden Mi-Tool-Gegenlink auf https://dlivr.eu/#pdf-formulare wurde
+an die bestehende Mi-Tool-Aufgabe übergeben.
+
+Geprüft: Desktop und 320 px, Tastatur-Sprung zum Kontakt sowie 200 % Textgröße
+bei 320 px ohne horizontalen Überlauf. Der gezielte axe-Lauf meldet keine
+automatischen Verstöße; der dekorative Footer-Pfeil bleibt manuell zu prüfen.
+Die Barrierefreiheitshinweise wurden ebenfalls an Mi-Tool übergeben.
