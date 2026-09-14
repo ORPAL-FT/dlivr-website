@@ -2,6 +2,12 @@
 (function () {
   'use strict';
   var root = document.documentElement;
+  // Preserve former legal bookmarks on the home page.
+  if ((location.pathname.endsWith('/') || location.pathname.endsWith('/index.html')) &&
+      (location.hash === '#impressum' || location.hash === '#datenschutz')) {
+    location.replace(location.hash.slice(1) + '.html');
+    return;
+  }
   var system = window.matchMedia('(prefers-color-scheme: dark)');
   var preference = null;
   try { preference = localStorage.getItem('dlivr-theme'); } catch (_) {}
@@ -40,9 +46,10 @@
       }
     });
     var main = document.querySelector('main');
-    var sections = ['start', 'leistungen', 'kontakt'].map(function (id) { return document.getElementById(id); });
+    var sections = ['start', 'leistungen', 'kontakt'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
     var links = document.querySelectorAll('.site-header nav a');
     function updateNavigation() {
+      if (!sections.length) return;
       var current = 'start';
       var edge = main.getBoundingClientRect().top + 80;
       sections.forEach(function (section) {

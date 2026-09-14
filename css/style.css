@@ -238,7 +238,7 @@ dl { margin: 0; }
 @media (max-width: 760px) {
   .site-footer { padding-top: 5px; padding-bottom: max(5px, env(safe-area-inset-bottom)); font-size: 12px; }
   .footer-inner, .footer-inner > div { gap: 10px; }
-  .footer-inner > div:first-child > span, .footer-inner > div:last-child > span { display: none; }
+  .footer-detail, .footer-inner > div:last-child > span { display: none; }
   .footer-brand img { width: 52px; }
   .site-footer a { display: inline-flex; align-items: center; min-height: 44px; }
 }
@@ -256,4 +256,16 @@ dl { margin: 0; }
   .logo-on-dark { display: none !important; }
   .logo-on-light { display: block !important; }
   .card, .product-card { break-inside: avoid; box-shadow: none; }
+}
+
+/* Separate legal pages follow the same type scale and fixed shell. */
+.legal-page h1 { font-size: clamp(2.1rem, 6vw, 3.5rem); margin-bottom: 1.4rem; }
+.legal-page h2 { font-size: clamp(1.35rem, 3vw, 1.75rem); margin-top: var(--section-space); margin-bottom: 1rem; }
+.legal-page .contact-details { margin-top: 0; }
+.legal-page ul { padding-left: 1.3rem; color: var(--muted); }
+.legal-page li { margin-bottom: .6rem; }
+.legal-page code { overflow-wrap: anywhere; }
+@media (max-width: 420px) {
+  .site-footer .footer-inner { gap: 0 10px; }
+  .footer-name { font-size: 11px; }
 }

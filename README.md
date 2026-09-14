@@ -121,3 +121,21 @@ Feste Kopf- und Fußzeile, Kupferpalette und Farbmodus bleiben die Layoutvorgabe
 Geprüft: HTML-Struktur, eindeutige IDs und Sprungziele; Darstellung bei
 320/768/1440 px ohne horizontalen Überlauf; mobiles Menü, Farbwechsel und
 Weiterleitungen mit erhaltenem Sprungziel (Digitalisierung und Impressum).
+
+## Separate Rechtstexte und E-Mail-Kontakt · 14.09.2026
+
+Impressum und Datenschutz liegen wie bei Mi-Tool auf eigenen Seiten. Die
+Hauptseite endet mit Kontakt; dort gibt es nur noch E-Mail an ft@dlivr.eu.
+Telefon und Anschrift bleiben im Impressum. Das zusätzliche Footerlogo vor
+Frank Töpfer entfällt. Frühere Rechts-Sprungziele werden weitergeleitet.
+
+Basis sind die Mi-Tool-Rechtstexte vom 14.09.2026, angepasst auf die DLIVR-
+Website: keine Formular-, Spamfilter- oder Fragefeld-Beschreibungen, Farbauswahl
+unter dlivr-theme, keine Behauptung erfundener Fahrzeug-/Kundendaten.
+Die ungeprüften Mi-Tool-Aussagen zu 30 Tagen Logaufbewahrung und einem bereits
+bestehenden konkreten AV-Vertrag werden nicht übernommen. Vertragsgesellschaft,
+AVV-Einbeziehung und tatsächliche Log-/CDN-Löschfristen sind weiterhin anhand
+des Hostinger-Kontos zu präzisieren. Die veröffentlichte Fassung nennt
+Speicherzwecke und verweist auf die Hostinger-Datenverarbeitungsbedingungen.
+Quellen: https://www.hostinger.com/legal/dpa und
+https://www.datenschutz.rlp.de/service/kontakt ; § 5 DDG.
