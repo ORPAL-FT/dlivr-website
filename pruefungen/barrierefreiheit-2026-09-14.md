@@ -73,3 +73,27 @@ wurde durch diesen technischen Durchgang nicht rechtlich bestätigt.
 - [Textabstände](https://www.w3.org/WAI/WCAG22/Understanding/text-spacing.html)
 - [Fokus nicht verdeckt](https://www.w3.org/WAI/WCAG22/Understanding/focus-not-obscured-minimum.html)
 - [Bewegung pausieren oder stoppen](https://www.w3.org/WAI/WCAG22/Understanding/pause-stop-hide.html)
+
+## Ergänzender Abschlusslauf
+
+axe-core 4.10.3 wurde ausschließlich in einer temporären lokalen Prüfumgebung
+verwendet. Die veröffentlichte Website lädt das Prüfwerkzeug nicht.
+Startseite, Impressum und Datenschutz wurden jeweils in Hell und Dunkel sowie
+mit simuliert verdoppelten berechneten Schriftgrößen bei 320 px Breite geprüft.
+Die neun Prüffälle melden keine eindeutigen Verstöße der ausgewählten Regeln
+(WCAG 2 A/AA, 2.1 A/AA, 2.2 AA) und keinen horizontalen Überlauf.
+Details: `axe-2026-09-14.json`.
+
+Der Textvergrößerungstest fand noch Überläufe langer Wörter und einen teilweise
+sichtbaren, nicht fokussierten Skip-Link. Behoben durch vererbbaren Wortumbruch
+und Ausblenden des Skip-Links relativ zu seiner tatsächlichen Höhe. Wiederholung
+auf allen drei Seiten ohne diese Befunde.
+
+Die Kontrastauswertung der animierten Ansatzreihe meldet teilweise „manuell prüfen“.
+Die Textfarben dieser Reihe sind durch die oben dokumentierte manuelle
+Kontrastberechnung abgedeckt; die Textdarstellung selbst wird nicht animiert.
+
+Der praktische Safari-/VoiceOver-Aufruf wurde versucht, ist aber durch ausstehende
+macOS-Freigaben für Bedienungshilfen und Bildschirmaufnahme blockiert. Kein
+praktischer Screenreader-Test oder echter Text-only-Browser-Zoom wird als
+abgeschlossen ausgewiesen. Die automatischen Ergebnisse ersetzen diesen Test nicht.

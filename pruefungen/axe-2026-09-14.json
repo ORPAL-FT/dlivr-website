@@ -1,0 +1,128 @@
+[
+  {
+    "fall": "datenschutz-dark",
+    "axe": "4.10.3",
+    "viewport": [
+      320,
+      800
+    ],
+    "bestandene_regeln": 25,
+    "verletzungen": 0,
+    "manuell_pruefen": [],
+    "horizontaler_ueberlauf": false
+  },
+  {
+    "fall": "datenschutz-light-text200",
+    "axe": "4.10.3",
+    "viewport": [
+      320,
+      800
+    ],
+    "bestandene_regeln": 25,
+    "verletzungen": 0,
+    "manuell_pruefen": [],
+    "horizontaler_ueberlauf": false
+  },
+  {
+    "fall": "datenschutz-light",
+    "axe": "4.10.3",
+    "viewport": [
+      320,
+      800
+    ],
+    "bestandene_regeln": 25,
+    "verletzungen": 0,
+    "manuell_pruefen": [],
+    "horizontaler_ueberlauf": false
+  },
+  {
+    "fall": "impressum-dark",
+    "axe": "4.10.3",
+    "viewport": [
+      320,
+      800
+    ],
+    "bestandene_regeln": 23,
+    "verletzungen": 0,
+    "manuell_pruefen": [],
+    "horizontaler_ueberlauf": false
+  },
+  {
+    "fall": "impressum-light-text200",
+    "axe": "4.10.3",
+    "viewport": [
+      320,
+      800
+    ],
+    "bestandene_regeln": 23,
+    "verletzungen": 0,
+    "manuell_pruefen": [],
+    "horizontaler_ueberlauf": false
+  },
+  {
+    "fall": "impressum-light",
+    "axe": "4.10.3",
+    "viewport": [
+      320,
+      800
+    ],
+    "bestandene_regeln": 23,
+    "verletzungen": 0,
+    "manuell_pruefen": [],
+    "horizontaler_ueberlauf": false
+  },
+  {
+    "fall": "index-dark",
+    "axe": "4.10.3",
+    "viewport": [
+      320,
+      800
+    ],
+    "bestandene_regeln": 25,
+    "verletzungen": 0,
+    "manuell_pruefen": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            "li:nth-child(1) > .step-number[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ],
+    "horizontaler_ueberlauf": false
+  },
+  {
+    "fall": "index-light-text200",
+    "axe": "4.10.3",
+    "viewport": [
+      320,
+      800
+    ],
+    "bestandene_regeln": 25,
+    "verletzungen": 0,
+    "manuell_pruefen": [],
+    "horizontaler_ueberlauf": false
+  },
+  {
+    "fall": "index-light",
+    "axe": "4.10.3",
+    "viewport": [
+      320,
+      800
+    ],
+    "bestandene_regeln": 25,
+    "verletzungen": 0,
+    "manuell_pruefen": [
+      {
+        "id": "color-contrast",
+        "nodes": [
+          [
+            "li:nth-child(1) > .step-number[aria-hidden=\"true\"]"
+          ]
+        ]
+      }
+    ],
+    "horizontaler_ueberlauf": false
+  }
+]
