@@ -66,22 +66,29 @@
     updateNavigation();
     var motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     var approach = document.querySelector('.approach-steps');
-    if (approach && !motion.matches && 'IntersectionObserver' in window) {
+    var approachObserver;
+    function replayApproach() {
+      if (!approach || motion.matches || !('IntersectionObserver' in window)) return;
+      if (approachObserver) approachObserver.disconnect();
+      approach.classList.remove('motion-playing');
       approach.classList.add('motion-ready');
-      var observer = new IntersectionObserver(function (entries) {
+      // Commit the reset so a repeated Start click restarts the CSS animation.
+      void approach.offsetWidth;
+      approachObserver = new IntersectionObserver(function (entries) {
         if (entries.some(function (entry) { return entry.isIntersecting; })) {
           approach.classList.add('motion-playing');
-          observer.disconnect();
+          approachObserver.disconnect();
         }
       }, { threshold: 0.15 });
-      observer.observe(approach);
-      motion.addEventListener('change', function (event) {
-        if (event.matches) {
-          observer.disconnect();
-          approach.classList.remove('motion-ready', 'motion-playing');
-        }
-      });
+      approachObserver.observe(approach);
     }
+    replayApproach();
+    motion.addEventListener('change', function (event) {
+      if (event.matches && approach) {
+        if (approachObserver) approachObserver.disconnect();
+        approach.classList.remove('motion-ready', 'motion-playing');
+      }
+    });
     // Move keyboard and reading focus along with in-page navigation.
     document.addEventListener('click', function (event) {
       var link = event.target.closest('a[href]');
@@ -95,6 +102,7 @@
       var focusTarget = target.querySelector('h1, h2, h3') || target;
       if (!focusTarget.hasAttribute('tabindex')) focusTarget.setAttribute('tabindex', '-1');
       focusTarget.focus({ preventScroll: true });
+      if (target.id === 'start') replayApproach();
       target.scrollIntoView({ block: 'start', behavior: motion.matches || event.detail === 0 ? 'instant' : 'smooth' });
     });
     document.addEventListener('focusin', function (event) {

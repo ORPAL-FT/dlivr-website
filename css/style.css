@@ -295,10 +295,10 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
 @media (prefers-reduced-motion: no-preference) {
   .approach-steps.motion-ready::before { clip-path: inset(0 100% 0 0); }
   .approach-steps.motion-ready li::before { opacity: 0; }
-  .approach-steps.motion-playing::before { animation: approach-route 2s ease-out both; }
-  .approach-steps.motion-playing li::before { animation: approach-marker .35s ease-out both; }
-  .approach-steps.motion-playing li:nth-child(2)::before { animation-delay: .65s; }
-  .approach-steps.motion-playing li:nth-child(3)::before { animation-delay: 1.3s; }
+  .approach-steps.motion-playing::before { animation: approach-route 4s ease-out both; }
+  .approach-steps.motion-playing li::before { animation: approach-marker .6s ease-out both; }
+  .approach-steps.motion-playing li:nth-child(2)::before { animation-delay: 1.3s; }
+  .approach-steps.motion-playing li:nth-child(3)::before { animation-delay: 2.6s; }
 }
 @keyframes approach-route { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0); } }
 @keyframes approach-marker { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: scale(1); } }

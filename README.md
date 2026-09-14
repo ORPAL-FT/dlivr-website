@@ -180,3 +180,9 @@ angelehnt an Mi-Tool. Links Name, sichtbare E-Mail und Mailbutton, rechts
 Orientierungsfragen. Desktop bündig und gleich hoch, mobil untereinander.
 Desktop 1440 px und mobile Ansicht um 320 px visuell geprüft; kein horizontaler
 Überlauf in der mobilen Ansicht. Kupferfarben und feste Fußzeile bleiben erhalten.
+
+Die Animation bei „Verstehen / Ordnen / Umsetzen“ dauert vier Sekunden und
+wird bei jedem internen Sprung auf Start neu vorbereitet. Sie beginnt erst,
+wenn die Schritte sichtbar sind. Reduzierte Bewegung wird weiterhin respektiert.
+Wiederholter Start per Tastatur im Browser geprüft: abgeschlossene Linie wird
+zurückgesetzt und erneut aufgebaut.
