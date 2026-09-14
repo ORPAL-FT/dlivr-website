@@ -101,6 +101,8 @@
       if (location.hash !== url.hash) history.pushState(null, '', url.hash);
       var focusTarget = target.querySelector('h1, h2, h3') || target;
       if (!focusTarget.hasAttribute('tabindex')) focusTarget.setAttribute('tabindex', '-1');
+      focusTarget.classList.add('anchor-focus-target');
+      focusTarget.classList.toggle('anchor-focus-pointer', event.detail !== 0);
       focusTarget.focus({ preventScroll: true });
       if (target.id === 'start') replayApproach();
       target.scrollIntoView({ block: 'start', behavior: motion.matches || event.detail === 0 ? 'instant' : 'smooth' });

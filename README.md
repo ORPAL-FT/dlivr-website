@@ -186,3 +186,7 @@ wird bei jedem internen Sprung auf Start neu vorbereitet. Sie beginnt erst,
 wenn die Schritte sichtbar sind. Reduzierte Bewegung wird weiterhin respektiert.
 Wiederholter Start per Tastatur im Browser geprüft: abgeschlossene Linie wird
 zurückgesetzt und erneut aufgebaut.
+
+Fokuskorrektur: Sprungziele behalten den Lesefokus. Bei Mausklicks erscheint
+kein Rahmen um die Überschrift; Tastatur-Sprünge zeigen einen kontrastreichen
+Fokusrahmen. Beide Eingabearten im Browser geprüft.

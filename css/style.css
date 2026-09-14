@@ -364,3 +364,8 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
   .footer-partner strong { font-size: .8125rem; }
   .site-footer .footer-partner { border-left: 0; padding-left: 0; }
 }
+
+/* Anchor destinations retain reading focus without a mouse-click outline. */
+.anchor-focus-target:focus { outline: none; }
+.anchor-focus-target:focus-visible:not(.anchor-focus-pointer) { outline: 2px solid var(--accent); outline-offset: 5px; }
+.hero .anchor-focus-target:focus-visible:not(.anchor-focus-pointer) { outline-color: var(--accent-light); }
