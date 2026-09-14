@@ -27,7 +27,8 @@ geändert. Eine Veröffentlichung auf dem Zielhosting steht noch aus.
 - `assets/favicon.svg`: aus den beiden Quadraten abgeleitetes Website-Symbol.
 - `assets/mi-tool-logo.svg`: Mi-Tool-Logo aus dem Marketingprojekt.
 
-Statische HTML-Seiten ohne Build, externe Schriftdateien oder JavaScript.
+Statische HTML-Seiten ohne Build oder externe Schriftdateien. Ein kleines lokales
+JavaScript steuert die Farbwahl und misst die Höhe der Kopfzeile für Sprungziele.
 Eine lokale Vorschau lässt sich aus diesem Ordner starten:
 
 ```sh
@@ -79,3 +80,17 @@ nur einmal, mit zusätzlichem Abstand von 12 px zum Zielinhalt.
 Übertragen wurden die passenden Layoutkorrekturen. Mi-Tool-spezifische Funktionen
 wie IT-Blatt, Preise, Formulare und Dropdownnavigation gehören nicht zu diesem
 Abgleich. Die rechtlichen Texte wurden dabei nicht geändert.
+
+## Kopfzeile und Einstieg · diktierte Änderungen vom 14.09.2026
+
+- Kopfzeile mit Mi-Tool-Abständen und Navigationsschriftgröße (.88 rem),
+  eigenen SVG-Icons und mobilem Menü.
+- Hell-/Dunkelschalter auf allen Seiten; ohne gespeicherte Auswahl gilt die
+  Systemfarbe. Eine explizite Wahl wird lokal im Browser gespeichert.
+- DLIVR- und Mi-Tool-Logos besitzen passende Varianten für beide Hintergründe.
+- Einstieg über die ganze Breite, mit Mi-Tool-Schriftgrößen. Der Ablauf
+  Verstehen / Ordnen / Umsetzen steht als einzige nummerierte Reihe darunter.
+- Leistungsbereiche tragen Icons; auch die zusätzlichen Nummern im
+  Mi-Tool-Beispiel entfallen.
+- Geprüft: 320/768/1440 px, Bilder und Überläufe, Umschalten in beide
+  Richtungen, gespeicherte Farbwahl beim Seitenwechsel und mobiles Menü.
