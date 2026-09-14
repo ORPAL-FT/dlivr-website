@@ -190,3 +190,8 @@ zurückgesetzt und erneut aufgebaut.
 Fokuskorrektur: Sprungziele behalten den Lesefokus. Bei Mausklicks erscheint
 kein Rahmen um die Überschrift; Tastatur-Sprünge zeigen einen kontrastreichen
 Fokusrahmen. Beide Eingabearten im Browser geprüft.
+
+Der Einstiegsbereich folgt jetzt dem Hell-Dunkel-Schalter: im Hellmodus
+warmer heller Hintergrund, dunkle Schrift und kräftiges Kupfer; im Dunkelmodus
+dunkler Hintergrund mit hellen Texten. Buttons, Fokus und Schrittliniendarstellung
+verwenden die passende Palette. Beide Modi und 320 px Breite geprüft.
