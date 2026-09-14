@@ -1,55 +1,61 @@
-# dlivr-website
+# DLIVR-Website
 
-⚠️ **Dieses Repo liefert dlivr.eu nicht aus.** Das ist die wichtigste Angabe hier,
-und sie war bis zum 01.09.2026 nirgends festgehalten.
+## Aktueller Stand · 14.09.2026
 
-## Der Befund
+Die lokale Website wurde mit Franks Freigabe an den Stil von Mi-Tool angeglichen:
+Helvetica-Systemschrift, dunkler Einstieg, helle Inhaltsflächen, feine Linien und
+Blau `#1c69d4` als Akzent. Startseite, Leistungen und Kontakt verwenden dieselbe
+Navigation und Gestaltung. Mi-Tool ist auf Start- und Leistungsseite als
+Praxisbeispiel verlinkt; Inhalte stammen aus dem aktuellen Mi-Tool-Marketingprojekt.
+Das dortige Logo wurde als lokale SVG-Datei übernommen.
 
-Die GitHub-Pages-Konfiguration dieses Repos zeigt auf `dlivr.eu` und der Bau läuft
-durch. Ausgeliefert wird die Domain aber von **nginx**, nicht von GitHub Pages —
-vermutlich vom Hostinger-Webhosting. Nachweis am 01.09.2026:
+**Nur lokal umgesetzt, nicht veröffentlicht.** Frank klärt den Umzug vom bisherigen
+Hosting zu Hostinger. Es wurden keine DNS-, Hosting- oder GitHub-Pages-Einstellungen
+geändert und keine Änderungen gepusht.
 
-| | |
-|---|---|
-| `https://dlivr.eu/` | HTTP 200, `server: nginx` |
-| `https://dlivr.eu/css/style.css` | **HTTP 404** — obwohl die Datei hier liegt |
-| Pages-Bau | `built`, Commit `f32d15e` |
+## Dateien und Vorschau
 
-Es sind **zwei verschiedene Seiten**:
+- `index.html`: Einstieg, drei Schwerpunkte, Mi-Tool und Kurzprofil.
+- `leistungen.html`: sechs Leistungsbereiche und Mi-Tool.
+- `kontakt.html`: Kontakt, Anbieterangaben und bestehender Datenschutztext.
+- `css/style.css`: gemeinsame Gestaltung und responsive Ansichten.
+- `assets/mi-tool-logo.svg`: Mi-Tool-Logo aus dem Marketingprojekt.
 
-| | in diesem Repo | live unter dlivr.eu |
-|---|---|---|
-| Aufbau | `index.html`, `leistungen.html`, `kontakt.html` + `css/style.css` | eine Datei, Styles inline |
-| Titel | — | „DLIVR · Frank Töpfer" |
-| Schriften | System-Stack | Bebas Neue, Syne, Inter (Google Fonts) |
-| Akzent | `#2f8f6f` (seit 01.09.2026) | `#c0392b` Rot |
+Statische HTML-Seiten ohne Build, externe Schriftdateien oder JavaScript.
+Eine lokale Vorschau lässt sich aus diesem Ordner starten:
 
-## `live-abzug/`
+```sh
+python3 -m http.server 8873 --bind 127.0.0.1
+```
 
-Weil die Live-Seite **weder in einem Repo noch lokal auf der Platte** existiert,
-liegt hier ein Abzug: `live-abzug/dlivr-eu_2026-09-01.html`, geholt mit `curl` von
-der laufenden Seite.
+Anschließend `http://127.0.0.1:8873/` im Browser öffnen.
 
-Er ist eigenständig — alle Styles inline, keine lokalen Assets. Nach außen
-verweist er nur auf Google Fonts und auf Kontaktziele (LinkedIn, Mail, Telefon).
+## Hosting und historischer Live-Abzug
 
-**Der Abzug ist eine Sicherung, keine Quelle.** Wer die Live-Seite ändert, ändert
-sie dort, wo sie tatsächlich liegt — der Abzug veraltet ab dem Moment, in dem das
-geschieht. Er existiert, damit die Seite nicht verloren ist, wenn das Hosting
-ausfällt oder jemand sie überschreibt.
+Am 01.09.2026 lieferten Repository und `dlivr.eu` unterschiedliche Seiten aus:
+Die Domain antwortete über nginx; das Repository hatte eine GitHub-Pages-Konfiguration.
+Die damalige Live-Seite verwendete ein dunkles Layout mit Rot `#c0392b`.
 
-## Was noch zu klären ist
+`live-abzug/dlivr-eu_2026-09-01.html` bleibt unverändert als historische Sicherung.
+Sie ist nicht die Quelle dieser Überarbeitung. Der aktuelle Live-Stand konnte am
+13.09.2026 nicht abgerufen werden.
 
-- **Wo liegt die Quelle wirklich?** Vermutlich Hostinger-Webhosting; über das
-  hPanel festzustellen.
-- **Welche Seite soll gelten?** Die hier im Repo ist eine ältere Generation. Wenn
-  die Live-Seite die richtige ist, gehört sie hierher — und die alte ins Archiv.
-- **Welche Farbe führt DLIVR?** Die Layout-Vorgabe (Skill `dlivr-layout`, Wiki
-  `corporate-design`) nennt Grün `#2f8f6f`. Die Live-Seite führt Rot `#c0392b`.
-  Solange das nicht entschieden ist, widersprechen sich Vorgabe und Außenauftritt.
+## Vor der späteren Veröffentlichung klären
 
-## Kleinigkeit im Abzug
+- Zielverzeichnis und Auslieferung bei Hostinger mit Frank abstimmen.
+- E-Mail-Adresse bestätigen: hier bleibt die bisherige Repository-Adresse
+  `frank.toepfer@dlivr-design.com`; der historische Live-Abzug nennt `ft@dlivr.eu`.
+- Bestehenden Datenschutztext auf das tatsächliche Hosting und den Umgang mit
+  Anfragen abstimmen. Er wurde bei der Layoutarbeit nicht inhaltlich überarbeitet.
+- Nur die drei HTML-Dateien sowie `css/` und `assets/` ausliefern; die historische
+  Sicherung und Repository-Dateien gehören nicht zur neuen Website.
 
-Auf der Live-Seite steht eine Telefonnummer mit Leerzeichen:
-`tel:+4965839904 1`. Sieht nach einem Tippfehler aus — in einem `tel:`-Link kann
-das dazu führen, dass die Wahl abbricht.
+Der Telefonlink wurde an die sichtbare Nummer `+49 (0)6583 – 990 41` angeglichen
+(`tel:+49658399041`); zuvor enthielt er eine zusätzliche Null.
+
+## Prüfung der Überarbeitung
+
+Alle drei Seiten bei 320, 768 und 1440 Pixeln im Browser geprüft; keine
+horizontalen Überläufe. Startseite zusätzlich bei 390 Pixeln visuell geprüft.
+Lokale Verweise, Assets, Abschnittsziele und eindeutige IDs geprüft; Navigation
+im Browser betätigt. `git diff --check` ohne Befund.
