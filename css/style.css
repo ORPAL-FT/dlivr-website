@@ -389,3 +389,11 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
 @media print { .gemeinsamer-fuss { display: none !important; } }
 
 .gemeinsamer-fuss a { padding: 0; border: 0; font-size: inherit; line-height: inherit; }
+
+/* Schmale Fußleiste, folgt der aktiven Farbwelt. */
+.gemeinsamer-fuss { background: var(--paper); color: var(--ink); }
+.gemeinsamer-fuss-inhalt { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+.gemeinsamer-fuss .fuss-partnerlink { color: var(--ink); }
+.fuss-zweite-zeile { gap: 10px; }
+.gemeinsamer-fuss a:focus-visible { outline-color: var(--accent); }
+@media (max-width: 48rem) { .gemeinsamer-fuss { font-size: 12px; } .gemeinsamer-fuss-inhalt { padding-inline: 12px; } .fuss-zweite-zeile { gap: 8px; } }
