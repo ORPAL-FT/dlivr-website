@@ -438,3 +438,25 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
 @media screen { .section-heading { display: block; } .section-heading > p { max-width: none; margin-top: 1rem; } .legal h1 { text-transform: none; } }
 
 @media screen and (max-width: 52rem) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Freigegebener gestalterischer Feinschliff, 17.09.2026. */
+@media screen {
+ .hero-intro { padding-block: clamp(2rem, 5vw, 3.5rem); }
+ .hero h1 span { white-space: nowrap; hyphens: none; }
+ .approach-steps::before, .approach-steps li::before { display: none; }
+ .approach-steps li { padding-left: 0; }
+ .section-heading, .product-grid h2 { margin-bottom: var(--heading-space); }
+}
+.pdf-preview { margin: 1.5rem 0 0; }
+.pdf-preview img { width: 100%; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
+.pdf-preview figcaption, .product-preview figcaption { font-size: .8125rem; line-height: 1.5; color: var(--muted); margin-top: .6rem; }
+.pdf-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 1.5rem; }
+.product-preview { margin: 1.25rem 0 0; }
+.product-preview img { width: 100%; border: 1px solid var(--line); border-radius: 8px; }
+.product-preview a { display: block; }
+@media (max-width: 48rem) {
+ .hero .button-row, .pdf-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+ .hero .button, .pdf-actions .button { width: 100%; min-height: 48px; }
+ .pdf-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+ .hero h1 { font-size: clamp(2.1rem, 8.5vw, 3.5rem); }
+}
