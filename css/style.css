@@ -372,3 +372,20 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
 .anchor-focus-target:focus { outline: none; }
 .anchor-focus-target:focus-visible:not(.anchor-focus-pointer) { outline: 2px solid var(--accent); outline-offset: 5px; }
 .hero .anchor-focus-target:focus-visible:not(.anchor-focus-pointer) { outline-color: var(--accent-light); }
+
+.gemeinsamer-fuss { --fuss-akzent: #b56845; --fuss-bg: #202326; }
+
+/* Gemeinsame Footer-Aufteilung DLIVR / mi-tool, 16.09.2026. */
+.gemeinsamer-fuss { margin: 0; padding: 4px 0 max(4px, env(safe-area-inset-bottom)); border-top: 3px solid var(--fuss-akzent); background: var(--fuss-bg); color: #bcc4d0; font: 14px/1.4 Arial, sans-serif; }
+.gemeinsamer-fuss-inhalt { max-width: 1184px; margin: auto; padding: 0 20px; }
+.fuss-erste-zeile, .fuss-zweite-zeile { display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap; }
+.gemeinsamer-fuss a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; text-decoration: none; }
+.gemeinsamer-fuss .fuss-partnerlink { color: #f2f3f5; font-weight: 700; gap: .3em; }
+.fuss-linkedin { gap: .4em; }
+.fuss-linkedin svg { width: 16px; height: 16px; fill: currentColor; flex: none; }
+.gemeinsamer-fuss a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.gemeinsamer-fuss a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+@media (max-width: 48rem) { .gemeinsamer-fuss { font-size: 13px; } .gemeinsamer-fuss-inhalt { padding-inline: 16px; } }
+@media print { .gemeinsamer-fuss { display: none !important; } }
+
+.gemeinsamer-fuss a { padding: 0; border: 0; font-size: inherit; line-height: inherit; }
