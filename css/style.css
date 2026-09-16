@@ -397,3 +397,25 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
 .fuss-zweite-zeile { gap: 10px; }
 .gemeinsamer-fuss a:focus-visible { outline-color: var(--accent); }
 @media (max-width: 48rem) { .gemeinsamer-fuss { font-size: 12px; } .gemeinsamer-fuss-inhalt { padding-inline: 12px; } .fuss-zweite-zeile { gap: 8px; } }
+
+/* Gemeinsame Kopfzeilenmaße, 16.09.2026. */
+.site-header { background: var(--paper); }
+.header-inner { box-sizing: border-box; width: 100%; max-width: 1224px; margin: auto; min-height: 64px; padding: 10px 20px; display: flex; align-items: center; gap: 8px; }
+.logo { flex: 0 1 144px; min-width: 0; margin-right: auto; }
+.logo img { width: auto; max-width: 144px; height: 32px; object-fit: contain; }
+.desktop-nav { margin-left: auto; gap: 2px; }
+.desktop-nav > a, .desktop-nav > details > summary { font-size: 14px; min-height: 44px; box-sizing: border-box; display: flex; align-items: center; padding: 6px 8px; }
+.theme-toggle { width: 44px; height: 44px; flex: 0 0 44px; padding: 0; border-radius: 50%; }
+.theme-toggle svg { width: 20px; height: 20px; }
+.header-start { display: none; }
+.mobile-menu > summary { box-sizing: border-box; height: 44px; min-height: 44px; padding: 10px 12px; font: 600 14px/22px Arial,sans-serif; border-radius: 10px; }
+@media (max-width: 75rem) {
+ .desktop-nav { display: none; }
+ .header-inner { padding-inline: 12px; flex-wrap: nowrap; }
+ .logo { flex-basis: 112px; }
+ .logo img { max-width: 112px; height: 32px; }
+ .mobile-menu { display: block; position: relative; flex: none; margin-left: 0; }
+ .header-start { display: inline-flex; align-items: center; justify-content: center; width: 44px; min-height: 44px; flex: 0 0 44px; font-size: 0; color: var(--ink); }
+ .header-start svg { width: 20px; height: 20px; }
+}
+@media print { .site-header { display: none !important; } }
