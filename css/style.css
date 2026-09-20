@@ -1,12 +1,12 @@
+/* Design-System v1.3.0 – DLIVR, nur heller Modus */
 :root {
-  color-scheme: light;
   --paper: #f4f2ef;
   --hero-surface: #f4f2ef;
   --product-surface: #ece7e1;
   --button-bg: #a65332;
   --button-hover: #874027;
   --link-underline: #c6b6aa;
-  --card: #fff;
+  --card: #ffffff;
   --ink: #25282e;
   --muted: #62646a;
   --line: #d8d5d0;
@@ -17,6 +17,9 @@
   --accent-light: #e2a185;
   --band: #202227;
   --band-ink: #f4f2ef;
+}
+:root {
+  color-scheme: light;
   --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
   --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
   --width: 1184px;
@@ -459,4 +462,28 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
  .hero .button, .pdf-actions .button { width: 100%; min-height: 48px; }
  .pdf-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
  .hero h1 { font-size: clamp(2.1rem, 8.5vw, 3.5rem); }
+}
+
+/* Design-System v1.3.1: große Abschnittsbezeichner und Nummern
+   in der Grundschrift, kleine Feldbezeichner weiterhin mono. */
+.eyebrow, .step-number { font-family: var(--font); }
+h1, h2, h3, h1 span, h2 span, h3 span, .hero h1 span { color: inherit; }
+
+code { font-family: var(--mono); font-size: .75rem; }
+
+/* Kompakte Abstände und wieder sichtbarer einmaliger Ablauf. */
+@media screen {
+ .section { padding-block: 24px; }
+ .section > .wrap > :last-child { margin-bottom: 0; }
+ .section-heading { margin-bottom: 24px; }
+ .section-heading > p, .section h2 + p { margin-top: 16px; }
+ .button-row, .pdf-actions { margin-top: 20px; }
+ .approach-steps::before, .approach-steps li::before { display: block; }
+ @media (max-width: 760px) { .approach-steps li { padding-left: 1.4rem; } }
+ @media (max-width: 48rem) {
+  .section { padding-block: 16px; }
+  .section-heading { margin-bottom: 20px; }
+  .section-heading > p, .section h2 + p { margin-top: 12px; }
+  .button-row, .pdf-actions { margin-top: 16px; }
+ }
 }

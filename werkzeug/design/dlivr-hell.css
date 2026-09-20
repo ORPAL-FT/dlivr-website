@@ -1,0 +1,20 @@
+/* Design-System v1.3.0 – DLIVR, nur heller Modus */
+:root {
+  --paper: #f4f2ef;
+  --hero-surface: #f4f2ef;
+  --product-surface: #ece7e1;
+  --button-bg: #a65332;
+  --button-hover: #874027;
+  --link-underline: #c6b6aa;
+  --card: #ffffff;
+  --ink: #25282e;
+  --muted: #62646a;
+  --line: #d8d5d0;
+  --fine: #e2dfda;
+  --accent: #99482b;
+  --accent-mark: #b56846;
+  --accent-dark: #874027;
+  --accent-light: #e2a185;
+  --band: #202227;
+  --band-ink: #f4f2ef;
+}

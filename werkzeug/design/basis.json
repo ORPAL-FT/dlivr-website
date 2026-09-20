@@ -1,0 +1,87 @@
+{
+  "status": "freigegeben",
+  "regeln": [
+    "Semantische Namen verwenden",
+    "Marke und Status trennen",
+    "Hell/Dunkel separat prüfen",
+    "Tastaturfokus und Druck berücksichtigen",
+    "Überschriften und Fließtext tragen die Textfarbe, nie die Markenfarbe.",
+    "Auf Kopf-, Band- und Aktionsflächen die zugehörige kontrastierende Textfarbe verwenden.",
+    "Erfolg, Warnung, Fehler und Information ausschließlich aus zentralen Status-Tokens beziehen; keine Markenfarbe als Status ableiten.",
+    "Die Monospace-Schrift (font.mono) trägt Bezeichner und Kennungen – Feldbezeichner, Abschnittstitel, Spaltenköpfe, Etiketten, Zählungen, VIN, Nummern –, nie Text, den man liest (Werte, Zustände, Knopfbeschriftungen, Fließtext), und nie über 12 px."
+  ],
+  "werte": {
+    "status.success": "#246b45",
+    "status.warning": "#875000",
+    "status.error": "#a12622",
+    "status.info": "#1856a5",
+    "status.success.surface": "#e8f4ee",
+    "status.warning.surface": "#f8ebe6",
+    "status.error.surface": "#fbe6e6",
+    "status.info.surface": "#e7effb"
+  },
+  "version": "1.3.1",
+  "freigabe": {
+    "datum": "2026-09-19",
+    "durch": "Frank Töpfer",
+    "umfang": "Regel 8 (Schriftrolle font.mono) Version 1.3.1; Regeln 1–7 und zentrale Statusfarben unverändert seit 1.1.0"
+  },
+  "provenienz": {
+    "status.success": {
+      "art": "Designentscheidung 1.1.0",
+      "quelle_repository": "ORPAL-FT/design-system",
+      "quelle_commit": "4997ca0502e370a3663adcc86adfe23050376ac9",
+      "hinweis": "Neu definierter Wert auf Basis des freigegebenen Ausgangsstands; keine aus der Website übernommene Statusfarbe.",
+      "quelle_pfad": "tokens/basis.json"
+    },
+    "status.warning": {
+      "art": "Designentscheidung 1.1.0",
+      "quelle_repository": "ORPAL-FT/design-system",
+      "quelle_commit": "4997ca0502e370a3663adcc86adfe23050376ac9",
+      "hinweis": "Neu definierter Wert auf Basis des freigegebenen Ausgangsstands; keine aus der Website übernommene Statusfarbe.",
+      "quelle_pfad": "tokens/basis.json"
+    },
+    "status.error": {
+      "art": "Designentscheidung 1.1.0",
+      "quelle_repository": "ORPAL-FT/design-system",
+      "quelle_commit": "4997ca0502e370a3663adcc86adfe23050376ac9",
+      "hinweis": "Neu definierter Wert auf Basis des freigegebenen Ausgangsstands; keine aus der Website übernommene Statusfarbe.",
+      "quelle_pfad": "tokens/basis.json"
+    },
+    "status.info": {
+      "art": "Designentscheidung 1.1.0",
+      "quelle_repository": "ORPAL-FT/design-system",
+      "quelle_commit": "4997ca0502e370a3663adcc86adfe23050376ac9",
+      "hinweis": "Neu definierter Wert auf Basis des freigegebenen Ausgangsstands; keine aus der Website übernommene Statusfarbe.",
+      "quelle_pfad": "tokens/basis.json"
+    },
+    "status.success.surface": {
+      "quelle_repository": "ORPAL-FT/mi-tool-website",
+      "quelle_pfad": "assets/stil.css",
+      "quelle_commit": "bbcefd5026817aa9bd291d6f79888e2a0496450d",
+      "art": "Statusfläche 1.3.0; mit zentraler Textfarbe geprüft",
+      "variable": "--gut-flach"
+    },
+    "status.warning.surface": {
+      "quelle_repository": "ORPAL-FT/mi-tool-website",
+      "quelle_pfad": "assets/stil.css",
+      "quelle_commit": "bbcefd5026817aa9bd291d6f79888e2a0496450d",
+      "art": "Statusfläche 1.3.0; mit zentraler Textfarbe geprüft",
+      "variable": "--stempel-flach"
+    },
+    "status.error.surface": {
+      "quelle_repository": "ORPAL-FT/design-system",
+      "quelle_pfad": "tokens/basis.json",
+      "quelle_commit": "37b345bff270cf46f686fafa038234ca8f74d372",
+      "art": "Statusfläche 1.3.0; mit zentraler Textfarbe geprüft",
+      "variable": "Designentscheidung 1.3.0"
+    },
+    "status.info.surface": {
+      "quelle_repository": "ORPAL-FT/mi-tool-website",
+      "quelle_pfad": "assets/stil.css",
+      "quelle_commit": "bbcefd5026817aa9bd291d6f79888e2a0496450d",
+      "art": "Statusfläche 1.3.0; mit zentraler Textfarbe geprüft",
+      "variable": "--blau-flach"
+    }
+  }
+}

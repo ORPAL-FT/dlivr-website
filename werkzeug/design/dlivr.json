@@ -1,0 +1,201 @@
+{
+  "status": "freigegeben",
+  "version": "1.3.0",
+  "modus": "hell",
+  "farben": {
+    "surface.page": "#f4f2ef",
+    "surface.hero": "#f4f2ef",
+    "surface.product": "#ece7e1",
+    "action.primary": "#a65332",
+    "action.hover": "#874027",
+    "border.link": "#c6b6aa",
+    "surface.card": "#ffffff",
+    "text.primary": "#25282e",
+    "text.muted": "#62646a",
+    "border.default": "#d8d5d0",
+    "border.subtle": "#e2dfda",
+    "brand.accent": "#99482b",
+    "brand.mark": "#b56846",
+    "brand.dark": "#874027",
+    "brand.light": "#e2a185",
+    "surface.band": "#202227",
+    "text.onBand": "#f4f2ef",
+    "surface.header": "#ffffff",
+    "text.onHeader": "#25282e",
+    "text.onAction": "#ffffff",
+    "band.line": "#99482b",
+    "text.subtle": "#62646a",
+    "surface.raised": "#ffffff"
+  },
+  "provenienz": {
+    "surface.page": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--paper",
+      "art": "Quellwert"
+    },
+    "surface.hero": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--hero-surface",
+      "art": "Quellwert"
+    },
+    "surface.product": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--product-surface",
+      "art": "Quellwert"
+    },
+    "action.primary": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--button-bg",
+      "art": "Quellwert"
+    },
+    "action.hover": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--button-hover",
+      "art": "Quellwert"
+    },
+    "border.link": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--link-underline",
+      "art": "Quellwert"
+    },
+    "surface.card": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--card",
+      "art": "Quellwert"
+    },
+    "text.primary": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--ink",
+      "art": "Quellwert"
+    },
+    "text.muted": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--muted",
+      "art": "Quellwert"
+    },
+    "border.default": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--line",
+      "art": "Quellwert"
+    },
+    "border.subtle": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--fine",
+      "art": "Quellwert"
+    },
+    "brand.accent": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--accent",
+      "art": "Quellwert"
+    },
+    "brand.mark": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--accent-mark",
+      "art": "Quellwert"
+    },
+    "brand.dark": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--accent-dark",
+      "art": "Quellwert"
+    },
+    "brand.light": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--accent-light",
+      "art": "Quellwert"
+    },
+    "surface.band": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--band",
+      "art": "Quellwert"
+    },
+    "text.onBand": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--band-ink",
+      "art": "Quellwert"
+    },
+    "surface.header": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--card",
+      "art": "Semantische Zuordnung eines Quellwerts"
+    },
+    "text.onHeader": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--ink",
+      "art": "Semantische Zuordnung eines Quellwerts"
+    },
+    "text.onAction": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "art": "Designentscheidung 1.1.0",
+      "begruendung": "Kontrastfarbe zur primären Aktion; keine unveränderte Quellenübernahme behauptet."
+    },
+    "band.line": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--accent",
+      "art": "Semantischer Alias 1.3.0",
+      "alias": "brand.accent"
+    },
+    "text.subtle": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--muted",
+      "art": "Semantischer Alias 1.3.0",
+      "alias": "text.muted"
+    },
+    "surface.raised": {
+      "repository": "ORPAL-FT/dlivr-website",
+      "pfad": "css/style.css",
+      "commit": "1f05d0b6b3fcf993103ecf9badfb16d551030132",
+      "variable": "--card",
+      "art": "Semantischer Alias 1.3.0",
+      "alias": "surface.card"
+    }
+  },
+  "freigabe": {
+    "datum": "2026-09-18",
+    "durch": "Frank Töpfer"
+  },
+  "hinweis": "Dunkle Varianten sind nicht vollständig tokenisiert. Keine automatische Migration produktiver Projekte."
+}
