@@ -13,9 +13,10 @@ Navigation und Gestaltung. Mi-Tool ist auf Start- und Leistungsseite als
 Praxisbeispiel verlinkt; Inhalte stammen aus dem aktuellen Mi-Tool-Marketingprojekt.
 Das dortige Logo wurde als lokale SVG-Datei übernommen.
 
-**Lokal umgesetzt und auf GitHub aktualisiert.** Frank klärt den Umzug vom bisherigen
-Hosting zu Hostinger. Es wurden keine DNS-, Hosting- oder GitHub-Pages-Einstellungen
-geändert. Eine Veröffentlichung auf dem Zielhosting steht noch aus.
+**Live.** `dlivr.eu` liefert den Stand dieses Repositories aus; geprüft am 22.09.2026
+per Hash-Vergleich von `index.html`, `css/style.css`, `leistungen.html` und
+`kontakt.html` gegen Commit 870c72c vom 20.09.2026. DNS- und Hosting-Einstellungen
+wurden aus diesem Repository heraus nicht geändert.
 
 ## Dateien und Vorschau
 
@@ -44,18 +45,28 @@ Die Domain antwortete über nginx; das Repository hatte eine GitHub-Pages-Konfig
 Die damalige Live-Seite verwendete ein dunkles Layout mit Rot `#c0392b`.
 
 `live-abzug/dlivr-eu_2026-09-01.html` bleibt unverändert als historische Sicherung.
-Sie ist nicht die Quelle dieser Überarbeitung. Der aktuelle Live-Stand konnte am
-13.09.2026 nicht abgerufen werden.
+Sie ist nicht die Quelle dieser Überarbeitung. Am 13.09.2026 war der Live-Stand nicht
+abrufbar; seit spätestens 22.09.2026 entspricht er diesem Repository.
 
-## Vor der späteren Veröffentlichung klären
+## Weiterhin offen
 
-- Zielverzeichnis und Auslieferung bei Hostinger mit Frank abstimmen.
 - E-Mail-Adresse bestätigen: hier bleibt die bisherige Repository-Adresse
   `frank.toepfer@dlivr-design.com`; der historische Live-Abzug nennt `ft@dlivr.eu`.
 - Bestehenden Datenschutztext auf das tatsächliche Hosting und den Umgang mit
   Anfragen abstimmen. Er wurde bei der Layoutarbeit nicht inhaltlich überarbeitet.
-- Nur die drei HTML-Dateien sowie `css/` und `assets/` ausliefern; die historische
-  Sicherung und Repository-Dateien gehören nicht zur neuen Website.
+
+Ausgeliefert gehören nur die HTML-Dateien sowie `css/` und `assets/`; die historische
+Sicherung und die Werkzeuge unter `werkzeug/` sind nicht Teil der Website.
+
+## Designprüfung
+
+`werkzeug/design-pruefen.py` prüft den hellen Tokenadapter am Anfang von `css/style.css`
+gegen die Tokens des Design-Systems. Es liest sie direkt aus
+`DLIVR_DATAHOUSE/GEMEINSAM/design-system/` (Repository `ORPAL-FT/design-system`,
+freigegebene Version laut `freigabe.json`); eine lokale Kopie der Tokens gibt es seit
+dem 22.09.2026 nicht mehr. `werkzeug/design/dlivr-hell.css` ist der Adapter der Website,
+kein Bestandteil des Design-Systems. Logo-Entwürfe, Rechnungslogo und Briefkopf liegen
+seit dem 22.09.2026 unter `GEMEINSAM/markenmaterial/`, nicht in diesem Repository.
 
 Der Telefonlink wurde an die sichtbare Nummer `+49 (0)6583 – 990 41` angeglichen
 (`tel:+49658399041`); zuvor enthielt er eine zusätzliche Null.
