@@ -59,6 +59,20 @@ abrufbar; seit spätestens 22.09.2026 entspricht er diesem Repository.
 Ausgeliefert gehören nur die HTML-Dateien sowie `css/` und `assets/`; die historische
 Sicherung und die Werkzeuge unter `werkzeug/` sind nicht Teil der Website.
 
+## Arbeitsablauf: Änderungen an der Website
+
+Jeder Push auf `main` geht sofort live. Deshalb ist `main` seit dem 23.09.2026 durch die
+GitHub-Regel „main nur per Pull Request“ geschützt: kein direkter Push, kein Löschen,
+kein Überschreiben der Historie, auch nicht für Administratoren.
+
+1. Änderungen auf einem Zweig vorbereiten (`git checkout -b <thema>`), committen, pushen.
+2. Pull Request gegen `main` öffnen; die Beschreibung nennt, was sich sichtbar ändert.
+3. Frank prüft und mergt. Der Merge ist die Freigabe und zugleich die Veröffentlichung;
+   Hostinger übernimmt den neuen Stand automatisch. Der Zweig wird beim Merge gelöscht.
+
+Kleine Korrekturen gehen denselben Weg, nur schneller. Muss die Regel einmal umgangen
+werden, lässt sie sich unter Settings › Rules › Rulesets vorübergehend deaktivieren.
+
 ## Designprüfung
 
 `werkzeug/design-pruefen.py` prüft den hellen Tokenadapter am Anfang von `css/style.css`
