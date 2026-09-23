@@ -15,8 +15,9 @@ Das dortige Logo wurde als lokale SVG-Datei übernommen.
 
 **Live.** `dlivr.eu` liefert den Stand dieses Repositories aus; geprüft am 22.09.2026
 per Hash-Vergleich von `index.html`, `css/style.css`, `leistungen.html` und
-`kontakt.html` gegen Commit 870c72c vom 20.09.2026. DNS- und Hosting-Einstellungen
-wurden aus diesem Repository heraus nicht geändert.
+`kontakt.html` gegen Commit 870c72c vom 20.09.2026. Hostinger ist mit dem
+GitHub-Repository verbunden und übernimmt jeden Push auf `main` automatisch;
+ein Push ist damit eine Veröffentlichung.
 
 ## Dateien und Vorschau
 
@@ -48,12 +49,12 @@ Die damalige Live-Seite verwendete ein dunkles Layout mit Rot `#c0392b`.
 Sie ist nicht die Quelle dieser Überarbeitung. Am 13.09.2026 war der Live-Stand nicht
 abrufbar; seit spätestens 22.09.2026 entspricht er diesem Repository.
 
-## Weiterhin offen
+## Entschieden am 23.09.2026
 
-- E-Mail-Adresse bestätigen: hier bleibt die bisherige Repository-Adresse
-  `frank.toepfer@dlivr-design.com`; der historische Live-Abzug nennt `ft@dlivr.eu`.
-- Bestehenden Datenschutztext auf das tatsächliche Hosting und den Umgang mit
-  Anfragen abstimmen. Er wurde bei der Layoutarbeit nicht inhaltlich überarbeitet.
+- E-Mail-Adresse der Website ist `ft@dlivr.eu` (Kontakt, Impressum, Datenschutz).
+  Die frühere Repository-Adresse `frank.toepfer@dlivr-design.com` wird nicht mehr verwendet.
+- Der Datenschutztext bleibt in der vorliegenden Fassung. Er wurde bei der
+  Layoutarbeit nicht inhaltlich überarbeitet.
 
 Ausgeliefert gehören nur die HTML-Dateien sowie `css/` und `assets/`; die historische
 Sicherung und die Werkzeuge unter `werkzeug/` sind nicht Teil der Website.
