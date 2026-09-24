@@ -59,6 +59,31 @@ abrufbar; seit spätestens 22.09.2026 entspricht er diesem Repository.
 Ausgeliefert gehören nur die HTML-Dateien sowie `css/` und `assets/`; die historische
 Sicherung und die Werkzeuge unter `werkzeug/` sind nicht Teil der Website.
 
+## Partnerseite · 25.09.2026
+
+`partner.html` wird **nicht von Hand bearbeitet**. Sie entsteht aus der
+gemeinsamen Quelle `GEMEINSAM/inhalte/partner.json` (Repo `ORPAL-FT/inhalte`),
+die sich mi-tool.tech und dlivr.eu teilen:
+
+```bash
+python3 werkzeug/partner-erzeugen.py            # schreibt partner.html
+python3 werkzeug/partner-erzeugen.py --pruefen  # meldet nur, ob sie aktuell ist
+```
+
+Gebaut wird nur, was freigegeben ist: `"dlivr"` muss in `seiten` stehen, `aktiv`
+auf `true` und die Beschreibung darf nicht leer sein. Die Regeln stehen in
+`schema.md` der Quelle. Ist nichts freigegeben, entsteht eine leere Seite mit
+Hinweis — dann gehört der Navigationseintrag wieder heraus.
+
+Kopf und Fuß schreibt der Generator nicht ab, sondern nimmt sie aus
+`index.html` und schreibt `href="#…"` zu `href="index.html#…"` um. Ändert sich
+die Navigation der Startseite, zieht der nächste Lauf sie mit. Die Seite
+verwendet nur vorhandene Bausteine (`.section`, `.wrap`, `.cards`, `.card`,
+`.label`, `.text-link`) — an `css/style.css` ändert sich nichts.
+
+Ändert sich ein Text, wird er **in der Quelle** geändert, nicht hier; danach
+laufen die Generatoren in **beiden** Webseiten-Repos.
+
 ## Arbeitsablauf: Änderungen an der Website
 
 Jeder Push auf `main` geht sofort live. Deshalb ist `main` seit dem 23.09.2026 durch die
