@@ -246,3 +246,26 @@ Der Einstiegsbereich folgt jetzt dem Hell-Dunkel-Schalter: im Hellmodus
 warmer heller Hintergrund, dunkle Schrift und kräftiges Kupfer; im Dunkelmodus
 dunkler Hintergrund mit hellen Texten. Buttons, Fokus und Schrittliniendarstellung
 verwenden die passende Palette. Beide Modi und 320 px Breite geprüft.
+
+## Beitragsseite
+
+`beitraege.html` zeigt die LinkedIn-Beiträge und wird **nicht von Hand
+bearbeitet**. Quelle ist `GEMEINSAM/inhalte/beitraege.json` (Repo
+`ORPAL-FT/inhalte`), dieselbe Ablage wie bei den Partnern; mi-tool.tech baut
+aus derselben Datei seine eigene Fassung.
+
+```bash
+python3 werkzeug/beitraege-erzeugen.py            # schreibt beitraege.html
+python3 werkzeug/beitraege-erzeugen.py --pruefen  # meldet nur, ob sie aktuell ist
+```
+
+Ein Beitrag mit `veroeffentlicht_am` erscheint vollständig, mit Text, Grafik
+und dem Verweis auf LinkedIn. Ein geplanter Beitrag erscheint höchstens als
+Datum und Titel unter „Demnächst“, und nur mit `geplant_zeigen: true`. So
+steht hier nie ein Text, den es auf LinkedIn noch nicht gibt.
+
+Die Seite lädt nichts von LinkedIn nach. Die Grafiken kommen aus `bilder/` der
+Quelle und werden beim Lauf nach `assets/beitraege/` kopiert und mitcommittet.
+
+Ändert sich ein Text, wird er **in der Quelle** geändert; danach laufen die
+Generatoren in **beiden** Webseiten-Repos.
