@@ -1,3 +1,4 @@
 .DS_Store
 entwürfe/
 export/
+__pycache__/

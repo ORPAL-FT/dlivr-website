@@ -84,6 +84,44 @@ verwendet nur vorhandene Bausteine (`.section`, `.wrap`, `.cards`, `.card`,
 Ändert sich ein Text, wird er **in der Quelle** geändert, nicht hier; danach
 laufen die Generatoren in **beiden** Webseiten-Repos.
 
+Seit dem 25.09.2026 steht der gemeinsame Teil der Generatoren in
+`werkzeug/inhalte.py`: Quelle lesen, sieben, schreiben, prüfen, Logos, Rahmen,
+Sortierung. `partner-erzeugen.py` und `referenzen-erzeugen.py` enthalten nur
+noch das Layout ihrer Seite. Wer eine Baustopp-Regel ändert, ändert sie damit
+für beide Seiten zugleich — sie können nicht mehr auseinanderlaufen.
+`beitraege-erzeugen.py` bleibt vorerst für sich: es hat eigene Regeln
+(`veroeffentlicht_am`, `geplant_zeigen`, verstrichene Termine).
+
+## Referenzseite · 25.09.2026
+
+`referenzen.html` entsteht wie die Partnerseite aus der gemeinsamen Quelle,
+hier aus `GEMEINSAM/inhalte/referenzen.json`:
+
+```bash
+python3 werkzeug/referenzen-erzeugen.py            # schreibt referenzen.html
+python3 werkzeug/referenzen-erzeugen.py --pruefen  # meldet nur, ob sie aktuell ist
+```
+
+Der Unterschied zur Partnerseite ist der Schalter. Bei Partnern entscheidet
+`aktiv`, bei Referenzen `freigegeben_am` — und dieses Datum trägt die Freigabe
+**des Kunden**, die Frank einholt. Ohne das Datum erscheint ein Haus nirgends,
+auch nicht mit Namen. Die Karte zeigt Kategorie, Name, Leistung, den Satz aus
+`beschreibung` (er nennt auch den Ort) und, falls vorhanden, das Logo. Ein
+Zitat steht dort nicht: dafür bräuchte es eine eigene schriftliche Freigabe,
+und die Quelle führt kein Feld dafür. Verwendet sind nur vorhandene Bausteine
+(`.section`, `.wrap`, `.cards`, `.card`, `.service-card`, `.service-lead`,
+`.label`, `.text-link`) — an `css/style.css` ändert sich nichts.
+
+**Stand 25.09.2026: kein Eintrag ist freigegeben.** Die Seite entsteht
+trotzdem, bleibt aber leer und steht **nicht** in der Navigation. Trägt
+`referenzen.json` das erste `freigegeben_am`, gehört der Navigationseintrag in
+`index.html` nachgezogen; der nächste Generatorlauf zieht ihn dann in alle
+erzeugten Unterseiten mit.
+
+Zwei Häuser stehen als Entwurf in der Quelle, beide für dlivr.eu vorgesehen.
+Solange `freigegeben_am` leer ist, landet keines von beiden im ausgelieferten
+HTML — auch nicht der Kundenname.
+
 ## Arbeitsablauf: Änderungen an der Website
 
 Jeder Push auf `main` geht sofort live. Deshalb ist `main` seit dem 23.09.2026 durch die
