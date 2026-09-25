@@ -1,0 +1,10 @@
+# dlivr.eu — alles darf gelesen werden, es gibt nichts Verstecktes.
+User-agent: *
+Allow: /
+
+# Die drei Weiterleitungsseiten sind nur Merkzettel fuer alte Lesezeichen;
+# ihr Inhalt steht auf der Startseite.
+Disallow: /leistungen.html
+Disallow: /kontakt.html
+
+Sitemap: https://dlivr.eu/sitemap.xml

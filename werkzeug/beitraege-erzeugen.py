@@ -211,6 +211,26 @@ def stilblatt() -> str:
     return treffer.group(1)
 
 
+def kanonisch(daten: dict) -> str:
+    """Der canonical-Verweis fuer diese Seite.
+
+    Dieselben Beitraege stehen auf beiden Webseiten. `kanonische_seite` im Kopf
+    der Quelle sagt, welche Fassung fuer Suchmaschinen das Original ist; ist es
+    nicht diese hier, verweist die Seite dorthin, statt mit ihr um denselben
+    Text zu konkurrieren. Fehlt die Angabe, bleibt es beim Verweis auf sich
+    selbst — geraten wird nichts.
+    """
+    original = daten.get("kanonische_seite") or DIESE_SEITE
+    ziel = ("https://dlivr.eu/beitraege.html" if original == DIESE_SEITE
+            else "https://mi-tool.tech/beitraege.html")
+    zeile = f'<link rel="canonical" href="{ziel}">'
+    if original == DIESE_SEITE:
+        return zeile
+    return (zeile + "\n<!-- Dieselben Beitraege stehen auf mi-tool.tech. Dort liegt laut\n"
+            "     kanonische_seite in GEMEINSAM/inhalte/beitraege.json das Original;\n"
+            "     dieser Verweis haelt beide Fassungen auseinander. -->")
+
+
 def seite(daten: dict, gebaut: list[tuple[dict, str | None]], geplant: list[dict],
           stand: str) -> str:
     kopf, fuss = rahmen()
@@ -222,7 +242,18 @@ def seite(daten: dict, gebaut: list[tuple[dict, str | None]], geplant: list[dict
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{beschreibung}">
-<link rel="canonical" href="https://dlivr.eu/beitraege.html">
+{kanonisch(daten)}
+<meta property="og:title" content="Beitr&auml;ge &ndash; DLIVR">
+<meta property="og:description" content="{beschreibung}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dlivr.eu/beitraege.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="DLIVR">
+<meta property="og:image" content="https://dlivr.eu/assets/dlivr-link-vorschau-20260925.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DLIVR &ndash; Beratung und Umsetzung f&uuml;r den Mittelstand.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f4f2ef">
 <meta name="color-scheme" content="light dark">
 <script src="assets/theme.js?v=20260914-anchor-focus"></script>

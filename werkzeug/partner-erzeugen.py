@@ -167,6 +167,17 @@ def seite(daten: dict, stand: str,
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="{beschreibung}">
 <link rel="canonical" href="https://dlivr.eu/partner.html">
+<meta property="og:title" content="Partner &ndash; DLIVR">
+<meta property="og:description" content="{beschreibung}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dlivr.eu/partner.html">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="DLIVR">
+<meta property="og:image" content="https://dlivr.eu/assets/dlivr-link-vorschau-20260925.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="DLIVR &ndash; Beratung und Umsetzung f&uuml;r den Mittelstand.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f4f2ef">
 <meta name="color-scheme" content="light dark">
 <script src="assets/theme.js?v=20260914-anchor-focus"></script>
