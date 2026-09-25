@@ -279,3 +279,21 @@ Servern wird nichts geladen. Liefert ein Partner eine helle Fassung
 (`logo_dunkelmodus`), schaltet die Seite im Dunkelmodus darauf um, mit
 denselben Klassen wie die eigene Wortmarke. Ohne Logo bleibt die Karte bei
 Name, Text und Verweis.
+
+## Auffindbarkeit
+
+Stand 25.09.2026, drei Grundlagen nachgeholt:
+
+- `robots.txt` und `sitemap.xml` liegen jetzt vor. Die Sitemap führt die fünf
+  echten Seiten; `leistungen.html` und `kontakt.html` sind nur Merkzettel für
+  alte Lesezeichen und bleiben ausgeschlossen. Ändert sich der Seitenbestand,
+  gehört die Sitemap von Hand nachgezogen.
+- Jede Seite trägt Angaben für die Linkvorschau (Open Graph). Das Bild ist
+  `assets/dlivr-link-vorschau-20260925.png`, 1200 × 630, aus der Wortmarke und
+  den Markenfarben des Design-Systems v1.3.1 gesetzt. Bei einem neuen Bild
+  einen neuen Dateinamen verwenden, sonst zeigen die Plattformen weiter das
+  alte aus ihrem Zwischenspeicher.
+- `beitraege.html` verweist mit `canonical` auf die Fassung von mi-tool.tech.
+  Dieselben Beitragstexte stehen auf beiden Webseiten; welche als Original
+  gilt, steht im Kopf der gemeinsamen Quelle unter `kanonische_seite`. Dreht
+  man das dort um, folgen beide Generatoren.
