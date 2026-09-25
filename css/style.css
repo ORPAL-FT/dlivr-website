@@ -487,3 +487,25 @@ code { font-family: var(--mono); font-size: .75rem; }
   .button-row, .pdf-actions { margin-top: 16px; }
  }
 }
+
+/* Partnerlogos auf partner.html. Dieselbe Umschaltung wie bei der eigenen
+   Wortmarke (.logo-on-light / .logo-on-dark): Wer eine helle Fassung
+   mitliefert, bekommt sie im Dunkelmodus; wer nur eine hat, behaelt sie in
+   beiden Modi. Die Hoehe ist gedeckelt, damit ein breites und ein schmales
+   Logo auf gleicher Linie stehen. */
+.partner-logo {
+  display: block;
+  height: 34px;
+  width: auto;
+  max-width: 70%;
+  object-fit: contain;
+  object-position: left center;
+  margin: 0 0 16px;
+}
+.partner-logo.logo-on-dark { display: none; }
+:root[data-theme="dark"] .partner-logo.logo-on-light { display: none; }
+:root[data-theme="dark"] .partner-logo.logo-on-dark { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .partner-logo.logo-on-light { display: none; }
+  :root:not([data-theme="light"]) .partner-logo.logo-on-dark { display: block; }
+}

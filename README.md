@@ -269,3 +269,13 @@ Quelle und werden beim Lauf nach `assets/beitraege/` kopiert und mitcommittet.
 
 Ändert sich ein Text, wird er **in der Quelle** geändert; danach laufen die
 Generatoren in **beiden** Webseiten-Repos.
+
+### Partnerlogos
+
+Seit dem 25.09.2026 trägt jede Partnerkarte das Logo des Partners, sofern er
+eines geliefert hat. Die Dateien liegen in `logo/` der gemeinsamen Quelle und
+werden beim Lauf nach `assets/partner/` kopiert und mitcommittet; von fremden
+Servern wird nichts geladen. Liefert ein Partner eine helle Fassung
+(`logo_dunkelmodus`), schaltet die Seite im Dunkelmodus darauf um, mit
+denselben Klassen wie die eigene Wortmarke. Ohne Logo bleibt die Karte bei
+Name, Text und Verweis.

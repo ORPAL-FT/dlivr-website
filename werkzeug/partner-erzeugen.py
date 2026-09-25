@@ -23,12 +23,14 @@ import html
 import json
 import pathlib
 import re
+import shutil
 import subprocess
 import sys
 
 WURZEL = pathlib.Path(__file__).resolve().parents[1]
 QUELLE_VORGABE = WURZEL.parents[2] / "GEMEINSAM" / "inhalte" / "partner.json"
 ZIEL = WURZEL / "partner.html"
+LOGOORDNER = WURZEL / "assets" / "partner"
 DIESE_SEITE = "dlivr"
 
 KATEGORIEN = ["IT-Systemhaus", "Beratung", "Automatisierung"]
@@ -74,7 +76,43 @@ def rahmen() -> tuple[str, str]:
     return kopf, fuss
 
 
-def karte(eintrag: dict) -> str:
+def logo_uebernehmen(eintrag: dict, quelle: pathlib.Path, schreiben: bool) -> tuple[str | None, str | None]:
+    """Kopiert die Logodateien aus der Quelle nach assets/partner.
+
+    Zurueck kommen die Pfade fuer helle und dunkle Flaeche. Fehlt die zweite
+    Fassung, gilt die erste in beiden Modi; fehlt beides, zeigt die Karte nur
+    den Namen — so steht es in schema.md der Quelle.
+    """
+    pfade: list[str | None] = []
+    for feld in ("logo", "logo_dunkelmodus"):
+        wert = eintrag.get(feld)
+        if not wert:
+            pfade.append(None)
+            continue
+        herkunft = quelle.parent / wert
+        if not herkunft.is_file():
+            raise SystemExit(f"Logo fehlt in der Quelle: {herkunft}")
+        ziel = LOGOORDNER / f"{eintrag['id']}{'-weiss' if feld.endswith('dunkelmodus') else ''}{herkunft.suffix}"
+        if schreiben:
+            LOGOORDNER.mkdir(parents=True, exist_ok=True)
+            if not ziel.is_file() or ziel.read_bytes() != herkunft.read_bytes():
+                shutil.copyfile(herkunft, ziel)
+        pfade.append(f"assets/partner/{ziel.name}")
+    return pfade[0], pfade[1]
+
+
+def logo_bild(hell: str | None, dunkel: str | None) -> str:
+    """Das Logo als ein oder zwei <img>. Der Name steht als Ueberschrift
+    daneben, das Logo ist darum fuer Vorlesewerkzeuge schmueckend."""
+    if not hell:
+        return ""
+    if not dunkel:
+        return f'<img class="partner-logo" src="{hell}" alt="" aria-hidden="true" loading="lazy" decoding="async">\n'
+    return (f'<img class="partner-logo logo-on-light" src="{hell}" alt="" aria-hidden="true" loading="lazy" decoding="async">\n'
+            f'<img class="partner-logo logo-on-dark" src="{dunkel}" alt="" aria-hidden="true" loading="lazy" decoding="async">\n')
+
+
+def karte(eintrag: dict, logos: tuple[str | None, str | None] = (None, None)) -> str:
     name = html.escape(eintrag["name"])
     url = html.escape(eintrag["url"], quote=True)
     text = html.escape(eintrag["beschreibung"])
@@ -82,6 +120,7 @@ def karte(eintrag: dict) -> str:
     fahne = html.escape(eintrag["kategorie"])
     return (
         f'<article class="card service-card" id="partner-{kennung}">\n'
+        f"{logo_bild(*logos)}"
         f'<p class="label"><span>{fahne}</span></p>\n'
         f"<h3>{name}</h3>\n"
         f"<p>{text}</p>\n"
@@ -97,14 +136,14 @@ def sortiert(liste: list[dict]) -> list[dict]:
                                         e["kategorie"], e.get("sortierung", 0), e["name"]))
 
 
-def rumpf(liste: list[dict]) -> str:
+def rumpf(liste: list[dict], logos: dict[str, tuple[str | None, str | None]]) -> str:
     if not liste:
         # Leere Seite, kein Abbruch und kein Raten — so steht es in schema.md.
         return (
             '<p class="eyebrow">Partner</p>\n<h1>Partner</h1>\n'
             '<p class="intro">Derzeit ist kein Eintrag freigegeben.</p>\n'
         )
-    karten = "\n".join(karte(e) for e in sortiert(liste))
+    karten = "\n".join(karte(e, logos.get(e["id"], (None, None))) for e in sortiert(liste))
     return (
         '<p class="eyebrow">Partner</p>\n'
         "<h1>Gemeinsam mehr<br>als allein.</h1>\n"
@@ -115,7 +154,8 @@ def rumpf(liste: list[dict]) -> str:
     )
 
 
-def seite(daten: dict, stand: str) -> str:
+def seite(daten: dict, stand: str,
+          logos: dict[str, tuple[str | None, str | None]]) -> str:
     liste = [e for e in daten.get("partner", []) if baubar(e)]
     kopf, fuss = rahmen()
     beschreibung = ("Die Partner von DLIVR: Systemhaus, Beratung und Automatisierung "
@@ -132,7 +172,7 @@ def seite(daten: dict, stand: str) -> str:
 <script src="assets/theme.js?v=20260914-anchor-focus"></script>
 <title>Partner · DLIVR</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=a11c54bdeb29">
+<link rel="stylesheet" href="css/style.css?v=7f5ca38c2ea9">
 </head>
 <body>
 <!-- Erzeugt von werkzeug/partner-erzeugen.py aus GEMEINSAM/inhalte/partner.json
@@ -143,7 +183,7 @@ def seite(daten: dict, stand: str) -> str:
 
 <main id="inhalt" tabindex="0" aria-label="Seiteninhalt">
 <section class="section"><div class="wrap">
-{rumpf(liste)}</div></section>
+{rumpf(liste, logos)}</div></section>
 </main>
 
 {fuss}
@@ -169,7 +209,8 @@ def haupt() -> int:
 
     gebaut = [e for e in daten.get("partner", []) if baubar(e)]
     uebergangen = [e for e in daten.get("partner", []) if not baubar(e)]
-    text = seite(daten, quellstand(wahl.quelle))
+    logos = {e["id"]: logo_uebernehmen(e, wahl.quelle, not wahl.pruefen) for e in gebaut}
+    text = seite(daten, quellstand(wahl.quelle), logos)
 
     if wahl.pruefen:
         alt = ZIEL.read_text(encoding="utf-8") if ZIEL.exists() else ""
@@ -183,7 +224,9 @@ def haupt() -> int:
     ZIEL.write_text(text, encoding="utf-8")
     print(f"partner.html geschrieben: {len(gebaut)} Partner.")
     for eintrag in gebaut:
-        print(f"  gebaut      {eintrag['id']:<12} {eintrag['kategorie']}")
+        hell, dunkel = logos[eintrag["id"]]
+        bild = "ohne Logo" if not hell else ("Logo hell und dunkel" if dunkel else "ein Logo")
+        print(f"  gebaut      {eintrag['id']:<12} {eintrag['kategorie']:<16} {bild}")
     for eintrag in uebergangen:
         grund = ("nicht fuer diese Seite" if DIESE_SEITE not in eintrag.get("seiten", [])
                  else "nicht freigegeben (aktiv)" if eintrag.get("aktiv") is not True
