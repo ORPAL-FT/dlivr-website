@@ -1,0 +1,37 @@
+# =====================================================================
+# dlivr.eu — Auslieferung (Apache / LiteSpeed, wie bei Hostinger)
+#
+# Diese Datei sperrt Arbeitsdateien. Sie aendert nichts an der Seite selbst:
+# keine Kopfzeilen, keine Umleitungen, kein Zwischenspeicher. Wer die Seite
+# woanders betreibt, kann sie ersatzlos weglassen — dann liegen die
+# Arbeitsdateien allerdings offen.
+#
+# Angelegt am 26.09.2026, nachdem auffiel, dass ueber dlivr.eu die Generatoren
+# unter werkzeug/ und die README mit HTTP 200 zu lesen waren. Grund ist die
+# Git-Anbindung von hPanel: Sie legt den ganzen Zweig in public_html, nicht
+# eine Auswahl. mi-tool.tech hat dieselbe Sperre seit dem 11.09.2026.
+# =====================================================================
+
+# --- Verzeichnisse nicht auflisten -----------------------------------
+Options -Indexes
+
+# --- Arbeitsdateien nicht ausliefern ---------------------------------
+# Oeffentlich sind: die .html-Seiten, assets/, css/, robots.txt, sitemap.xml.
+# Alles andere im Zweig ist Arbeitsmaterial.
+<FilesMatch "\.(md|py|sh|toml|yml|yaml)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 ^/werkzeug/
+RedirectMatch 404 ^/pruefungen/
+RedirectMatch 404 ^/live-abzug/
+
+# --- Die Kopie des Repositorys ---------------------------------------
+# Ein Git-Auscheck legt .git/ mit ab: vollstaendige Historie, jede fruehere
+# Fassung, die Fernadresse. Deckt auch .gitignore und .gitattributes ab.
+# .well-known bleibt bewusst offen, die Zertifikatsstelle braucht es.
+RedirectMatch 404 ^/\.git
+
+<Files ".DS_Store">
+  Require all denied
+</Files>
+RedirectMatch 404 (^|/)\.DS_Store$

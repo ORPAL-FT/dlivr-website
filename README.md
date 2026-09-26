@@ -335,3 +335,23 @@ Stand 25.09.2026, drei Grundlagen nachgeholt:
   Dieselben Beitragstexte stehen auf beiden Webseiten; welche als Original
   gilt, steht im Kopf der gemeinsamen Quelle unter `kanonische_seite`. Dreht
   man das dort um, folgen beide Generatoren.
+
+## Auslieferung · 26.09.2026
+
+Hostinger uebernimmt den Zweig `main` ueber die Git-Anbindung von hPanel — und
+zwar ganz: Was im Zweig liegt, liegt in `public_html`. Bis zum 26.09.2026 waren
+darum `werkzeug/*.py`, `README.md`, `pruefungen/` und `.gitignore` ueber
+dlivr.eu mit HTTP 200 zu lesen.
+
+Seitdem sperrt eine `.htaccess` die Arbeitsdateien: `*.md`, `*.py`, `*.sh`,
+`*.toml`, `*.yml`, die Verzeichnisse `werkzeug/`, `pruefungen/` und
+`live-abzug/`, alles was mit `.git` beginnt, sowie `.DS_Store`. Oeffentlich
+bleiben die `.html`-Seiten, `assets/`, `css/`, `robots.txt` und `sitemap.xml`.
+Verzeichnislisten sind aus.
+
+Die Datei setzt bewusst **keine** Kopfzeilen und **keine** Umleitungen. Wer
+Inhaltssicherheitsregeln oder HSTS will, entscheidet das getrennt — beides
+wirkt sofort auf die ganze Domaene.
+
+Neue Datei im Repo? Dann gehoert sie entweder zu den oeffentlichen Pfaden oder
+in die Sperrliste.
