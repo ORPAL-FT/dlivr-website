@@ -355,3 +355,31 @@ wirkt sofort auf die ganze Domaene.
 
 Neue Datei im Repo? Dann gehoert sie entweder zu den oeffentlichen Pfaden oder
 in die Sperrliste.
+
+## Qualitätscheck · 30.09.2026
+
+Ein Durchgang über beide Sites. In dlivr.eu war alles Ausgelieferte in
+Ordnung — Seiten, Sitemap, interne Verweise, die `.htaccess` vom 26.09.2026
+(`werkzeug/` und `README.md` antworten jetzt mit 404 bzw. 403, der alte
+`.pyc` ist weg). Gerichtet wurden zwei Kleinigkeiten:
+
+**`referenzen.html` bekommt Link-Vorschaudaten.** `partner.html` und
+`beitraege.html` trugen `og:`-Angaben, `referenzen.html` nicht: Wer die Seite
+in LinkedIn oder einem Messenger teilte, bekam keinen Titel und kein Bild.
+`werkzeug/referenzen-erzeugen.py` setzt sie jetzt wie die Partnerseite; die
+Seite ist neu erzeugt.
+
+**`robots.txt` sprach von „den drei Weiterleitungsseiten“** und sperrte zwei.
+Es waren immer zwei — `leistungen.html` und `kontakt.html`.
+
+Offen und nicht hier zu erledigen: Für dlivr.eu gibt es **keinen
+DMARC-Eintrag** (`_dmarc.dlivr.eu` ist leer) und keinen DKIM-Selektor. SPF
+steht mit `-all` auf Microsoft 365. Ein erster Eintrag zum Mitlesen wäre
+`_dmarc.dlivr.eu  TXT  "v=DMARC1; p=none; rua=mailto:ft@dlivr.eu"`; scharf
+gestellt wird er erst, wenn die Berichte zeigen, dass alles Legitime
+durchkommt.
+
+Die Liste „Demnächst“ auf `beitraege.html` altert wie ihr Gegenstück auf
+mi-tool.tech — beide kommen aus derselben Quelle. Ein vergangener Termin
+fällt in `mi-tool-website/werkzeug/pruefen.py` als Warnung auf; ein eigener
+Prüfer hier wäre dieselbe Meldung ein zweites Mal.
