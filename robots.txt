@@ -2,8 +2,9 @@
 User-agent: *
 Allow: /
 
-# Die drei Weiterleitungsseiten sind nur Merkzettel fuer alte Lesezeichen;
-# ihr Inhalt steht auf der Startseite.
+# leistungen.html und kontakt.html sind nur Merkzettel fuer alte
+# Lesezeichen; ihr Inhalt steht auf der Startseite. (Bis zum 30.09.2026
+# stand hier "die drei Weiterleitungsseiten" -- es waren immer zwei.)
 Disallow: /leistungen.html
 Disallow: /kontakt.html
 
