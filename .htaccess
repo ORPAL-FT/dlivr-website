@@ -35,3 +35,11 @@ RedirectMatch 404 ^/\.git
   Require all denied
 </Files>
 RedirectMatch 404 (^|/)\.DS_Store$
+
+# --- Ausgetragene Bilder mit Kundenbezug -----------------------------
+# assets/mi-tool-suche.png zeigte vom 17.09. bis 05.10.2026 im Dateipfad den
+# Ordnernamen eines Kunden. Die Datei ist aus dem Zweig entfernt; weil die
+# Git-Anbindung auf dlivr.eu Ausgetragenes schon liegen ließ (26.09.2026),
+# sperrt diese Zeile die Adresse zusätzlich — unabhängig davon, ob die Datei
+# auf dem Webspace noch liegt.
+RedirectMatch 404 ^/assets/mi-tool-suche\.png$
