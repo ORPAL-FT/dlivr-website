@@ -383,3 +383,36 @@ Die Liste „Demnächst“ auf `beitraege.html` altert wie ihr Gegenstück auf
 mi-tool.tech — beide kommen aus derselben Quelle. Ein vergangener Termin
 fällt in `mi-tool-website/werkzeug/pruefen.py` als Warnung auf; ein eigener
 Prüfer hier wäre dieselbe Meldung ein zweites Mal.
+
+## Startseite mit Linien und Formularbeispiel · 05.10.2026
+
+Auf Franks „Bitte alles umsetzen“ nach dem Vorschlag vom selben Tag.
+
+**Strichgrafiken der Leistungen.** Jede der sechs Leistungskarten trägt statt
+des kleinen Symbols eine eigene Strichgrafik in Kupfer (`--accent`): vom
+Durcheinander zur Richtung, eine Lücke überbrücken, das Fahrzeug, ein Ablauf
+mit Prüfung am Ende, drei Überschneidungen, Meilensteine bis zur Übergabe.
+Sie führen die Linie der drei Schritte im Kopf weiter und zeichnen sich beim
+ersten Sichtkontakt einmal (`pathLength="1"`, CSS-Animation).
+
+**Formularbeispiel.** Im PDF-Abschnitt ersetzt ein Prüfprotokoll in HTML das
+frühere Standbild (`assets/pdf-formular-beispiel.svg`, ausgetragen). Es füllt
+sich einmal in fünf Schritten aus: Kopfdaten aus einem Textbaustein,
+eindeutige Auswahl „i. O.“/„n. i. O.“ mit Kürzel und Uhrzeit, ein
+unbeantworteter Punkt sichtbar, offene Mängel zusammengefasst. Es zeigt nur,
+was Franks Beiträge vom 17.09., 24.09. und 01.10.2026 öffentlich zusagen;
+eine bedingte Einblendung ist bewusst nicht dabei.
+
+**Kein mi-tool-Nachbau hier.** Die Suchvorführung von mi-tool.tech läuft
+nicht auch auf dlivr.eu: in DLIVR-Kupfer wäre sie keine echte
+mi-tool-Oberfläche, und für mi-tool-Blau im Dunkelmodus gibt es im
+Design-System keine freigegebenen Werte. Der Abschnitt zeigt weiter das echte
+Bildschirmfoto vom 28.09.2026.
+
+Bewegung in `assets/linien.js`, ohne Bibliothek (IntersectionObserver, Rest
+CSS). Einmal beim Sichtkontakt, keine Schleife; ohne JavaScript, bei
+reduzierter Bewegung und im Druck steht sofort der Endzustand, denn das HTML
+trägt ihn. Geprüft: Desktop 1440 und Telefon 393, hell und dunkel, reduzierte
+Bewegung, ohne JavaScript, Druck. `style.css?v=` auf allen Seiten und in den
+Generatoren nachgezogen.
+

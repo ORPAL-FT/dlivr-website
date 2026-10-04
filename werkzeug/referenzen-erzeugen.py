@@ -104,7 +104,7 @@ def seite(daten: dict, liste: list[dict], stand: str,
 <script src="assets/theme.js?v=20260914-anchor-focus"></script>
 <title>Referenzen · DLIVR</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=7f5ca38c2ea9">
+<link rel="stylesheet" href="css/style.css?v=31d462ce9526">
 </head>
 <body>
 <!-- Erzeugt von werkzeug/referenzen-erzeugen.py aus GEMEINSAM/inhalte/referenzen.json
