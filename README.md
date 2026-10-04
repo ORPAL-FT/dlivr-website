@@ -416,3 +416,16 @@ trägt ihn. Geprüft: Desktop 1440 und Telefon 393, hell und dunkel, reduzierte
 Bewegung, ohne JavaScript, Druck. `style.css?v=` auf allen Seiten und in den
 Generatoren nachgezogen.
 
+## Zwei Angebote und Cache-Zeile · 05.10.2026
+
+Auf Franks Wunsch, die beiden Seiten aktiver zu verbinden: Vor dem Kontakt
+steht `#angebote` „Zwei Angebote. Ein Ansprechpartner.“ — DLIVR mit den
+PDF-Formularen (Knopf zum Formularbeispiel) und mi-tool mit Knopf zu
+mi-tool.tech; Gegenstück auf mi-tool.tech. Im mi-tool-Abschnitt ist aus dem
+Textverweis ein Knopf geworden („mi-tool.tech ansehen“, dazu „Die Suche in
+Aktion“).
+
+`.htaccess`: HTML-Seiten tragen jetzt `Cache-Control: no-cache,
+must-revalidate`, wie auf mi-tool.tech. Ohne die Zeile zeigte ein Browser am
+05.10. Minuten nach dem Ausrollen noch die alte Startseite.
+

@@ -2,7 +2,8 @@
 # dlivr.eu — Auslieferung (Apache / LiteSpeed, wie bei Hostinger)
 #
 # Diese Datei sperrt Arbeitsdateien. Sie aendert nichts an der Seite selbst:
-# keine Kopfzeilen, keine Umleitungen, kein Zwischenspeicher. Wer die Seite
+# keine Umleitungen; einzige Kopfzeile seit 05.10.2026: HTML wird bei jedem
+# Aufruf nachgefragt (ganz unten). Wer die Seite
 # woanders betreibt, kann sie ersatzlos weglassen — dann liegen die
 # Arbeitsdateien allerdings offen.
 #
@@ -43,3 +44,16 @@ RedirectMatch 404 (^|/)\.DS_Store$
 # sperrt diese Zeile die Adresse zusätzlich — unabhängig davon, ob die Datei
 # auf dem Webspace noch liegt.
 RedirectMatch 404 ^/assets/mi-tool-suche\.png$
+
+# --- HTML bei jedem Aufruf nachfragen ---------------------------------
+# Seit 05.10.2026, auf Franks Wunsch. Ohne diese Zeile hielten Browser eine
+# Seite nach eigenem Ermessen vor: Am 05.10. zeigte ein Fenster Minuten nach
+# dem Ausrollen noch die alte Startseite, obwohl der Server die neue
+# lieferte. Gleiche Regel wie auf mi-tool.tech. Bilder, CSS und Skripte
+# bleiben unberührt; sie tragen ihre Fassung im Namen oder in ?v=.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
