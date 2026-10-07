@@ -429,3 +429,20 @@ Aktion“).
 must-revalidate`, wie auf mi-tool.tech. Ohne die Zeile zeigte ein Browser am
 05.10. Minuten nach dem Ausrollen noch die alte Startseite.
 
+
+## Artikel · 07.10.2026
+
+`artikel.html` und `artikel-<id>.html` werden **nicht von Hand bearbeitet**.
+Quelle ist `GEMEINSAM/inhalte/artikel.json` mit den Texten unter `artikel/`;
+Gegenstück zu `werkzeug/artikel-erzeugen.py` in mi-tool-website (Plan B
+„Musterbetrieb“, Frank 07.10.2026):
+
+```bash
+python3 werkzeug/artikel-erzeugen.py            # schreibt die Artikelseiten
+python3 werkzeug/artikel-erzeugen.py --pruefen  # meldet nur, ob sie aktuell sind
+```
+
+Layout der Rechtsseiten (`legal-page`), Partnerkarten wie auf `partner.html`.
+Original ist laut `kanonische_seite` mi-tool.tech; beide Seiten setzen
+`canonical` dorthin. Anker der Zwischentitel (`#station-1` …, `#fazit`) sind
+auf beiden Websites gleich. Menüpunkt „Artikel“ nach „Beiträge“.
