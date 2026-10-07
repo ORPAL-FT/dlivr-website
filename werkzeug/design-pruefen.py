@@ -9,7 +9,8 @@ css=(r/'css/style.css').read_text();adapter=(r/'werkzeug/design/dlivr-hell.css')
 assert css.startswith(adapter),'Tokenadapter fehlt'
 for var,value in re.findall(r'(--[\w-]+):\s*([^;]+);',adapter):
  assert value in b['farben'].values(),(var,value)
-assert frei['status']=='freigegeben' and frei['version']=='1.4.0',frei
+# 1.4.1 (07.10.2026) aendert nur den dunklen Wert von status.info; DLIVR-Werte unveraendert.
+assert frei['status']=='freigegeben' and frei['version']=='1.4.1',frei
 print(f"DLIVR: heller Tokenadapter passt zum Design-System {frei['version']} ({frei['git_tag']}).")
 # Seit 06.10.2026: Impressum und Datenschutz wortgleich mit mi-tool.tech,
 # Quelle GEMEINSAM/inhalte/rechtstexte. Abweichung bricht ab.

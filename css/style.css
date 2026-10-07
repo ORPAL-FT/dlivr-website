@@ -32,7 +32,9 @@
 * { box-sizing: border-box; }
 html { height: 100%; overflow: hidden; }
 body { overflow-wrap: anywhere; height: 100vh; height: 100dvh; overflow: hidden; display: grid; grid-template-rows: auto minmax(0, 1fr) auto; margin: 0; background: var(--paper); color: var(--ink); font: 16.5px/1.6 var(--font); -webkit-font-smoothing: antialiased; }
-main { min-width: 0; min-height: 0; overflow-y: auto; scroll-behavior: smooth; }
+/* Kein scroll-behavior: smooth am Scrollbereich: Safari ruckelt damit beim Mausrad (07.10.2026).
+   Sprungmarken scrollen trotzdem weich, theme.js uebergibt behavior: 'smooth' selbst. */
+main { min-width: 0; min-height: 0; overflow-y: auto; }
 main:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 a { color: inherit; text-decoration: none; }
 img { display: block; max-width: 100%; height: auto; }
@@ -320,7 +322,7 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
 @keyframes approach-route-vertical { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0); } }
 /* At high zoom or in a short window, reading takes priority over fixed bars. */
 @media screen and (max-height: 30rem) {
-  html { height: auto; overflow: auto; scroll-behavior: smooth; }
+  html { height: auto; overflow: auto; }
   body { height: auto; min-height: 100dvh; display: block; overflow: visible; }
   main { overflow: visible; }
   .header-inner { flex-wrap: wrap; }
