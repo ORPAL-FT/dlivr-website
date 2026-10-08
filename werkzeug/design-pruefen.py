@@ -10,7 +10,9 @@ assert css.startswith(adapter),'Tokenadapter fehlt'
 for var,value in re.findall(r'(--[\w-]+):\s*([^;]+);',adapter):
  assert value in b['farben'].values(),(var,value)
 # 1.4.1 (07.10.2026) aendert nur den dunklen Wert von status.info; DLIVR-Werte unveraendert.
-assert frei['status']=='freigegeben' and frei['version']=='1.4.1',frei
+# 1.5.0 (07.10.2026) ergaenzt space.section; 1.6.0 (08.10.2026) nur Logofarben fuer mi-tool.
+# DLIVR-Werte in beiden unveraendert; die Wertpruefung oben laeuft gegen den aktuellen Stand.
+assert frei['status']=='freigegeben' and frei['version']=='1.6.0',frei
 print(f"DLIVR: heller Tokenadapter passt zum Design-System {frei['version']} ({frei['git_tag']}).")
 # Seit 06.10.2026: Impressum und Datenschutz wortgleich mit mi-tool.tech,
 # Quelle GEMEINSAM/inhalte/rechtstexte. Abweichung bricht ab.
