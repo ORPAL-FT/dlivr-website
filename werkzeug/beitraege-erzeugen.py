@@ -121,7 +121,9 @@ def bild_uebernehmen(eintrag: dict, quelle: pathlib.Path, schreiben: bool) -> st
     herkunft = quelle.parent / eintrag["bild"]
     if not herkunft.is_file():
         raise SystemExit(f"Bild fehlt in der Quelle: {herkunft}")
-    ziel = BILDORDNER / f"{eintrag['id']}{herkunft.suffix}"
+    # Name der Quelldatei, nicht der ID: Eine ersetzte Grafik bekommt in der
+    # Quelle einen neuen Namen (-v2), sonst haelt der Browser ein Jahr die alte.
+    ziel = BILDORDNER / herkunft.name
     if schreiben:
         BILDORDNER.mkdir(parents=True, exist_ok=True)
         if not ziel.is_file() or ziel.read_bytes() != herkunft.read_bytes():
