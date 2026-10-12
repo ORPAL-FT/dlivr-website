@@ -14,7 +14,9 @@ for var,value in re.findall(r'(--[\w-]+):\s*([^;]+);',adapter):
 # DLIVR-Werte in beiden unveraendert; die Wertpruefung oben laeuft gegen den aktuellen Stand.
 # 1.7.0/1.7.1 (09.10.2026) ergaenzen terminal.accent und kunde.*; 1.8.0 den DLIVR-Dunkelmodus
 # (eigene Datei); 1.9.0 (10.10.2026) nur LCF-Graustufen. Helle DLIVR-Farbwerte unveraendert.
-assert frei['status']=='freigegeben' and frei['version']=='1.9.0',frei
+# Seit 13.10.2026 keine feste Versionsnummer mehr: geprueft wird gegen die freigegebene
+# Version aus freigabe.json; die Wertpruefung oben bricht ab, wenn sich ein DLIVR-Wert aendert.
+assert frei['status']=='freigegeben',frei
 print(f"DLIVR: heller Tokenadapter passt zum Design-System {frei['version']} ({frei['git_tag']}).")
 # Seit 06.10.2026: Impressum und Datenschutz wortgleich mit mi-tool.tech,
 # Quelle GEMEINSAM/inhalte/rechtstexte. Abweichung bricht ab.

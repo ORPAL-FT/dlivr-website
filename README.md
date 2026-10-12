@@ -21,13 +21,16 @@ ein Push ist damit eine Veröffentlichung.
 
 ## Dateien und Vorschau
 
-- `index.html`: Einstieg, drei Schwerpunkte, Mi-Tool und Kurzprofil.
-- `leistungen.html`: sechs Leistungsbereiche und Mi-Tool.
-- `kontakt.html`: Kontakt, Anbieterangaben und bestehender Datenschutztext.
+- `index.html`: die durchgehende Seite (Einstieg, Leistungen, Mi-Tool, Über mich, Kontakt).
+- `leistungen.html`, `kontakt.html`: nur noch Weiterleitungen auf `index.html` (seit 14.09.2026).
+- `impressum.html`, `datenschutz.html`: Rechtstexte aus `GEMEINSAM/inhalte/rechtstexte`.
+- `partner.html`, `referenzen.html`, `beitraege.html`, `artikel*.html`: erzeugt, nicht von Hand (siehe unten).
 - `css/style.css`: gemeinsame Gestaltung und responsive Ansichten.
 - `assets/dlivr-logo-hell.svg`, `assets/dlivr-logo-dunkel.svg`: DLIVR-Wortmarke.
 - `assets/favicon.svg`: aus den beiden Quadraten abgeleitetes Website-Symbol.
-- `assets/mi-tool-logo.svg`: Mi-Tool-Logo aus dem Marketingprojekt.
+- `assets/mi-tool-logo.svg`, `assets/mi-tool-logo-dunkel.svg`: Mi-Tool-Logo aus dem Marketingprojekt.
+- `assets/theme.js`, `assets/redirect.js`, `assets/linien.js`: Farbwahl, Weiterleitungen, Strichgrafiken.
+- `assets/partner/`, `assets/beitraege/`: von den Generatoren kopiert.
 
 Statische HTML-Seiten ohne Build oder externe Schriftdateien. Ein kleines lokales
 JavaScript steuert die Farbwahl und misst die Höhe der Kopfzeile für Sprungziele.
@@ -322,8 +325,8 @@ Name, Text und Verweis.
 
 Stand 25.09.2026, drei Grundlagen nachgeholt:
 
-- `robots.txt` und `sitemap.xml` liegen jetzt vor. Die Sitemap führt die fünf
-  echten Seiten; `leistungen.html` und `kontakt.html` sind nur Merkzettel für
+- `robots.txt` und `sitemap.xml` liegen jetzt vor. Die Sitemap führt die echten
+  Seiten (Stand 13.10.2026: acht); `leistungen.html` und `kontakt.html` sind nur Merkzettel für
   alte Lesezeichen und bleiben ausgeschlossen. Ändert sich der Seitenbestand,
   gehört die Sitemap von Hand nachgezogen.
 - Jede Seite trägt Angaben für die Linkvorschau (Open Graph). Das Bild ist
