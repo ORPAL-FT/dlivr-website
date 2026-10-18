@@ -628,3 +628,5 @@ code { font-family: var(--mono); font-size: .75rem; }
 @media (min-width: 761px) { .medien-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
 .medien-clip video { aspect-ratio: 16 / 9; }
 .service-card .service-mehr { margin: 0 0 18px; }
+.medien-galerie video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 10px; background: var(--band); }
+@media print { .medien-galerie video { display: none; } }
