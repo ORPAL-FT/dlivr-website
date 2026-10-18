@@ -630,3 +630,7 @@ code { font-family: var(--mono); font-size: .75rem; }
 .service-card .service-mehr { margin: 0 0 18px; }
 .medien-galerie video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 10px; background: var(--band); }
 @media print { .medien-galerie video { display: none; } }
+/* Seit 19.10.2026: vier Plätze in der Bildreihe, Liv-Clip quadratisch */
+@media (min-width: 761px) { .medien-galerie { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.medien-galerie video.quadrat { aspect-ratio: 1; }
+.medien-galerie figcaption a { color: var(--accent); }
