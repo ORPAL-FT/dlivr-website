@@ -188,7 +188,10 @@ def rumpf(gebaut: list[tuple[dict, str | None]], geplant: list[dict]) -> str:
              "<h1>Was ich auf<br>LinkedIn schreibe.</h1>\n",
              '<p class="intro">Jeder Beitrag steht hier so, wie er ver&ouml;ffentlicht '
              "wurde. Diese Seite l&auml;dt nichts von LinkedIn nach; wer dort mitlesen "
-             "m&ouml;chte, folgt dem Verweis am Beitrag.</p>\n"]
+             "m&ouml;chte, folgt dem Verweis am Beitrag oder der Seite "
+             '<a class="text-link" href="https://www.linkedin.com/company/dlivr-eu/" rel="noopener external">DLIVR auf LinkedIn</a>. '
+             'Die Archivsuche hat ihre eigene Seite: '
+             '<a class="text-link" href="https://www.linkedin.com/showcase/mi-tool/" rel="noopener external">mi-tool auf LinkedIn</a>.</p>\n']
     if gebaut:
         bilder = {e["id"]: p for e, p in gebaut}
         for kampagne, eintraege in gruppen([e for e, _ in gebaut]):
