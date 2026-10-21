@@ -2,8 +2,9 @@
 # dlivr.eu — Auslieferung (Apache / LiteSpeed, wie bei Hostinger)
 #
 # Diese Datei sperrt Arbeitsdateien. Sie aendert nichts an der Seite selbst:
-# eine Umleitung (fleetback.html, ganz unten); einzige Kopfzeile seit 05.10.2026: HTML wird bei jedem
-# Aufruf nachgefragt (ganz unten). Wer die Seite
+# eine Umleitung (fleetback.html, seit 22.10.2026) und eine Kopfzeile
+# (seit 05.10.2026: HTML wird bei jedem Aufruf nachgefragt), beide ganz
+# unten. Wer die Seite
 # woanders betreibt, kann sie ersatzlos weglassen — dann liegen die
 # Arbeitsdateien allerdings offen.
 #
