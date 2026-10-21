@@ -2,7 +2,7 @@
 # dlivr.eu — Auslieferung (Apache / LiteSpeed, wie bei Hostinger)
 #
 # Diese Datei sperrt Arbeitsdateien. Sie aendert nichts an der Seite selbst:
-# keine Umleitungen; einzige Kopfzeile seit 05.10.2026: HTML wird bei jedem
+# eine Umleitung (fleetback.html, ganz unten); einzige Kopfzeile seit 05.10.2026: HTML wird bei jedem
 # Aufruf nachgefragt (ganz unten). Wer die Seite
 # woanders betreibt, kann sie ersatzlos weglassen — dann liegen die
 # Arbeitsdateien allerdings offen.
@@ -57,3 +57,8 @@ RedirectMatch 404 ^/assets/mi-tool-suche\.png$
   </FilesMatch>
 </IfModule>
 
+# --- Umleitung ---------------------------------------------------------
+# Seit 22.10.2026 heisst die Leistung „SVC einrichten“ (Frank): Fleetback ist
+# eines von mehreren Systemen. Alte Links (LinkedIn-Beitrag 30.10.2026,
+# Umleitung von mi-tool.tech) zeigen noch auf fleetback.html.
+Redirect 301 /fleetback.html https://dlivr.eu/svc.html
