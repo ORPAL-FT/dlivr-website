@@ -633,4 +633,5 @@ code { font-family: var(--mono); font-size: .75rem; }
 /* Seit 19.10.2026: vier Plätze in der Bildreihe, Liv-Clip quadratisch */
 @media (min-width: 761px) { .medien-galerie { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .medien-galerie video.quadrat { aspect-ratio: 1; }
+.medien-galerie video.hoch { aspect-ratio: 9 / 16; }
 .medien-galerie figcaption a { color: var(--accent); }
