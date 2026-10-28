@@ -151,6 +151,8 @@ dl { margin: 0; }
 .text-link.kanal { gap: .5rem; }
 .kanal-symbol { display: inline-flex; flex: none; }
 .kanal-fremd { color: var(--ink); }
+.contact-email.kanal { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; text-decoration: none; }
+.contact-email.kanal > span:last-child { text-decoration: underline; text-underline-offset: 4px; }
 
 .contact-note ul { padding-left: 19px; margin: 20px 0; }
 .contact-note li { margin: 10px 0; }
