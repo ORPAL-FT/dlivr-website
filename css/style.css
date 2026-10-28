@@ -616,10 +616,10 @@ code { font-family: var(--mono); font-size: .75rem; }
 .medien-einsatz li:last-child { border-bottom: 1px solid var(--line); }
 .medien-einsatz h3 { font-size: var(--card-title); line-height: 1.3; margin: 0 0 6px; }
 .medien-einsatz p { color: var(--muted); margin: 0; font-size: .95rem; }
-.medien-galerie { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: var(--heading-space); align-items: start; }
+.medien-galerie { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: var(--heading-space); align-items: start; }
 .medien-galerie figure { margin: 0; }
-.medien-galerie img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
-.medien-hinweis { color: var(--muted); font-size: .875rem; margin: var(--heading-space) 0 0; }
+.medien-galerie img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+.medien-hinweis { color: var(--muted); font-size: .8125rem; margin: var(--heading-space) 0 0; }
 @media (max-width: 760px) {
   .medien-grid, .medien-galerie { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
 }
@@ -628,7 +628,7 @@ code { font-family: var(--mono); font-size: .75rem; }
 @media (min-width: 761px) { .medien-grid { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); } }
 .medien-clip video { aspect-ratio: 16 / 9; }
 .service-card .service-mehr { margin: 0 0 18px; }
-.medien-galerie video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 10px; background: var(--band); }
+.medien-galerie video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 8px; background: var(--band); }
 @media print { .medien-galerie video { display: none; } }
 /* Seit 19.10.2026: vier Plätze in der Bildreihe, Liv-Clip quadratisch */
 @media (min-width: 761px) { .medien-galerie { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
