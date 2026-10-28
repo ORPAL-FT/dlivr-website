@@ -580,6 +580,21 @@ code { font-family: var(--mono); font-size: .75rem; }
 .f-punkte li.offen .f-zeichen { color: var(--accent); }
 .f-summe { margin-top: 16px; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--card); border-radius: 0 6px 6px 0; }
 .f-summe p + p { margin-top: 4px; }
+/* Seit 28.10.2026 vier Muster mit Reitern. Ohne JavaScript stehen alle untereinander. */
+.pdf-muster .muster + .muster { margin-top: 16px; }
+.muster-reiter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.muster-reiter[hidden] { display: none; }
+.muster-reiter button { font: inherit; font-size: .875rem; font-weight: 600; min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--card); color: var(--ink); cursor: pointer; }
+.muster-reiter button:hover { border-color: var(--accent); }
+.muster-reiter button[aria-selected="true"] { border-color: var(--accent); background: var(--accent); color: var(--card); }
+.muster-reiter button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.muster-bereit .pdf-muster .muster + .muster { margin-top: 0; }
+.muster[hidden] { display: none; }
+@media print { .muster-reiter { display: none !important; } .muster[hidden] { display: block; } .pdf-muster .muster + .muster { margin-top: 16px; } }
+.formular-blatt .f-abschnitt { margin: 14px 0 4px; font: .7rem/1.4 var(--mono); text-transform: uppercase; color: var(--muted) !important; }
+.f-unterschrift { margin-top: 16px; }
+.formular-blatt .f-unterschrift .f-zug { font-family: "Snell Roundhand", "Segoe Script", cursive; font-size: 1.35rem; line-height: 1.2; padding: 4px 4px 2px; border-bottom: 1px solid var(--ink); }
+.formular-blatt .f-unterschrift p:last-child { display: flex; justify-content: space-between; gap: 12px; margin-top: 4px; font-size: .75rem; color: var(--muted) !important; }
 @media (max-width: 30rem) {
   .formular-blatt { padding: 16px; }
   .f-kopf { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -632,6 +647,16 @@ code { font-family: var(--mono); font-size: .75rem; }
 .card.angebot .label { font-size: .75rem; letter-spacing: normal; color: var(--accent); margin-bottom: 10px; }
 .card.angebot h3 { font-size: 1.125rem; margin-bottom: 10px; }
 .card.angebot .angebot-knopf { margin: auto 0 0; padding-top: 16px; }
+/* Vorschau je Karte (Beispielbereich nach ANGEBOTSKARTEN.md), seit 28.10.2026 */
+.card.angebot .angebot-beispiel { margin-top: auto; border: 1px solid var(--line); border-radius: var(--radius-kasten); overflow: hidden; background: var(--product-surface); }
+.card.angebot .angebot-beispiel img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: center 35%; }
+.card.angebot .angebot-beispiel + .angebot-knopf { margin-top: 0; }
+.card.angebot > p:not(.label):not(.angebot-knopf):last-of-type { margin-bottom: 16px; }
+.angebot-formular { padding: 6px 12px; aspect-ratio: 16 / 10; display: flex; flex-direction: column; justify-content: center; }
+.angebot-formular .f-punkte { border-top: 0; }
+.angebot-formular .f-punkte li { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 6px 0; font-size: .8125rem; }
+.angebot-formular .f-punkte li:last-child { border-bottom: 0; }
+.angebot-formular .f-wahl i { font-size: .6875rem; padding: 1px 6px; }
 .product-grid .button-row { margin-top: 12px; }
 
 /* KI-Medien, seit 19.10.2026 */

@@ -8,10 +8,10 @@
 <meta name="theme-color" content="#f4f2ef">
 <meta name="color-scheme" content="light dark">
 <script src="assets/theme.js?v=20260914-anchor-focus"></script>
-<script src="assets/linien.js?v=20261005" defer></script>
+<script src="assets/linien.js?v=20261028" defer></script>
 <title>DLIVR · Kundenkommunikation und Digitalisierung im Autohaus</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=74a5af7b58a6">
+<link rel="stylesheet" href="css/style.css?v=ee5611569127">
 <meta property="og:title" content="DLIVR – Kundenkommunikation und Digitalisierung im Autohaus">
 <meta property="og:description" content="Wir richten Fleetback und andere Systeme der Smart Video Kommunikation auf Ihr Autohaus ein, erstellen KI-Clips im Ton des Hauses und digitalisieren Formulare. Dazu Beratung und Interimsmanagement für KMU.">
 <meta property="og:type" content="website">
@@ -134,8 +134,15 @@
 
 <section class="section pdf-section" id="pdf-formulare">
 <div class="wrap pdf-grid">
-<div><p class="eyebrow">Formulare &amp; Abläufe</p><h2>Strukturierte PDF-Formulare für Ihre Abläufe</h2><figure class="pdf-preview formular" data-formular>
-<div class="formular-blatt" role="img" aria-label="Beispiel eines strukturierten PDF-Prüfprotokolls mit fiktiven Angaben: Kopfdaten aus einem Textbaustein übernommen, drei Prüfpunkte mit eindeutiger Auswahl in Ordnung oder nicht in Ordnung, Kürzel und Uhrzeit je Punkt; ein offener Mangel und ein unbeantworteter Prüfpunkt sind vor dem Abschluss zusammengefasst.">
+<div><p class="eyebrow">Formulare &amp; Abläufe</p><h2>Strukturierte PDF-Formulare für Ihre Abläufe</h2><figure class="pdf-preview pdf-muster">
+<div class="muster-reiter" role="tablist" aria-label="Formularmuster" hidden>
+<button type="button" role="tab" id="reiter-pruef" aria-controls="muster-pruef" aria-selected="true">Prüfprotokoll</button>
+<button type="button" role="tab" id="reiter-dse" aria-controls="muster-dse" aria-selected="false" tabindex="-1">Datenschutz</button>
+<button type="button" role="tab" id="reiter-gw" aria-controls="muster-gw" aria-selected="false" tabindex="-1">Gewährleistung</button>
+<button type="button" role="tab" id="reiter-miet" aria-controls="muster-miet" aria-selected="false" tabindex="-1">Mietwagen am Pad</button>
+</div>
+<div class="muster" id="muster-pruef" role="tabpanel" aria-labelledby="reiter-pruef">
+<div class="formular-blatt formular" data-formular role="img" aria-label="Beispiel eines strukturierten PDF-Prüfprotokolls mit fiktiven Angaben: Kopfdaten aus einem Textbaustein übernommen, drei Prüfpunkte mit eindeutiger Auswahl in Ordnung oder nicht in Ordnung, Kürzel und Uhrzeit je Punkt; ein offener Mangel und ein unbeantworteter Prüfpunkt sind vor dem Abschluss zusammengefasst.">
 <p class="f-marke">Formularbeispiel · Prüfprotokoll</p>
 <div class="f-kopf">
 <div class="f-feld" data-schritt="1"><span>Kennzeichen</span><b>M-AB 4711</b></div>
@@ -150,9 +157,72 @@
 </ol>
 <div class="f-summe" data-schritt="5"><p><b>Offene Mängel:</b> Beleuchtung</p><p><b>Vor dem Abschluss:</b> 1 Prüfpunkt unbeantwortet</p></div>
 </div>
-<figcaption>Illustration mit fiktiven Angaben. Welche Funktionen ein Formular hat, stimmen wir auf Ihren Ablauf und das eingesetzte Programm ab.</figcaption>
+</div>
+<div class="muster" id="muster-dse" role="tabpanel" aria-labelledby="reiter-dse">
+<div class="formular-blatt" role="img" aria-label="Beispiel einer Datenschutz-Einwilligung mit fiktiven Angaben: Kundendaten aus einem Textbaustein übernommen, Kontaktwege Post und E-Mail mit ja, Telefon und im Fahrzeug nicht; Unterschrift am Pad mit Ort und Datum.">
+<p class="f-marke">Formularbeispiel · Datenschutz-Einwilligung</p>
+<div class="f-kopf">
+<div class="f-feld"><span>Kundennummer</span><b>100245</b></div>
+<div class="f-feld"><span>Name</span><b>M. Muster</b></div>
+<div class="f-feld"><span>Ort</span><b>Musterstadt</b></div>
+</div>
+<p class="f-quelle">aus Textbaustein übernommen</p>
+<p class="f-abschnitt">Kontakt erwünscht über</p>
+<ol class="f-punkte">
+<li><span class="f-titel">Post</span><span class="f-wahl"><i class="an">ja</i><i>nein</i></span><span class="f-zeichen"></span></li>
+<li><span class="f-titel">Telefon</span><span class="f-wahl"><i>ja</i><i class="an">nein</i></span><span class="f-zeichen"></span></li>
+<li><span class="f-titel">E-Mail</span><span class="f-wahl"><i class="an">ja</i><i>nein</i></span><span class="f-zeichen"></span></li>
+<li><span class="f-titel">Im Fahrzeug</span><span class="f-wahl"><i>ja</i><i class="an">nein</i></span><span class="f-zeichen"></span></li>
+</ol>
+<div class="f-unterschrift"><p class="f-zug">M. Muster</p><p><span>Unterschrift am Pad</span><span>Musterstadt, 14.03.2026</span></p></div>
+</div>
+</div>
+<div class="muster" id="muster-gw" role="tabpanel" aria-labelledby="reiter-gw">
+<div class="formular-blatt" role="img" aria-label="Beispiel einer Gewährleistungs-Checkliste mit fiktiven Angaben: drei Abschnitte, erledigte Punkte mit Kürzel und Uhrzeit, ein Punkt offen; Unterschrift der Sachbearbeitung fehlt noch.">
+<p class="f-marke">Formularbeispiel · Gewährleistungs-Checkliste</p>
+<div class="f-kopf">
+<div class="f-feld"><span>Kennzeichen</span><b>M-AB 4711</b></div>
+<div class="f-feld"><span>Auftrag</span><b>AB12345</b></div>
+<div class="f-feld"><span>Datum</span><b>14.03.2026</b></div>
+</div>
+<p class="f-quelle">aus Textbaustein übernommen</p>
+<p class="f-abschnitt">Auftragseröffnung</p>
+<ol class="f-punkte">
+<li><span class="f-titel">Beanstandung mit W-Fragen erfasst</span><span class="f-wahl"><i class="an">erledigt</i></span><span class="f-zeichen">MM · 08:05</span></li>
+<li><span class="f-titel">Kundenunterschrift</span><span class="f-wahl"><i class="an">erledigt</i></span><span class="f-zeichen">MM · 08:07</span></li>
+</ol>
+<p class="f-abschnitt">Werkstatt</p>
+<ol class="f-punkte">
+<li><span class="f-titel">Arbeiten nach Reparaturanleitung</span><span class="f-wahl"><i class="an">erledigt</i></span><span class="f-zeichen">TK · 10:30</span></li>
+<li class="offen"><span class="f-titel">Fotos der Beanstandung</span><span class="f-wahl"><i>erledigt</i></span><span class="f-zeichen">fehlt</span></li>
+</ol>
+<p class="f-abschnitt">Rechnungsstellung</p>
+<ol class="f-punkte">
+<li><span class="f-titel">Kilometerstand nach Endkontrolle</span><span class="f-wahl"><i class="an">erledigt</i></span><span class="f-zeichen">SB · 15:12</span></li>
+</ol>
+<div class="f-summe"><p><b>Offen:</b> Fotos der Beanstandung</p><p><b>Vor dem Abschluss:</b> Unterschrift Sachbearbeitung</p></div>
+</div>
+</div>
+<div class="muster" id="muster-miet" role="tabpanel" aria-labelledby="reiter-miet">
+<div class="formular-blatt" role="img" aria-label="Beispiel eines Mietwagen-Rücknahmeprotokolls am Pad mit fiktiven Angaben: Kennzeichen und Mitarbeiter aus Auswahlliste, Zeitpunkt per Knopf, Kilometerstand, Tankinhalt drei Viertel, keine Mängel; Unterschrift am Pad.">
+<p class="f-marke">Formularbeispiel · Mietwagen-Rücknahme am Pad</p>
+<div class="f-kopf">
+<div class="f-feld"><span>Kennzeichen Mietfahrzeug</span><b>M-XY 123</b></div>
+<div class="f-feld"><span>Datum / Uhrzeit</span><b>14.03.2026 16:20</b></div>
+<div class="f-feld"><span>Kilometerstand</span><b>12.480</b></div>
+</div>
+<p class="f-quelle">Kunde aus Textbaustein · Kennzeichen und Mitarbeiter aus Auswahlliste · Zeitpunkt per Knopf „jetzt“</p>
+<ol class="f-punkte">
+<li><span class="f-titel">Tankinhalt</span><span class="f-wahl"><i>voll</i><i class="an">¾</i><i>½</i><i>¼</i><i>leer</i></span><span class="f-zeichen"></span></li>
+<li><span class="f-titel">Festgestellte Mängel</span><span class="f-wahl"><i class="an">keine Mängel</i></span><span class="f-zeichen">ausgegraut</span></li>
+</ol>
+<div class="f-unterschrift"><p class="f-zug">M. Muster</p><p><span>Unterschrift Benutzer am Pad</span><span>14.03.2026 16:21</span></p></div>
+</div>
+</div>
+<figcaption>Vier Muster aus unseren Formularen, mit fiktiven Angaben. Welche Funktionen ein Formular hat, stimmen wir auf Ihren Ablauf und das eingesetzte Programm ab.</figcaption>
 </figure></div>
 <div><p class="intro">Wir überarbeiten bestehende Formulare und passen sie an Ihren Arbeitsalltag an – mit Datenübernahme aus vorhandenen Systemen, verständlichen Eingabefeldern und nachvollziehbaren Prüfungen. Bei Bedarf auch für die Unterschrift am Pad.</p>
+<p>Zum Beispiel für Prüfprotokolle, Datenschutz-Einwilligungen, Gewährleistungs-Checklisten, Service-Checks und Mietwagen-Rücknahme.</p>
 <p>Ziel sind weniger Doppelerfassung und eine einheitliche Dokumentation. Die konkreten Möglichkeiten stimmen wir auf Ihre vorhandenen Systeme ab.</p>
 <div class="pdf-actions"><a class="button primary" href="#kontakt">PDF-Formulare anfragen <span aria-hidden="true">→</span></a><a class="button outline" href="assets/pdf-schnelleingabe-onepager.pdf" download>One-Pager herunterladen (PDF)</a></div></div>
 </div>
@@ -226,6 +296,11 @@
 <p class="label">PDF-Formulare · diese Seite</p>
 <h3>Sauber erfassen.</h3>
 <p>Formulare, die beim Ausfüllen helfen. Je nach Einrichtung: Angaben aus einem Textbaustein übernehmen, eindeutige Prüfbefunde, fehlende Angaben sichtbar machen.</p>
+<div class="angebot-beispiel angebot-formular" aria-hidden="true"><ol class="f-punkte">
+<li><span class="f-titel">Bremsen vorne</span><span class="f-wahl"><i class="an">i.&nbsp;O.</i><i>n.&nbsp;i.&nbsp;O.</i></span></li>
+<li class="mangel"><span class="f-titel">Beleuchtung</span><span class="f-wahl"><i>i.&nbsp;O.</i><i class="an">n.&nbsp;i.&nbsp;O.</i></span></li>
+<li class="offen"><span class="f-titel">Reifendruck</span><span class="f-wahl"><i>i.&nbsp;O.</i><i>n.&nbsp;i.&nbsp;O.</i></span></li>
+</ol></div>
 <p class="angebot-knopf"><a class="button outline" href="#pdf-formulare">Formularbeispiel</a></p>
 </article>
 <article class="card angebot">
@@ -233,6 +308,7 @@
 <p class="label">Archivsuche · auf mi-tool.tech</p>
 <h3>Serviceunterlagen finden.</h3>
 <p>Nach Kennzeichen, Kunde oder Text – direkt im Browser. Die Ablage bleibt unverändert, die Kundendaten bleiben im Haus.</p>
+<div class="angebot-beispiel"><img src="assets/mi-tool-suche-20261028.webp" alt="mi-tool: Suchergebnis mit Vorgängen eines Fahrzeugs" width="1600" height="1011" loading="lazy"></div>
 <p class="angebot-knopf"><a class="button primary" href="https://mi-tool.tech/">mi-tool.tech <span aria-hidden="true">↗</span></a></p>
 </article>
 <article class="card angebot">
@@ -240,6 +316,7 @@
 <p class="label">KI-Medien · diese Seite</p>
 <h3>Verständlich zeigen.</h3>
 <p>Erklärclips, Werbebilder und Aushänge, mit KI erstellt und auf Ihren Betrieb zugeschnitten.</p>
+<div class="angebot-beispiel"><img src="assets/medien/ki-medien-werkstatt-spricht-20261028.jpg" alt="Standbild aus einem KI-Clip der Reihe „So spricht Ihre Werkstatt“" width="540" height="960" loading="lazy"></div>
 <p class="angebot-knopf"><a class="button outline" href="#medien">Beispiele ansehen</a></p>
 </article>
 <article class="card angebot">
@@ -247,6 +324,7 @@
 <p class="label">SVC einrichten · eigene Seite</p>
 <h3>Kunden erreichen.</h3>
 <p>Smart Video Kommunikation wie Fleetback oder soft-confirm, eingerichtet auf Ihr Haus: Texte, Videos, Check-in und Kampagnen.</p>
+<div class="angebot-beispiel"><img src="assets/medien/svc-muster-checkin-20261029.jpg" alt="Standbild aus einem Musterclip zum digitalen Check-in" width="540" height="960" loading="lazy"></div>
 <p class="angebot-knopf"><a class="button outline" href="svc.html">Mehr zu SVC</a></p>
 </article>
 </div>
