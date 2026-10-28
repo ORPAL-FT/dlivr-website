@@ -149,7 +149,6 @@ dl { margin: 0; }
 /* Kanal-Symbole nach Design-System v1.43.0 (komponenten/KANAL-SYMBOLE.md):
    LinkedIn und YouTube nur in text.primary, nie in Kupfer. */
 .text-link.kanal { gap: .5rem; }
-.text-link.kanal > [aria-hidden="true"]:last-child { margin-left: 6px; }
 .kanal-symbol { display: inline-flex; flex: none; }
 .kanal-fremd { color: var(--ink); }
 
@@ -627,8 +626,8 @@ code { font-family: var(--mono); font-size: .75rem; }
 .card.angebot { padding: 24px; border: 2px solid var(--border-kasten); border-radius: var(--radius-kasten); }
 @media (max-width: 48rem) { .card.angebot { padding: 16px; } }
 .angebot-logo { height: 2rem; width: auto; margin: 0 0 16px; align-self: flex-start; }
-.card.angebot .label { font-size: 12px; letter-spacing: normal; color: var(--accent); margin-bottom: 10px; }
-.card.angebot h3 { font-size: 18px; margin-bottom: 10px; }
+.card.angebot .label { font-size: .75rem; letter-spacing: normal; color: var(--accent); margin-bottom: 10px; }
+.card.angebot h3 { font-size: 1.125rem; margin-bottom: 10px; }
 .card.angebot .angebot-knopf { margin: auto 0 0; padding-top: 16px; }
 .product-grid .button-row { margin-top: 12px; }
 

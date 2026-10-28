@@ -449,3 +449,16 @@ Layout der Rechtsseiten (`legal-page`), Partnerkarten wie auf `partner.html`.
 Original ist laut `kanonische_seite` mi-tool.tech; beide Seiten setzen
 `canonical` dorthin. Anker der Zwischentitel (`#station-1` …, `#fazit`) sind
 auf beiden Websites gleich. Menüpunkt „Artikel“ nach „Beiträge“.
+
+## Vier Angebote und Kanal-Symbole · 28.10.2026
+
+`#angebote` heißt jetzt „Mehrere Angebote. Ein Ansprechpartner.“ und trägt
+vier Karten: PDF-Formulare, mi-tool, KI-Medien (`#medien`) und SVC einrichten
+(`svc.html`). Raster und Maße nach Design-System v1.44.0
+(`komponenten/ANGEBOTSKARTEN.md`, Klasse `.angebote-4`: ab 1280 px vier
+nebeneinander, darunter 2 × 2, mobil einspaltig; 2px-Rahmen `border.kasten`,
+Ecke `radius.kasten`). `--border-kasten` und `--radius-kasten` stehen außerhalb
+des Tokenadapters, weil `css/dlivr-hell.css` die Formmaße noch nicht ausgibt.
+Im Kontakt tragen LinkedIn und YouTube Kanal-Symbole nach v1.43.0
+(`komponenten/KANAL-SYMBOLE.md`), das Symbol in `--ink`, nie in Kupfer
+(Markenrichtlinien der Anbieter). Gegenstück auf mi-tool.tech.
