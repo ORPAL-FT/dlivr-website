@@ -462,3 +462,9 @@ des Tokenadapters, weil `css/dlivr-hell.css` die Formmaße noch nicht ausgibt.
 Im Kontakt tragen LinkedIn und YouTube Kanal-Symbole nach v1.43.0
 (`komponenten/KANAL-SYMBOLE.md`), das Symbol in `--ink`, nie in Kupfer
 (Markenrichtlinien der Anbieter). Gegenstück auf mi-tool.tech.
+
+Seit Design-System v1.46.0 gibt der DS-Adapter `css/dlivr-hell.css` die
+Formmaße aus (`--border-kasten-width`, `--radius-kasten`). Die Angebotskarten
+nutzen diese Namen; `design-pruefen.py` gleicht `--border-kasten`,
+`--border-kasten-width` und `--radius-kasten` in `css/style.css` gegen den
+DS-Adapter ab (28.10.2026).

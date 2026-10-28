@@ -18,8 +18,9 @@
   --band: #202227;
   --band-ink: #f4f2ef;
 }
-/* Design-System v1.44.0 (css/dlivr-hell.css): border.kasten, radius.kasten */
-:root { --border-kasten: #828282; --radius-kasten: 8px; }
+/* Design-System v1.46.0 (css/dlivr-hell.css): border.kasten, border.kasten.width, radius.kasten.
+   Namen und Werte wie im DS-Adapter; design-pruefen.py gleicht sie ab. */
+:root { --border-kasten: #828282; --border-kasten-width: 2px; --radius-kasten: 8px; }
 :root {
   color-scheme: light;
   --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
@@ -625,7 +626,7 @@ code { font-family: var(--mono); font-size: .75rem; }
 }
 @media (min-width: 1280px) { .cards.angebote-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 @media (max-width: 48rem) { .cards.angebote { gap: 16px; } }
-.card.angebot { padding: 24px; border: 2px solid var(--border-kasten); border-radius: var(--radius-kasten); }
+.card.angebot { padding: 24px; border: var(--border-kasten-width) solid var(--border-kasten); border-radius: var(--radius-kasten); }
 @media (max-width: 48rem) { .card.angebot { padding: 16px; } }
 .angebot-logo { height: 2rem; width: auto; margin: 0 0 16px; align-self: flex-start; }
 .card.angebot .label { font-size: .75rem; letter-spacing: normal; color: var(--accent); margin-bottom: 10px; }

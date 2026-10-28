@@ -18,6 +18,14 @@ for var,value in re.findall(r'(--[\w-]+):\s*([^;]+);',adapter):
 # Version aus freigabe.json; die Wertpruefung oben bricht ab, wenn sich ein DLIVR-Wert aendert.
 assert frei['status']=='freigegeben',frei
 print(f"DLIVR: heller Tokenadapter passt zum Design-System {frei['version']} ({frei['git_tag']}).")
+# Seit 28.10.2026: Formmaße der Angebotskarten (border.kasten, border.kasten.width,
+# radius.kasten) stehen außerhalb des Farbadapters; Name und Wert müssen dem
+# DS-Adapter css/dlivr-hell.css entsprechen.
+ds_css=dict(re.findall(r'(--[\w-]+):\s*([^;]+);',(ds/'css'/'dlivr-hell.css').read_text()))
+for var in ('--border-kasten','--border-kasten-width','--radius-kasten'):
+ wert=re.search(re.escape(var)+r':\s*([^;]+);',css)
+ assert wert and ds_css.get(var)==wert.group(1).strip(),(var,wert and wert.group(1),ds_css.get(var))
+print('DLIVR: Formmaße der Angebotskarten passen zum Design-System-Adapter.')
 # Seit 06.10.2026: Impressum und Datenschutz wortgleich mit mi-tool.tech,
 # Quelle GEMEINSAM/inhalte/rechtstexte. Abweichung bricht ab.
 import subprocess,sys
