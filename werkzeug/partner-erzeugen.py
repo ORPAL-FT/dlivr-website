@@ -95,7 +95,7 @@ def seite(daten: dict, liste: list[dict], stand: str,
 <script src="assets/theme.js?v=20260914-anchor-focus"></script>
 <title>Partner · DLIVR</title>
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=030395dff682">
+<link rel="stylesheet" href="css/style.css?v=74a5af7b58a6">
 </head>
 <body>
 <!-- Erzeugt von werkzeug/partner-erzeugen.py aus GEMEINSAM/inhalte/partner.json
