@@ -141,6 +141,9 @@ dl { margin: 0; }
 .contact-card > :last-child { margin-bottom: 0; }
 .contact-email { color: var(--accent); font-size: 1.25rem; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; margin-bottom: 24px; }
 .contact-card .button { margin-top: auto; }
+.contact-card .contact-social { list-style: none; display: flex; flex-direction: column; gap: 4px; margin: 24px 0 0; padding: 0; }
+.contact-card .contact-social li { margin: 0; }
+.contact-card .contact-social .text-link { min-height: 44px; }
 
 .contact-note ul { padding-left: 19px; margin: 20px 0; }
 .contact-note li { margin: 10px 0; }
