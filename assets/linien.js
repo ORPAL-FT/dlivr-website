@@ -5,12 +5,19 @@
   const reiterliste = document.querySelector('.muster-reiter');
   if (reiterliste) {
     const reiter = Array.from(reiterliste.querySelectorAll('[role="tab"]'));
+    const flaechen = reiter.map(r => document.getElementById(r.getAttribute('aria-controls')));
+    if (flaechen.some(f => !f)) return;
+    flaechen.forEach((f, i) => {
+      f.setAttribute('role', 'tabpanel');
+      f.setAttribute('aria-labelledby', reiter[i].id);
+      f.tabIndex = 0;
+    });
     const zeigen = (aktiv, fokus) => {
       reiter.forEach(r => {
         const an = r === aktiv;
         r.setAttribute('aria-selected', an ? 'true' : 'false');
         r.tabIndex = an ? 0 : -1;
-        document.getElementById(r.getAttribute('aria-controls')).hidden = !an;
+        flaechen[reiter.indexOf(r)].hidden = !an;
       });
       if (fokus) aktiv.focus();
     };
