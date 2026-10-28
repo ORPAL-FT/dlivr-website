@@ -330,7 +330,7 @@ Stand 25.09.2026, drei Grundlagen nachgeholt:
   alte Lesezeichen und bleiben ausgeschlossen. Ändert sich der Seitenbestand,
   gehört die Sitemap von Hand nachgezogen.
 - Jede Seite trägt Angaben für die Linkvorschau (Open Graph). Das Bild ist
-  `assets/dlivr-link-vorschau-20260925.png`, 1200 × 630, aus der Wortmarke und
+  `assets/dlivr-link-vorschau-20261028.png` (seit 28.10.2026 „Kundenkommunikation und Digitalisierung im Autohaus“), 1200 × 630, aus der Wortmarke und
   den Markenfarben des Design-Systems v1.3.1 gesetzt. Bei einem neuen Bild
   einen neuen Dateinamen verwenden, sonst zeigen die Plattformen weiter das
   alte aus ihrem Zwischenspeicher.
