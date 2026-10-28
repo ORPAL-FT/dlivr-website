@@ -468,3 +468,16 @@ Formmaße aus (`--border-kasten-width`, `--radius-kasten`). Die Angebotskarten
 nutzen diese Namen; `design-pruefen.py` gleicht `--border-kasten`,
 `--border-kasten-width` und `--radius-kasten` in `css/style.css` gegen den
 DS-Adapter ab (28.10.2026).
+
+## Formularmuster und Vorschaubilder · 28.10.2026
+
+`#pdf-formulare` zeigt vier Muster mit Reitern: Prüfprotokoll (wie bisher,
+füllt sich einmal aus), Datenschutz-Einwilligung, Gewährleistungs-Checkliste
+und Mietwagen-Rücknahme am Pad. Die Inhalte folgen den echten Formularen im
+Projekt pdf-schnelleingabe (`scripts/build_gw_checkliste.py`,
+`_formtabelle.py`, `build_mietrueckgabe_pad.py`), mit fiktiven Angaben und
+ohne Kundennamen. Reiter in `assets/linien.js` (eigener Block, läuft auch bei
+reduzierter Bewegung); ohne JavaScript und im Druck stehen alle vier
+untereinander. Die Angebotskarten tragen Vorschauen im Beispielbereich
+(`.angebot-beispiel`): Mini-Formular, mi-tool-Suche, Standbilder aus
+KI-Clip und SVC-Muster.

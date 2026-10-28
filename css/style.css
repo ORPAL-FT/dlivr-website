@@ -574,12 +574,29 @@ code { font-family: var(--mono); font-size: .75rem; }
 .f-wahl { display: inline-flex; gap: 6px; }
 .f-wahl i { font-style: normal; font-size: .75rem; padding: 2px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--card); white-space: nowrap; }
 .f-wahl i.an { border-color: var(--ink); background: var(--ink); color: var(--card); }
+.f-wahl i.kasten { min-width: 1.6em; text-align: center; border-radius: 4px; padding: 1px 0; }
 .f-punkte li.mangel .f-wahl i.an { border-color: var(--accent); background: var(--accent); }
 .f-zeichen { font: .7rem/1.4 var(--mono); color: var(--muted); text-align: right; white-space: nowrap; }
-.f-punkte li.offen { box-shadow: inset 3px 0 0 var(--accent-light); padding-left: 10px; }
+.f-punkte li.offen { box-shadow: inset 3px 0 0 var(--accent-mark); padding-left: 10px; }
 .f-punkte li.offen .f-zeichen { color: var(--accent); }
 .f-summe { margin-top: 16px; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--card); border-radius: 0 6px 6px 0; }
 .f-summe p + p { margin-top: 4px; }
+/* Seit 28.10.2026 vier Muster mit Reitern. Ohne JavaScript stehen alle untereinander. */
+.pdf-muster .muster + .muster { margin-top: 16px; }
+.muster-reiter { display: flex; flex-wrap: wrap; gap: 0 16px; margin-bottom: 12px; border-bottom: 1px solid var(--line); }
+.muster-reiter[hidden] { display: none; }
+.muster-reiter button { font: inherit; font-size: .8125rem; font-weight: 600; min-height: 44px; padding: 8px 0; margin-bottom: -1px; border: 0; border-bottom: 3px solid transparent; background: none; color: var(--muted); cursor: pointer; }
+.muster-reiter button:hover { color: var(--ink); }
+.muster-reiter button[aria-selected="true"] { border-bottom-color: var(--accent); color: var(--ink); }
+.muster-reiter button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.muster-bereit .pdf-muster .muster + .muster { margin-top: 0; }
+.muster[hidden] { display: none; }
+@media print { .muster-reiter { display: none !important; } .muster[hidden] { display: block; } .muster-bereit .pdf-muster .muster + .muster { margin-top: 16px; } }
+.formular-blatt .f-abschnitt { margin: 12px 0 4px; font: .75rem/1.4 var(--mono); text-transform: uppercase; color: var(--muted) !important; }
+.f-unterschrift { margin-top: 16px; }
+.formular-blatt .f-unterschrift .f-zug { padding: 0 4px; border-bottom: 1px solid var(--ink); color: var(--ink) !important; line-height: 0; }
+.f-zug-bild { width: 150px; height: 34px; }
+.formular-blatt .f-unterschrift p:last-child { display: flex; justify-content: space-between; gap: 12px; margin-top: 4px; font-size: .8125rem; color: var(--muted) !important; }
 @media (max-width: 30rem) {
   .formular-blatt { padding: 16px; }
   .f-kopf { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
@@ -632,6 +649,20 @@ code { font-family: var(--mono); font-size: .75rem; }
 .card.angebot .label { font-size: .75rem; letter-spacing: normal; color: var(--accent); margin-bottom: 10px; }
 .card.angebot h3 { font-size: 1.125rem; margin-bottom: 10px; }
 .card.angebot .angebot-knopf { margin: auto 0 0; padding-top: 16px; }
+/* Vorschau je Karte (Beispielbereich nach ANGEBOTSKARTEN.md), seit 28.10.2026 */
+.card.angebot .angebot-beispiel { margin-top: auto; border: 1px solid var(--line); border-radius: var(--radius-kasten); overflow: hidden; background: var(--product-surface); }
+.card.angebot .angebot-beispiel img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: center 35%; }
+.card.angebot .angebot-beispiel + .angebot-knopf { margin-top: 0; }
+.card.angebot > p:not([class]) { margin-bottom: 16px; }
+.card.angebot .angebot-beispiel { position: relative; }
+.card.angebot .angebot-beispiel img.bild-oben { object-position: left top; }
+/* KI-Kennzeichnung bleibt trotz Ausschnitt sichtbar; overlay.media.label (DS 1.45.0) */
+.vorschau-etikett { position: absolute; top: 6px; right: 6px; z-index: 1; padding: 2px 6px; border-radius: 4px; background: rgba(12,18,30,.588); color: #fff; font-size: .75rem; font-weight: 600; line-height: 1.4; }
+.angebot-formular { padding: 6px 12px; aspect-ratio: 16 / 10; display: flex; flex-direction: column; justify-content: center; }
+.angebot-formular .f-punkte { border-top: 0; }
+.angebot-formular .f-punkte li { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 6px 0; font-size: .8125rem; }
+.angebot-formular .f-punkte li:last-child { border-bottom: 0; }
+.angebot-formular .f-wahl i { font-size: .75rem; padding: 0 6px; }
 .product-grid .button-row { margin-top: 12px; }
 
 /* KI-Medien, seit 19.10.2026 */

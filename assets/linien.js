@@ -1,4 +1,41 @@
 'use strict';
+/* Formularmuster mit Reitern, seit 28.10.2026: unabhängig von Bewegung, läuft immer. */
+(() => {
+  /* --- Formularmuster: Reiter (seit 28.10.2026). Ohne JS stehen alle Muster untereinander. --- */
+  const reiterliste = document.querySelector('.muster-reiter');
+  if (reiterliste) {
+    const reiter = Array.from(reiterliste.querySelectorAll('[role="tab"]'));
+    const flaechen = reiter.map(r => document.getElementById(r.getAttribute('aria-controls')));
+    if (flaechen.some(f => !f)) return;
+    flaechen.forEach((f, i) => {
+      f.setAttribute('role', 'tabpanel');
+      f.setAttribute('aria-labelledby', reiter[i].id);
+      f.tabIndex = 0;
+    });
+    const zeigen = (aktiv, fokus) => {
+      reiter.forEach(r => {
+        const an = r === aktiv;
+        r.setAttribute('aria-selected', an ? 'true' : 'false');
+        r.tabIndex = an ? 0 : -1;
+        flaechen[reiter.indexOf(r)].hidden = !an;
+      });
+      if (fokus) aktiv.focus();
+    };
+    reiterliste.hidden = false;
+    document.documentElement.classList.add('muster-bereit');
+    zeigen(reiter[0], false);
+    reiter.forEach((r, i) => {
+      r.addEventListener('click', () => zeigen(r, false));
+      r.addEventListener('keydown', e => {
+        const ziel = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: reiter.length - 1 }[e.key];
+        if (ziel === undefined) return;
+        e.preventDefault();
+        zeigen(reiter[(ziel + reiter.length) % reiter.length], true);
+      });
+    });
+  }
+})();
+
 /* Bewegung auf der Startseite, seit 05.10.2026: Die Strichgrafiken der
  * Leistungen zeichnen sich, das Formularbeispiel füllt sich aus. Keine
  * Bibliothek — Sichtkontakt per IntersectionObserver, der Rest ist CSS.
