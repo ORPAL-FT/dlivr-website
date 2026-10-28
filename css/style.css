@@ -671,8 +671,8 @@ code { font-family: var(--mono); font-size: .75rem; }
 .card.angebot > p:not([class]) { margin-bottom: 16px; }
 .card.angebot .angebot-beispiel { position: relative; }
 .card.angebot .angebot-beispiel img.bild-oben { object-position: left top; }
-/* KI-Kennzeichnung bleibt trotz Ausschnitt sichtbar; overlay.media.label (DS 1.45.0) */
-.vorschau-etikett { position: absolute; top: 6px; right: 6px; z-index: 1; padding: 2px 6px; border-radius: 4px; background: rgba(12,18,30,.588); color: #fff; font-size: .75rem; font-weight: 600; line-height: 1.4; }
+/* KI-Kennzeichnung bleibt trotz Ausschnitt sichtbar; nach DS 1.46.2 komponenten/ANGEBOTSKARTEN.md */
+.vorschau-etikett { position: absolute; top: 6px; right: 6px; z-index: 1; padding: 2px 6px; border-radius: 4px; background: var(--overlay-media-label, rgba(12,18,30,.588)); color: #fff; font-family: var(--mono, var(--font-mono)); font-size: .75rem; line-height: 1.4; }
 .angebot-formular { padding: 6px 12px; aspect-ratio: 16 / 10; display: flex; flex-direction: column; justify-content: center; }
 .angebot-formular .f-punkte { border-top: 0; }
 .angebot-formular .f-punkte li { grid-template-columns: minmax(0, 1fr) auto; gap: 8px; padding: 6px 0; font-size: .8125rem; }
