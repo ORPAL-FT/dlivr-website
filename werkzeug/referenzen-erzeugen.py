@@ -94,10 +94,10 @@ def seite(daten: dict, liste: list[dict], stand: str,
 <meta property="og:url" content="https://dlivr.eu/referenzen.html">
 <meta property="og:locale" content="de_DE">
 <meta property="og:site_name" content="DLIVR">
-<meta property="og:image" content="https://dlivr.eu/assets/dlivr-link-vorschau-20260925.png">
+<meta property="og:image" content="https://dlivr.eu/assets/dlivr-link-vorschau-20261028.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="DLIVR &ndash; Beratung und Umsetzung f&uuml;r den Mittelstand.">
+<meta property="og:image:alt" content="DLIVR – Kundenkommunikation und Digitalisierung im Autohaus: SVC einrichten, KI-Medien, PDF-Formulare.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f4f2ef">
 <meta name="color-scheme" content="light dark">
