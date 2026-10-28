@@ -18,6 +18,8 @@
   --band: #202227;
   --band-ink: #f4f2ef;
 }
+/* Design-System v1.44.0 (css/dlivr-hell.css): border.kasten, radius.kasten */
+:root { --border-kasten: #828282; --radius-kasten: 8px; }
 :root {
   color-scheme: light;
   --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
@@ -144,6 +146,11 @@ dl { margin: 0; }
 .contact-card .contact-social { list-style: none; display: flex; flex-direction: column; gap: 4px; margin: 24px 0 0; padding: 0; }
 .contact-card .contact-social li { margin: 0; }
 .contact-card .contact-social .text-link { min-height: 44px; }
+/* Kanal-Symbole nach Design-System v1.43.0 (komponenten/KANAL-SYMBOLE.md):
+   LinkedIn und YouTube nur in text.primary, nie in Kupfer. */
+.text-link.kanal { gap: .5rem; }
+.kanal-symbol { display: inline-flex; flex: none; }
+.kanal-fremd { color: var(--ink); }
 
 .contact-note ul { padding-left: 19px; margin: 20px 0; }
 .contact-note li { margin: 10px 0; }
@@ -189,6 +196,7 @@ dl { margin: 0; }
   --accent: #e2a185;
   --product-surface: #1d1f23;
   --link-underline: #ac806b;
+  --border-kasten: #6f7074; /* DS v1.44.0 tokens/marken/dlivr-dunkel.json */
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -203,6 +211,7 @@ dl { margin: 0; }
   --accent: #e2a185;
   --product-surface: #1d1f23;
   --link-underline: #ac806b;
+  --border-kasten: #6f7074; /* DS v1.44.0 tokens/marken/dlivr-dunkel.json */
   }
 }
 .icon, .service-icon { width: 1rem; height: 1rem; flex: none; }
@@ -599,14 +608,27 @@ code { font-family: var(--mono); font-size: .75rem; }
  * (--card surface.card, --fine border.subtle, --muted text.muted,
  * --accent brand.accent). Kein neuer Farbwert.
  * ==================================================================== */
-.cards.angebote { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-@media (max-width: 760px) { .cards.angebote { grid-template-columns: minmax(0, 1fr); gap: 16px; } }
-.card.angebot { padding: 28px; }
-@media (max-width: 760px) { .card.angebot { padding: 20px; } }
-.angebot-logo { height: 2rem; width: auto; margin: 0 0 18px; align-self: flex-start; }
-.card.angebot .label { margin-bottom: 10px; }
-.card.angebot h3 { font-size: 1.25rem; margin-bottom: 10px; }
-.card.angebot .angebot-knopf { margin: auto 0 0; padding-top: 18px; }
+/* Angebotskarten nach Design-System v1.44.0 (komponenten/ANGEBOTSKARTEN.md):
+   Raster 2/3/4, Maße aus Tokens (space.section 24/16, space.m 10, font.size.gross 18,
+   font.size.mono 12, border.kasten 2px, radius.kasten). DLIVR ohne Schatten und
+   ohne Laufweite der Art-Zeile, bis die Marke font.letterSpacing.versal führt. */
+.cards.angebote { gap: 24px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 768px) {
+  .cards.angebote { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .angebote-3 > :last-child:nth-child(3) { grid-column: 1 / -1; }
+}
+@media (min-width: 1100px) {
+  .cards.angebote-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .angebote-3 > :last-child:nth-child(3) { grid-column: auto; }
+}
+@media (min-width: 1280px) { .cards.angebote-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 48rem) { .cards.angebote { gap: 16px; } }
+.card.angebot { padding: 24px; border: 2px solid var(--border-kasten); border-radius: var(--radius-kasten); }
+@media (max-width: 48rem) { .card.angebot { padding: 16px; } }
+.angebot-logo { height: 2rem; width: auto; margin: 0 0 16px; align-self: flex-start; }
+.card.angebot .label { font-size: .75rem; letter-spacing: normal; color: var(--accent); margin-bottom: 10px; }
+.card.angebot h3 { font-size: 1.125rem; margin-bottom: 10px; }
+.card.angebot .angebot-knopf { margin: auto 0 0; padding-top: 16px; }
 .product-grid .button-row { margin-top: 12px; }
 
 /* KI-Medien, seit 19.10.2026 */
