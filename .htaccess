@@ -64,4 +64,5 @@ RedirectMatch 404 ^/assets/mi-tool-suche\.png$
 # Umleitung von mi-tool.tech) zeigen noch auf fleetback.html.
 Redirect 301 /fleetback.html https://dlivr.eu/svc.html
 # Seit 28.10.2026: One-Pager PDF-Formulare im DLIVR-Design, neuer Dateiname gegen den Cache
-Redirect 301 /assets/pdf-schnelleingabe-onepager.pdf https://dlivr.eu/assets/dlivr-pdf-formulare_2026-10-28.pdf
+Redirect 301 /assets/pdf-schnelleingabe-onepager.pdf https://dlivr.eu/assets/dlivr-pdf-formulare_2026-10-28-2.pdf
+Redirect 301 /assets/dlivr-pdf-formulare_2026-10-28.pdf https://dlivr.eu/assets/dlivr-pdf-formulare_2026-10-28-2.pdf
