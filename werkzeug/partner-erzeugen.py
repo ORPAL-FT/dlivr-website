@@ -62,8 +62,8 @@ def rumpf(liste: list[dict], logos: dict[str, tuple[str | None, str | None]]) ->
         '<p class="eyebrow">Partner</p>\n'
         "<h1>Gemeinsam mehr<br>als allein.</h1>\n"
         '<p class="intro">Manche Vorhaben brauchen mehr als eine Rolle. Mit diesen '
-        "Häusern arbeite ich zusammen, wenn Systeme, Beratung oder Automatisierung "
-        "über das hinausgehen, was ich selbst abdecke.</p>\n"
+        "Häusern arbeiten wir zusammen, wenn Systeme, Beratung oder Automatisierung "
+        "über das hinausgehen, was wir selbst abdecken.</p>\n"
         f'<div class="cards services">\n{karten}\n</div>\n'
     )
 
