@@ -383,8 +383,7 @@ h1, h2, h3 { overflow-wrap: anywhere; hyphens: auto; }
 .pdf-schritte b { display: block; color: var(--ink); font-weight: 600; }
 .pdf-brauchen li { position: relative; padding: 0 0 8px calc(8px + 12px); color: var(--muted); font-size: .9375rem; line-height: 1.55; }
 .pdf-grid .pdf-hinweis { margin-top: 12px; font-size: .8125rem; }
-/* Musterspalte läuft mit, nur wenn sie ins Fenster passt (gemessen: ab ca. 800 px Höhe) */
-@media screen and (min-width: 1001px) and (min-height: 860px) { .pdf-grid { align-items: start; } .pdf-grid > div:first-child { position: sticky; top: 24px; } }
+/* Seit 28.10.2026 kein Mitlaufen mehr: der Ablauf steht links unter den Mustern, beide Spalten etwa gleich lang (Frank). */
 .footer-identity { flex: 1; min-width: 0; }
 .site-footer .footer-partner { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 0; border-left: 2px solid var(--accent-light); padding-left: 16px; }
 .footer-partner strong { color: var(--band-ink); font-size: .95rem; }
