@@ -201,12 +201,14 @@ def vorschau(eintrag: dict) -> str:
 
 
 def gruppen(liste: list[dict]) -> list[tuple[str, list[dict]]]:
-    reihenfolge: list[str] = []
+    """Reihen mit dem neuesten Beitrag zuerst, darin neueste Beitraege oben (seit 31.10.2026)."""
+    neuester: dict[str, str] = {}
     for eintrag in liste:
-        if eintrag["kampagne"] not in reihenfolge:
-            reihenfolge.append(eintrag["kampagne"])
+        k = eintrag["kampagne"]
+        neuester[k] = max(neuester.get(k, ""), eintrag["datum"])
+    reihenfolge = sorted(neuester, key=lambda k: neuester[k], reverse=True)
     return [(k, sorted((e for e in liste if e["kampagne"] == k),
-                       key=lambda e: (e.get("sortierung", 0), e["datum"])))
+                       key=lambda e: (e["datum"], e.get("sortierung", 0)), reverse=True))
             for k in reihenfolge]
 
 
@@ -222,6 +224,12 @@ def rumpf(gebaut: list[tuple[dict, str | None]], geplant: list[dict]) -> str:
              '<a class="text-link" href="https://www.linkedin.com/company/dlivr-eu/" rel="noopener external">DLIVR auf LinkedIn</a>. '
              'Die Archivsuche hat ihre eigene Seite: '
              '<a class="text-link" href="https://www.linkedin.com/showcase/mi-tool/" rel="noopener external">mi-tool auf LinkedIn</a>.</p>\n']
+    if geplant:
+        teile.append('<h2 id="demnaechst">Demn&auml;chst</h2>\n')
+        teile.append("<p>Diese Beitr&auml;ge sind terminiert. Der Text erscheint hier, "
+                     "sobald er auf LinkedIn steht.</p>\n")
+        karten = "\n".join(vorschau(e) for e in sorted(geplant, key=lambda e: e["datum"]))
+        teile.append(f'<div class="cards services">\n{karten}\n</div>\n')
     if gebaut:
         bilder = {e["id"]: p for e, p in gebaut}
         erstes = next((e["id"] for _, liste in gruppen([e for e, _ in gebaut])
@@ -230,12 +238,6 @@ def rumpf(gebaut: list[tuple[dict, str | None]], geplant: list[dict]) -> str:
             teile.append(f"<h2>{html.escape(kampagne)}</h2>\n")
             karten = "\n".join(karte(e, bilder[e["id"]], e["id"] == erstes) for e in eintraege)
             teile.append(f'<div class="cards">\n{karten}\n</div>\n')
-    if geplant:
-        teile.append('<h2 id="demnaechst">Demn&auml;chst</h2>\n')
-        teile.append("<p>Diese Beitr&auml;ge sind terminiert. Der Text erscheint hier, "
-                     "sobald er auf LinkedIn steht.</p>\n")
-        karten = "\n".join(vorschau(e) for e in sorted(geplant, key=lambda e: e["datum"]))
-        teile.append(f'<div class="cards services">\n{karten}\n</div>\n')
     return "".join(teile)
 
 
