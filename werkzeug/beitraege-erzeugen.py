@@ -115,6 +115,31 @@ def rahmen() -> tuple[str, str]:
     return kopf, fuss
 
 
+# Breite und Hoehe je ausgelieferter Grafik, gefuellt von bild_uebernehmen().
+# Stehen sie am <img>, haelt der Browser den Platz frei, bevor das Bild da ist
+# (Lighthouse 31.10.2026: Verspringen der Beitragsseite).
+MASSE: dict[str, tuple[int, int]] = {}
+
+
+def bildmasse(pfad: pathlib.Path) -> tuple[int, int]:
+    """Breite und Hoehe aus dem Kopf einer PNG- oder JPEG-Datei."""
+    daten = pfad.read_bytes()
+    if daten[:8] == b"\x89PNG\r\n\x1a\n":
+        return int.from_bytes(daten[16:20], "big"), int.from_bytes(daten[20:24], "big")
+    if daten[:2] == b"\xff\xd8":
+        i = 2
+        while i < len(daten) - 9:
+            if daten[i] != 0xFF:
+                i += 1
+                continue
+            art = daten[i + 1]
+            laenge = int.from_bytes(daten[i + 2:i + 4], "big")
+            if art in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF):
+                return int.from_bytes(daten[i + 7:i + 9], "big"), int.from_bytes(daten[i + 5:i + 7], "big")
+            i += 2 + laenge
+    raise SystemExit(f"Bildmasse nicht lesbar (nur PNG/JPEG): {pfad}")
+
+
 def bild_uebernehmen(eintrag: dict, quelle: pathlib.Path, schreiben: bool) -> str | None:
     if not eintrag.get("bild"):
         return None
@@ -128,7 +153,9 @@ def bild_uebernehmen(eintrag: dict, quelle: pathlib.Path, schreiben: bool) -> st
         BILDORDNER.mkdir(parents=True, exist_ok=True)
         if not ziel.is_file() or ziel.read_bytes() != herkunft.read_bytes():
             shutil.copyfile(herkunft, ziel)
-    return f"assets/beitraege/{ziel.name}"
+    pfad = f"assets/beitraege/{ziel.name}"
+    MASSE[pfad] = bildmasse(herkunft)
+    return pfad
 
 
 def absaetze(text: str) -> str:
@@ -136,7 +163,7 @@ def absaetze(text: str) -> str:
     return "\n".join(f"<p>{html.escape(t).replace(chr(10), '<br>')}</p>" for t in teile)
 
 
-def karte(eintrag: dict, bildpfad: str | None) -> str:
+def karte(eintrag: dict, bildpfad: str | None, erstes: bool = False) -> str:
     kennung = html.escape(eintrag["id"], quote=True)
     titel = html.escape(eintrag["titel"])
     untertitel = html.escape(eintrag.get("untertitel") or "")
@@ -148,7 +175,10 @@ def karte(eintrag: dict, bildpfad: str | None) -> str:
         teile.append(f"<p><strong>{untertitel}</strong></p>")
     if bildpfad:
         alt = html.escape(eintrag.get("alttext") or titel, quote=True)
-        teile.append(f'<img src="{bildpfad}" alt="{alt}" loading="lazy" decoding="async">')
+        breite, hoehe = MASSE[bildpfad]
+        # Das erste Bild ist meist das groesste im Blick: sofort laden.
+        laden = 'fetchpriority="high"' if erstes else 'loading="lazy" decoding="async"'
+        teile.append(f'<img src="{bildpfad}" alt="{alt}" width="{breite}" height="{hoehe}" {laden}>')
     teile.append(absaetze(eintrag["text"]))
     if eintrag.get("linkedin_url"):
         url = html.escape(eintrag["linkedin_url"], quote=True)
@@ -194,9 +224,11 @@ def rumpf(gebaut: list[tuple[dict, str | None]], geplant: list[dict]) -> str:
              '<a class="text-link" href="https://www.linkedin.com/showcase/mi-tool/" rel="noopener external">mi-tool auf LinkedIn</a>.</p>\n']
     if gebaut:
         bilder = {e["id"]: p for e, p in gebaut}
+        erstes = next((e["id"] for _, liste in gruppen([e for e, _ in gebaut])
+                       for e in liste if bilder[e["id"]]), None)
         for kampagne, eintraege in gruppen([e for e, _ in gebaut]):
             teile.append(f"<h2>{html.escape(kampagne)}</h2>\n")
-            karten = "\n".join(karte(e, bilder[e["id"]]) for e in eintraege)
+            karten = "\n".join(karte(e, bilder[e["id"]], e["id"] == erstes) for e in eintraege)
             teile.append(f'<div class="cards">\n{karten}\n</div>\n')
     if geplant:
         teile.append('<h2 id="demnaechst">Demn&auml;chst</h2>\n')
