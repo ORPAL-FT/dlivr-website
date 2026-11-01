@@ -711,3 +711,8 @@ code { font-family: var(--mono); font-size: .75rem; }
 .medien-galerie video.hoch { aspect-ratio: 9 / 16; max-width: min(100%, 22rem); }
 @media (min-width: 761px) { .medien-galerie.drei { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .medien-galerie figcaption a { color: var(--accent); }
+/* Seit 31.10.2026: am Handy Hochformat-Clips und Liv paarweise, Bilder mit Text volle Breite */
+@media (max-width: 760px) {
+  .medien-galerie { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: row dense; gap: 1.5rem .75rem; }
+  .medien-galerie figure:not(:has(video)) { grid-column: 1 / -1; }
+}
