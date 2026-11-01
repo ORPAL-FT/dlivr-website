@@ -21,6 +21,15 @@
 /* Design-System v1.46.0 (css/dlivr-hell.css): border.kasten, border.kasten.width, radius.kasten.
    Namen und Werte wie im DS-Adapter; design-pruefen.py gleicht sie ab. */
 :root { --border-kasten: #828282; --border-kasten-width: 2px; --radius-kasten: 8px; }
+/* Design-System v1.50.0 (css/dlivr-hell.css): surface.hover, radius.control, space.*,
+   font.size.*, font.weight.*. Namen und Werte wie im DS-Adapter; design-pruefen.py gleicht sie ab. */
+:root {
+  --surface-hover: #e8e0d8; --radius-control: 6px;
+  --space-xxs: 4px; --space-xs: 6px; --space-s: 8px; --space-m: 10px; --space-l: 12px;
+  --space-section: 24px; --space-section-compact: 16px;
+  --font-size-klein: 13px; --font-size-mittel: 15px; --font-size-gross: 18px; --font-size-mono: 12px;
+  --font-weight-halbfett: 600; --font-weight-fett: 700;
+}
 :root {
   color-scheme: light;
   --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
@@ -200,6 +209,7 @@ dl { margin: 0; }
   --product-surface: #1d1f23;
   --link-underline: #ac806b;
   --border-kasten: #6f7074; /* DS v1.44.0 tokens/marken/dlivr-dunkel.json */
+  --surface-hover: #2d292b; /* DS v1.49.0 tokens/marken/dlivr-dunkel.json */
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -215,6 +225,7 @@ dl { margin: 0; }
   --product-surface: #1d1f23;
   --link-underline: #ac806b;
   --border-kasten: #6f7074; /* DS v1.44.0 tokens/marken/dlivr-dunkel.json */
+  --surface-hover: #2d292b; /* DS v1.49.0 tokens/marken/dlivr-dunkel.json */
   }
 }
 .icon, .service-icon { width: 1rem; height: 1rem; flex: none; }
