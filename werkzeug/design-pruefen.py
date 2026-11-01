@@ -31,6 +31,11 @@ for var in ('--border-kasten','--border-kasten-width','--radius-kasten')+stufen:
  wert=re.search(re.escape(var)+r':\s*([^;]+);',css)
  assert wert and ds_css.get(var)==wert.group(1).strip(),(var,wert and wert.group(1),ds_css.get(var))
 print('DLIVR: Formmaße, Hover-Fläche und Stufen passen zum Design-System-Adapter.')
+# Dunkle Hover-Fläche: beide Dunkelblöcke müssen surface.hover aus dlivr-dunkel.json tragen.
+dunkel=json.loads((ds/'tokens'/'marken'/'dlivr-dunkel.json').read_text())['farben']['surface.hover']
+werte=re.findall(r'--surface-hover:\s*([^;]+);',css)
+assert werte.count(dunkel)==2,('--surface-hover dunkel',werte,dunkel)
+print('DLIVR: dunkle Hover-Fläche passt zu tokens/marken/dlivr-dunkel.json.')
 # Seit 06.10.2026: Impressum und Datenschutz wortgleich mit mi-tool.tech,
 # Quelle GEMEINSAM/inhalte/rechtstexte. Abweichung bricht ab.
 import subprocess,sys
