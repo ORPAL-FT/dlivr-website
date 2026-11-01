@@ -21,6 +21,15 @@
 /* Design-System v1.46.0 (css/dlivr-hell.css): border.kasten, border.kasten.width, radius.kasten.
    Namen und Werte wie im DS-Adapter; design-pruefen.py gleicht sie ab. */
 :root { --border-kasten: #828282; --border-kasten-width: 2px; --radius-kasten: 8px; }
+/* Design-System v1.50.0 (css/dlivr-hell.css): surface.hover, radius.control, space.*,
+   font.size.*, font.weight.*. Namen und Werte wie im DS-Adapter; design-pruefen.py gleicht sie ab. */
+:root {
+  --surface-hover: #e8e0d8; --radius-control: 6px;
+  --space-xxs: 4px; --space-xs: 6px; --space-s: 8px; --space-m: 10px; --space-l: 12px;
+  --space-section: 24px; --space-section-compact: 16px;
+  --font-size-klein: 13px; --font-size-mittel: 15px; --font-size-gross: 18px; --font-size-mono: 12px;
+  --font-weight-halbfett: 600; --font-weight-fett: 700;
+}
 :root {
   color-scheme: light;
   --font: "Helvetica Neue", Helvetica, Arial, system-ui, sans-serif;
